@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 import { cn } from "@/utils/cn";
 
 interface ImageCardProps extends React.ComponentProps<"div"> {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   title: string;
   description: string;

@@ -1,5 +1,9 @@
 import { cn } from "@/utils/cn";
 
+import artworkImage1 from "@/images/artwork-1.jpeg";
+import artworkImage2 from "@/images/artwork-2.jpeg";
+import artworkImage3 from "@/images/artwork-3.jpeg";
+
 import { ButtonLink } from "@/components/common/ButtonLink";
 import { ImageCard } from "@/components/common/ImageCard";
 import { ArrowRight } from "@/components/icons/ArrowRight";
@@ -28,25 +32,25 @@ export const Artworks = () => {
         )}
       >
         <ImageCard
-          src="https://images.unsplash.com/photo-1581062972297-d75ef635df5b"
-          alt="White orange beacon in the middle of the sea"
-          title="Beacon"
-          description="White orange beacon in the middle of the sea"
+          src={artworkImage1}
+          alt="Description of artwork 1"
+          title="Woman"
+          description="Description of artwork 1"
           className="row-span-2 h-[400px] sm:h-[700px]"
         />
 
         <ImageCard
-          src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65"
-          alt="Beatiful snow view of mount Fuji"
-          title="Mount Fuji"
-          description="Beatiful snow view of mount Fuji"
+          src={artworkImage2}
+          alt="Description of artwork 2"
+          title="Peaceful afternoon"
+          description="Description of artwork 2"
         />
 
         <ImageCard
-          src="https://images.unsplash.com/photo-1511857543145-0c6865f84a50"
-          alt="Pretty golden fish swimming in the pool"
-          title="Golden fish"
-          description="Pretty golden fish swimming in the pool"
+          src={artworkImage3}
+          alt="Description of artwork 3"
+          title="Nature"
+          description="Description of artwork 3"
         />
       </div>
 

@@ -1,5 +1,9 @@
 import { cn } from "@/utils/cn";
 
+import promptImage1 from "@/images/prompt-1.jpeg";
+import promptImage2 from "@/images/prompt-2.jpeg";
+import promptImage3 from "@/images/prompt-3.jpeg";
+
 import { ButtonLink } from "@/components/common/ButtonLink";
 import { ImageCard } from "@/components/common/ImageCard";
 import { ArrowRight } from "@/components/icons/ArrowRight";
@@ -27,26 +31,26 @@ export const Prompts = () => {
         )}
       >
         <ImageCard
-          src="https://images.unsplash.com/photo-1617076678363-99dd6eb5150b"
-          alt="White orange beacon in the middle of the sea"
-          title="Beacon"
-          description="White orange beacon in the middle of the sea"
+          src={promptImage1}
+          alt="Description of prompt 1"
+          title="Prompt 1"
+          description="Description of prompt 1"
           className="h-[300px] md:h-[500px]"
         />
 
         <ImageCard
-          src="https://images.unsplash.com/photo-1573865526739-10659fec78a5"
-          alt="Beatiful snow view of mount Fuji"
-          title="Mount Fuji"
-          description="Beatiful snow view of mount Fuji"
+          src={promptImage2}
+          alt="Description of prompt 2"
+          title="Prompt 2"
+          description="Description of prompt 2"
           className="h-[300px] md:h-[500px]"
         />
 
         <ImageCard
-          src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f"
-          alt="Pretty golden fish swimming in the pool"
-          title="Golden fish"
-          description="Pretty golden fish swimming in the pool"
+          src={promptImage3}
+          alt="Description of prompt 3"
+          title="Prompt 3"
+          description="Description of prompt 3"
           className="h-[300px] md:h-[500px]"
         />
       </div>

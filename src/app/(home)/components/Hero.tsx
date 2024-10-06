@@ -5,7 +5,7 @@ import heroImage from "@/images/hero.png";
 
 export const Hero = () => {
   return (
-    <section className="flex h-svh items-center justify-center">
+    <section className="flex h-svh items-center justify-center overflow-hidden">
       <div className="relative flex w-full justify-end">
         <Title />
         <ImageContainer />
@@ -20,7 +20,7 @@ const Title = () => {
       <motion.div
         initial={{ opacity: 0, y: "50%" }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
+        transition={{ delay: 0.2, duration: 0.7 }}
       >
         Hyein
       </motion.div>
@@ -28,7 +28,7 @@ const Title = () => {
       <motion.div
         initial={{ opacity: 0, y: "50%" }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7, duration: 0.7 }}
+        transition={{ delay: 0.9, duration: 0.7 }}
       >
         Lee
       </motion.div>
@@ -41,7 +41,7 @@ const ImageContainer = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 1.4, duration: 0.7 }}
+      transition={{ delay: 1.6, duration: 0.7 }}
     >
       <Image
         src={heroImage}
