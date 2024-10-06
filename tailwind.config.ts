@@ -13,7 +13,7 @@ const config: Config = {
         text: ["var(--font-text)"],
       },
       colors: {
-        background: "#f2e7d4",
+        background: "#f6efde",
         primary: {
           50: "#faf6f2",
           100: "#f4eae0",
