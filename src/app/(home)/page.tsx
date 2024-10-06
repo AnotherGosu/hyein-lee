@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <Hero />
 
-      <div className="my-20 flex flex-col gap-20">
+      <div className="my-10 flex flex-col gap-10 md:my-20 md:gap-20">
         <Artworks />
         <Prompts />
       </div>

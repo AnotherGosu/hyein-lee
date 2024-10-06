@@ -1,6 +1,8 @@
 import * as motion from "framer-motion/m";
 import Image from "next/image";
 
+import { cn } from "@/utils/cn";
+
 import heroImage from "@/images/hero.png";
 
 export const Hero = () => {
@@ -16,7 +18,12 @@ export const Hero = () => {
 
 const Title = () => {
   return (
-    <h1 className="font-heading absolute bottom-0 left-0 z-10 text-7xl uppercase leading-none [text-shadow:_2px_2px_0px_white] xs:text-8xl sm:text-9xl lg:text-[10rem] xl:text-[12rem] 2xl:text-[14rem]">
+    <h1
+      className={cn(
+        "absolute bottom-0 left-0 z-10 uppercase leading-none [text-shadow:_2px_2px_0px_white]",
+        "text-7xl xs:text-8xl sm:text-9xl lg:text-[10rem] xl:text-[12rem] 2xl:text-[14rem]",
+      )}
+    >
       <motion.div
         initial={{ opacity: 0, y: "50%" }}
         animate={{ opacity: 1, y: 0 }}

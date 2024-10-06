@@ -11,7 +11,7 @@ import { ArrowRight } from "@/components/icons/ArrowRight";
 export const Prompts = () => {
   return (
     <section className="flex flex-col gap-10">
-      <h2 className="font-heading text-center text-3xl font-bold uppercase md:text-4xl">
+      <h2 className="text-center text-3xl font-bold uppercase md:text-4xl">
         Prompts
       </h2>
 
@@ -25,34 +25,19 @@ export const Prompts = () => {
       <div
         className={cn(
           "grid grid-cols-1 grid-rows-[1fr_1fr_1fr] gap-8 transition-all duration-1000 md:grid-cols-[1fr_1fr_1fr] md:grid-rows-1",
-          "md:has-[div:nth-child(1):hover]:grid-cols-[4fr_3fr_3fr]",
-          "md:has-[div:nth-child(2):hover]:grid-cols-[3fr_4fr_3fr]",
-          "md:has-[div:nth-child(3):hover]:grid-cols-[3fr_3fr_4fr]",
+          "md:has-[a:nth-child(1):hover]:grid-cols-[4fr_3fr_3fr]",
+          "md:has-[a:nth-child(2):hover]:grid-cols-[3fr_4fr_3fr]",
+          "md:has-[a:nth-child(3):hover]:grid-cols-[3fr_3fr_4fr]",
         )}
       >
-        <ImageCard
-          src={promptImage1}
-          alt="Description of prompt 1"
-          title="Prompt 1"
-          description="Description of prompt 1"
-          className="h-[300px] md:h-[500px]"
-        />
-
-        <ImageCard
-          src={promptImage2}
-          alt="Description of prompt 2"
-          title="Prompt 2"
-          description="Description of prompt 2"
-          className="h-[300px] md:h-[500px]"
-        />
-
-        <ImageCard
-          src={promptImage3}
-          alt="Description of prompt 3"
-          title="Prompt 3"
-          description="Description of prompt 3"
-          className="h-[300px] md:h-[500px]"
-        />
+        {PROMPTS.map((item) => (
+          <ImageCard
+            key={item.title}
+            href="/prompts"
+            className="h-[300px] md:h-[500px]"
+            {...item}
+          />
+        ))}
       </div>
 
       <ButtonLink
@@ -67,3 +52,21 @@ export const Prompts = () => {
     </section>
   );
 };
+
+const PROMPTS = [
+  {
+    src: promptImage1,
+    title: "Prompt 1",
+    description: "Description of prompt 1",
+  },
+  {
+    src: promptImage2,
+    title: "Prompt 2",
+    description: "Description of prompt 2",
+  },
+  {
+    src: promptImage3,
+    title: "Prompt 3",
+    description: "Description of prompt 3",
+  },
+];

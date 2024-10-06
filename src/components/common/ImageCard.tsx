@@ -1,40 +1,42 @@
 import Image, { StaticImageData } from "next/image";
+import Link, { LinkProps } from "next/link";
 
 import { cn } from "@/utils/cn";
 
-interface ImageCardProps extends React.ComponentProps<"div"> {
+interface ImageCardProps extends LinkProps {
   src: string | StaticImageData;
-  alt: string;
   title: string;
   description: string;
+  className?: string;
 }
 
 export const ImageCard = ({
+  href,
   src,
-  alt,
   title,
   description,
   className,
   ...props
 }: ImageCardProps) => {
   return (
-    <div
-      className={cn("group relative h-full overflow-hidden", className)}
+    <Link
+      href={href}
+      className={cn("group relative overflow-hidden rounded-md", className)}
       {...props}
     >
-      <div className="absolute bottom-0 left-0 z-10 select-none p-4 text-white opacity-0 transition-opacity group-hover:opacity-100">
-        <h2 className="mb-1 font-semibold sm:text-xl">{title}</h2>
-        <p className="text-sm sm:text-base md:text-nowrap">{description}</p>
+      <div className="absolute bottom-0 left-0 z-10 w-full select-none bg-black/30 px-4 py-2 text-white">
+        <h3 className="font-semibold">{title}</h3>
+        <p className="text-sm">{description}</p>
       </div>
 
       <Image
         src={src}
-        alt={alt}
+        alt={description}
         fill
         priority
-        sizes="(min-width: 1024px) 50vw, 100vw"
-        className="rounded-md object-cover transition-all duration-500 ease-in group-hover:brightness-75"
+        sizes="(min-width: 1024px) 33vw, 100vw"
+        className="object-cover"
       />
-    </div>
+    </Link>
   );
 };
