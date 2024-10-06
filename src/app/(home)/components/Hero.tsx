@@ -54,7 +54,7 @@ const ImageContainer = () => {
         src={heroImage}
         alt="Portrait of Hyein Lee"
         priority
-        className="max-h-svh object-cover"
+        className="max-h-svh w-auto object-cover"
       />
     </motion.div>
   );

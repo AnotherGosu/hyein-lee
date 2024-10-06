@@ -21,7 +21,10 @@ export const ImageCard = ({
   return (
     <Link
       href={href}
-      className={cn("group relative overflow-hidden rounded-md", className)}
+      className={cn(
+        "focus-ring group relative overflow-hidden rounded-md",
+        className,
+      )}
       {...props}
     >
       <div className="absolute bottom-0 left-0 z-10 w-full select-none bg-black/30 px-4 py-2 text-white">

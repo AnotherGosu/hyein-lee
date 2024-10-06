@@ -8,21 +8,24 @@ import { cn } from "@/utils/cn";
 interface NavigationLinkProps {
   title: string;
   href: string;
+  onClick: () => void;
 }
 
-export const NavigationLink = ({ title, href }: NavigationLinkProps) => {
+export const NavigationLink = ({
+  title,
+  href,
+  onClick,
+}: NavigationLinkProps) => {
   const { isActive } = useComponent(href);
 
   return (
     <Link
       href={href}
-      className={cn(
-        "focus-ring rounded-sm px-2 text-xl font-medium text-black",
-        {
-          "text-primary-600 font-bold": isActive,
-          "hover:text-primary-400": !isActive,
-        },
-      )}
+      onClick={onClick}
+      className={cn("focus-ring rounded-sm text-xl font-medium", {
+        "font-bold text-primary-600": isActive,
+        "hover:text-primary-400": !isActive,
+      })}
     >
       {title}
     </Link>

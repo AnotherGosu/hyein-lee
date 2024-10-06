@@ -2,7 +2,7 @@ import { domAnimation, LazyMotion } from "framer-motion";
 import { Metadata } from "next";
 import { Lora, Montserrat } from "next/font/google";
 
-import { Footer } from "./components/Footer";
+import { Drawer } from "./components/Drawer";
 
 import "./globals.css";
 
@@ -42,13 +42,11 @@ export default function RootLayout({
     <html lang="en">
       <LazyMotion features={domAnimation}>
         <body
-          className={`${headingFont.variable} ${textFont.variable} bg-background antialiased`}
+          className={`${headingFont.variable} ${textFont.variable} font-text bg-background antialiased`}
         >
-          <div className="font-text mx-auto grid min-h-svh max-w-7xl grid-rows-[1fr_min-content] px-4">
-            <main>{children}</main>
+          <Drawer />
 
-            <Footer />
-          </div>
+          <main className="mx-auto min-h-svh max-w-7xl px-4">{children}</main>
         </body>
       </LazyMotion>
     </html>
