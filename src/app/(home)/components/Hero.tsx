@@ -5,16 +5,18 @@ import heroImage from "@/images/hero.png";
 
 export const Hero = () => {
   return (
-    <section className="relative flex justify-end overflow-hidden">
-      <Title />
-      <ImageContainer />
+    <section className="flex h-svh items-center justify-center">
+      <div className="relative flex w-full justify-end">
+        <Title />
+        <ImageContainer />
+      </div>
     </section>
   );
 };
 
 const Title = () => {
   return (
-    <h1 className="font-heading absolute bottom-0 left-0 z-10 text-7xl uppercase leading-none [text-shadow:_3px_3px_3px_white] xs:text-8xl sm:text-9xl md:[text-shadow:none] lg:text-[10rem] xl:text-[12rem] 2xl:text-[14rem]">
+    <h1 className="font-heading absolute bottom-0 left-0 z-10 text-7xl uppercase leading-none [text-shadow:_2px_2px_0px_white] xs:text-8xl sm:text-9xl lg:text-[10rem] xl:text-[12rem] 2xl:text-[14rem]">
       <motion.div
         initial={{ opacity: 0, y: "50%" }}
         animate={{ opacity: 1, y: 0 }}
@@ -43,7 +45,7 @@ const ImageContainer = () => {
     >
       <Image
         src={heroImage}
-        alt="Beautiful young lady in white sweater looking right to the camera"
+        alt="Portrait of Hyein Lee"
         priority
         className="max-h-svh object-cover"
       />

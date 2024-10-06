@@ -1,5 +1,3 @@
-import * as motion from "framer-motion/m";
-
 import { cn } from "@/utils/cn";
 
 import { ButtonLink } from "@/components/common/ButtonLink";
@@ -8,18 +6,12 @@ import { ArrowRight } from "@/components/icons/ArrowRight";
 
 export const Prompts = () => {
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.7 }}
-      viewport={{ once: true, amount: 0.45 }}
-      className="flex flex-col gap-10"
-    >
-      <h2 className="font-heading text-center text-3xl font-bold uppercase lg:text-4xl">
+    <section className="flex flex-col gap-10">
+      <h2 className="font-heading text-center text-3xl font-bold uppercase md:text-4xl">
         Prompts
       </h2>
 
-      <p className="mx-auto max-w-4xl text-center leading-relaxed lg:text-lg">
+      <p className="mx-auto max-w-4xl text-center text-sm leading-relaxed md:text-lg">
         By blending my artistic direction with AI tools, I&#39;ve created
         visually stunning and unexpected results, pushing the boundaries of what
         can be achieved with technology. These works are a glimpse into the
@@ -61,11 +53,13 @@ export const Prompts = () => {
 
       <ButtonLink
         href="/prompts"
-        className="group relative ml-auto pr-10"
+        className="ml-auto"
       >
         All prompts
-        <ArrowRight className="absolute right-3 transition-all ease-in group-hover:right-2" />
+        <div className="relative size-5">
+          <ArrowRight className="absolute left-0 transition-all ease-in group-hover:left-1" />
+        </div>
       </ButtonLink>
-    </motion.section>
+    </section>
   );
 };
