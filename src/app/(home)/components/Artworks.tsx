@@ -6,22 +6,20 @@ import artworkImage3 from "@/images/artwork-3.jpeg";
 
 import { ButtonLink } from "@/components/common/ButtonLink";
 import { ImageCard } from "@/components/common/ImageCard";
-import { ArrowRight } from "@/components/icons/ArrowRight";
+import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
 export const Artworks = () => {
   return (
-    <section className="flex flex-col gap-10">
-      <h2 className="text-center text-3xl font-bold uppercase md:text-4xl">
-        Artworks
-      </h2>
+    <Section className="mx-auto mb-20 flex max-w-7xl flex-col gap-8 px-4">
+      <Heading> Artworks</Heading>
 
-      <p className="mx-auto max-w-4xl text-center text-sm leading-relaxed md:text-lg">
+      <Paragpraph>
         Drawing has been my creative outlet for years, and these pieces
         represent my passion for fine details, textures, and the beauty of
         imperfection that comes with handmade art. From intricate sketches to
         more refined illustrations, these works capture my artistic vision in
         its purest form.
-      </p>
+      </Paragpraph>
 
       <div
         className={cn(
@@ -43,16 +41,8 @@ export const Artworks = () => {
         ))}
       </div>
 
-      <ButtonLink
-        href="/artworks"
-        className="ml-auto"
-      >
-        All artworks
-        <div className="relative size-5">
-          <ArrowRight className="absolute left-0 transition-all ease-in group-hover:left-1" />
-        </div>
-      </ButtonLink>
-    </section>
+      <ButtonLink href="/artworks">All artworks</ButtonLink>
+    </Section>
   );
 };
 

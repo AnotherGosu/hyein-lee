@@ -27,8 +27,13 @@ export const ImageCard = ({
       )}
       {...props}
     >
-      <div className="absolute bottom-0 left-0 z-10 w-full select-none bg-black/30 px-4 py-2 text-white">
-        <h3 className="font-semibold">{title}</h3>
+      <div
+        className={cn(
+          "absolute bottom-0 left-0 z-10 w-full select-none bg-black/30 px-4 py-2 text-white",
+          "transition-opacity duration-1000 group-hover:opacity-100 md:opacity-0",
+        )}
+      >
+        <h3 className="font-semibold text-white">{title}</h3>
         <p className="text-sm">{description}</p>
       </div>
 

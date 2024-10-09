@@ -5,8 +5,9 @@ import { Threads } from "@/components/icons/Threads";
 
 export const NAVIGATION = [
   { href: "/", title: "Home" },
+  { href: "/blog", title: "Blog" },
   { href: "/artworks", title: "Artworks" },
-  { href: "/prompts", title: "Prompts" },
+  { href: "/images", title: "AI Images" },
 ];
 
 export const SOCIALS = [

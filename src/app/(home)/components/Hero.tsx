@@ -5,14 +5,16 @@ import { cn } from "@/utils/cn";
 
 import heroImage from "@/images/hero.png";
 
+import { Section } from "@/components/common/Typography";
+
 export const Hero = () => {
   return (
-    <section className="flex h-svh items-center justify-center overflow-hidden">
+    <Section className="mb-0 h-svh items-center justify-center overflow-hidden md:mb-20">
       <div className="relative flex w-full justify-end">
         <Title />
         <ImageContainer />
       </div>
-    </section>
+    </Section>
   );
 };
 
@@ -54,7 +56,7 @@ const ImageContainer = () => {
         src={heroImage}
         alt="Portrait of Hyein Lee"
         priority
-        className="max-h-svh w-auto object-cover"
+        className="max-h-svh object-cover"
       />
     </motion.div>
   );

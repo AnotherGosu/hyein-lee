@@ -6,21 +6,19 @@ import promptImage3 from "@/images/prompt-3.jpeg";
 
 import { ButtonLink } from "@/components/common/ButtonLink";
 import { ImageCard } from "@/components/common/ImageCard";
-import { ArrowRight } from "@/components/icons/ArrowRight";
+import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
-export const Prompts = () => {
+export const Images = () => {
   return (
-    <section className="flex flex-col gap-10">
-      <h2 className="text-center text-3xl font-bold uppercase md:text-4xl">
-        Prompts
-      </h2>
+    <Section>
+      <Heading>AI Images</Heading>
 
-      <p className="mx-auto max-w-4xl text-center text-sm leading-relaxed md:text-lg">
+      <Paragpraph>
         By blending my artistic direction with AI tools, I&#39;ve created
         visually stunning and unexpected results, pushing the boundaries of what
         can be achieved with technology. These works are a glimpse into the
         future of art, where imagination meets innovation.
-      </p>
+      </Paragpraph>
 
       <div
         className={cn(
@@ -33,40 +31,32 @@ export const Prompts = () => {
         {PROMPTS.map((item) => (
           <ImageCard
             key={item.title}
-            href="/prompts"
+            href="/images"
             className="h-[300px] md:h-[500px]"
             {...item}
           />
         ))}
       </div>
 
-      <ButtonLink
-        href="/prompts"
-        className="ml-auto"
-      >
-        All prompts
-        <div className="relative size-5">
-          <ArrowRight className="absolute left-0 transition-all ease-in group-hover:left-1" />
-        </div>
-      </ButtonLink>
-    </section>
+      <ButtonLink href="/images">All images</ButtonLink>
+    </Section>
   );
 };
 
 const PROMPTS = [
   {
     src: promptImage1,
-    title: "Prompt 1",
-    description: "Description of prompt 1",
+    title: "Image 1",
+    description: "Description of image 1",
   },
   {
     src: promptImage2,
-    title: "Prompt 2",
-    description: "Description of prompt 2",
+    title: "Image 2",
+    description: "Description of image 2",
   },
   {
     src: promptImage3,
-    title: "Prompt 3",
-    description: "Description of prompt 3",
+    title: "Image 3",
+    description: "Description of image 3",
   },
 ];

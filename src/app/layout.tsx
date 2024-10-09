@@ -6,25 +6,25 @@ import { Drawer } from "./components/Drawer";
 
 import "./globals.css";
 
-const headingFont = Lora({
+const headlineFont = Lora({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-heading",
+  variable: "--font-headline",
 });
 
-const textFont = Montserrat({
+const paragraphFont = Montserrat({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-text",
+  variable: "--font-paragraph",
 });
 
 export const metadata: Metadata = {
   title: "Hyein Lee",
-  description: "Hyein Lee - artist and lawyer",
+  description: "Hyein Lee - law, art and AI.",
   generator: "Next.js",
   applicationName: "Hyein Lee",
   referrer: "origin-when-cross-origin",
-  keywords: ["Hyein Lee", "Artist", "Lawyer"],
+  keywords: ["Hyein Lee", "Law", "Art", "AI"],
   authors: [
     { name: "Hyein Lee" },
     { name: "Maksim Dubinin", url: "https://anothergosu.com" },
@@ -42,11 +42,11 @@ export default function RootLayout({
     <html lang="en">
       <LazyMotion features={domAnimation}>
         <body
-          className={`${headingFont.variable} ${textFont.variable} font-text bg-background antialiased`}
+          className={`${headlineFont.variable} ${paragraphFont.variable} text-paragraph font-paragraph bg-background antialiased`}
         >
           <Drawer />
 
-          <main className="mx-auto min-h-svh max-w-7xl px-4">{children}</main>
+          {children}
         </body>
       </LazyMotion>
     </html>

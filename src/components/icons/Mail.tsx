@@ -11,6 +11,8 @@ export const Mail = ({ className }: IconProps) => {
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className={cn("size-5", className)}
     >
       <title>Mail</title>
@@ -22,7 +24,6 @@ export const Mail = ({ className }: IconProps) => {
         y="4"
         rx="2"
       />
-
       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
     </svg>
   );

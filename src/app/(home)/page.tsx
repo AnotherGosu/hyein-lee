@@ -1,16 +1,17 @@
+import { About } from "./components/About";
 import { Artworks } from "./components/Artworks";
+import { Blog } from "./components/Blog";
 import { Hero } from "./components/Hero";
-import { Prompts } from "./components/Prompts";
+import { Images } from "./components/Images";
 
 export default function Home() {
   return (
-    <>
+    <main>
       <Hero />
-
-      <div className="my-10 flex flex-col gap-10 md:my-20 md:gap-20">
-        <Artworks />
-        <Prompts />
-      </div>
-    </>
+      <About />
+      <Blog />
+      <Artworks />
+      <Images />
+    </main>
   );
 }
