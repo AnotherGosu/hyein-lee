@@ -9,7 +9,7 @@ import { Section } from "@/components/common/Typography";
 
 export const Hero = () => {
   return (
-    <Section className="mb-0 h-svh items-center justify-center overflow-hidden md:mb-20">
+    <Section className="mb-20 h-svh items-center justify-center overflow-hidden md:mb-40">
       <div className="relative flex w-full justify-end">
         <Title />
         <ImageContainer />

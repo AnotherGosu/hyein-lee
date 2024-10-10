@@ -10,7 +10,7 @@ import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
 export const Artworks = () => {
   return (
-    <Section className="mx-auto mb-20 flex max-w-7xl flex-col gap-8 px-4">
+    <Section>
       <Heading> Artworks</Heading>
 
       <Paragpraph>

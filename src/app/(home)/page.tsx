@@ -9,9 +9,9 @@ export default function Home() {
     <main>
       <Hero />
       <About />
-      <Blog />
       <Artworks />
       <Images />
+      <Blog />
     </main>
   );
 }

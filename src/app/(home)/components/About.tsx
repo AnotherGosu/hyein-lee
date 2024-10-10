@@ -2,7 +2,7 @@ import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
 export const About = () => {
   return (
-    <div className="mb-20 bg-primary-100 py-10">
+    <div className="mb-40 bg-primary-100 py-10">
       <Section className="mb-0">
         <Heading>About me</Heading>
 
