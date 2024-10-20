@@ -3,14 +3,14 @@ import { LinkedIn } from "@/components/icons/LinkedIn";
 import { Naver } from "@/components/icons/Naver";
 import { Threads } from "@/components/icons/Threads";
 
-export const NAVIGATION = [
+export const NAVIGATION_LINKS = [
   { href: "/", title: "Home" },
-  { href: "/blog", title: "Blog" },
   { href: "/artworks", title: "Artworks" },
-  { href: "/images", title: "AI Images" },
+  { href: "/generatives", title: "Generatives" },
+  { href: "/blog", title: "Blog" },
 ];
 
-export const SOCIALS = [
+export const SOCIAL_LINKS = [
   { icon: <Instagram />, href: "https://www.instagram.com/hyeinnnnl/" },
   {
     icon: <LinkedIn />,
@@ -19,3 +19,7 @@ export const SOCIALS = [
   { icon: <Naver />, href: "https://m.blog.naver.com/vanite77" },
   { icon: <Threads />, href: "https://www.threads.net/@everly_mid" },
 ];
+
+export const DEV_LINK = "https://www.anothergosu.com/";
+
+export const EMAIl = "hyein2399@gmail.com";

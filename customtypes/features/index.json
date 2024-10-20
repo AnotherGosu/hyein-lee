@@ -1,0 +1,91 @@
+{
+  "format": "custom",
+  "id": "features",
+  "label": "Features",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "artwork_1": {
+        "type": "Link",
+        "config": {
+          "label": "Artwork 1",
+          "select": "document",
+          "customtypes": ["artwork"]
+        }
+      },
+      "artwork_2": {
+        "type": "Link",
+        "config": {
+          "label": "Artwork 2",
+          "select": "document",
+          "customtypes": ["artwork"]
+        }
+      },
+      "artwork_3": {
+        "type": "Link",
+        "config": {
+          "label": "Artwork 3",
+          "select": "document",
+          "customtypes": ["artwork"]
+        }
+      },
+      "generative_1": {
+        "type": "Link",
+        "config": {
+          "label": "Generative 1",
+          "select": "document",
+          "customtypes": ["generative"]
+        }
+      },
+      "generative_2": {
+        "type": "Link",
+        "config": {
+          "label": "Generative 2",
+          "select": "document",
+          "customtypes": ["generative"]
+        }
+      },
+      "generative_3": {
+        "type": "Link",
+        "config": {
+          "label": "Generative 3",
+          "select": "document",
+          "customtypes": ["generative"]
+        }
+      },
+      "post_1": {
+        "type": "Link",
+        "config": {
+          "label": "Post 1",
+          "select": "document",
+          "customtypes": ["post"]
+        }
+      },
+      "post_2": {
+        "type": "Link",
+        "config": {
+          "label": "Post 2",
+          "select": "document",
+          "customtypes": ["post"]
+        }
+      },
+      "post_3": {
+        "type": "Link",
+        "config": {
+          "label": "Post 3",
+          "select": "document",
+          "customtypes": ["post"]
+        }
+      },
+      "post_4": {
+        "type": "Link",
+        "config": {
+          "label": "Post 4",
+          "select": "document",
+          "customtypes": ["post"]
+        }
+      }
+    }
+  }
+}

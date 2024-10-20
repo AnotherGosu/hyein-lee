@@ -30,9 +30,9 @@ const config: Config = {
           950: "#2c231c",
         },
       },
-      screens: {
-        xs: "475px",
-      },
+      screens: { xs: "475px" },
+      animation: { fadeIn: "fade 0.7s ease-in-out" },
+      keyframes: { fade: { "0%": { opacity: "0" }, "100%": { opacity: "1" } } },
     },
   },
   plugins: [],

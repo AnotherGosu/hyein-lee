@@ -10,7 +10,7 @@ export const Section = ({ children, className }: TypographyProps) => {
   return (
     <section
       className={cn(
-        "mx-auto mb-20 flex max-w-7xl flex-col gap-8 px-4",
+        "mx-auto mb-20 mt-10 flex max-w-7xl flex-col gap-8 px-4",
         className,
       )}
     >
@@ -29,6 +29,12 @@ export const Heading = ({ children, className }: TypographyProps) => {
     >
       {children}
     </h2>
+  );
+};
+
+export const SubHeading = ({ children, className }: TypographyProps) => {
+  return (
+    <h3 className={cn("mb-3 text-2xl font-semibold", className)}>{children}</h3>
   );
 };
 

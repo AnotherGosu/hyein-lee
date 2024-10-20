@@ -3,14 +3,15 @@
 import { useState } from "react";
 import { Drawer as VaulDrawer } from "vaul";
 
-import { NAVIGATION, SOCIALS } from "@/constants/common";
+import { NAVIGATION_LINKS, SOCIAL_LINKS } from "@/constants/common";
 
+import { Button } from "@/components/common/Button";
 import { Mail } from "@/components/icons/Mail";
 import { Menu } from "@/components/icons/Menu";
 
 import { NavigationLink } from "./NavigationLink";
 
-export const Drawer = () => {
+export const MenuDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -20,8 +21,10 @@ export const Drawer = () => {
       direction="left"
       handleOnly
     >
-      <VaulDrawer.Trigger className="focus-ring fixed bottom-4 right-4 z-30 rounded-full bg-primary-200 p-3 hover:bg-primary-300">
-        <Menu />
+      <VaulDrawer.Trigger asChild>
+        <Button className="ml-auto rounded-full px-2.5 sm:hidden">
+          <Menu />
+        </Button>
       </VaulDrawer.Trigger>
 
       <VaulDrawer.Portal>
@@ -34,10 +37,10 @@ export const Drawer = () => {
               <Navigation onClick={() => setIsOpen(false)} />
             </div>
 
-            <footer className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4">
               <Socials />
               <Contacts />
-            </footer>
+            </div>
           </div>
         </VaulDrawer.Content>
       </VaulDrawer.Portal>
@@ -47,13 +50,13 @@ export const Drawer = () => {
 
 const Header = () => {
   return (
-    <header>
+    <div>
       <VaulDrawer.Title className="mb-2 text-2xl font-semibold">
         Hyein Lee
       </VaulDrawer.Title>
 
       <VaulDrawer.Description>Navigation & Contacts</VaulDrawer.Description>
-    </header>
+    </div>
   );
 };
 
@@ -61,7 +64,7 @@ const Navigation = ({ onClick }: { onClick: () => void }) => {
   return (
     <nav>
       <ul className="flex flex-col gap-4">
-        {NAVIGATION.map((link) => (
+        {NAVIGATION_LINKS.map((link) => (
           <li key={link.href}>
             <NavigationLink
               onClick={onClick}
@@ -77,7 +80,7 @@ const Navigation = ({ onClick }: { onClick: () => void }) => {
 const Socials = () => {
   return (
     <div className="flex justify-between">
-      {SOCIALS.map(({ icon, href }) => (
+      {SOCIAL_LINKS.map(({ icon, href }) => (
         <a
           key={href}
           href={href}

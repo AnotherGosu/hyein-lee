@@ -4,7 +4,11 @@
 
 @layer utilities {
   .focus-ring {
-    @apply transition focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply transition focus:outline-none focus:ring-2 focus:ring-offset-1;
+  }
+
+  .fallback {
+    @apply animate-pulse rounded-md bg-primary-100;
   }
 }
 
@@ -15,6 +19,6 @@
   h4,
   h5,
   h6 {
-    @apply text-headline font-headline;
+    @apply font-headline text-headline;
   }
 }

@@ -1,10 +1,14 @@
+import { PrismicPreview } from "@prismicio/next";
 import { domAnimation, LazyMotion } from "framer-motion";
 import { Metadata } from "next";
 import { Lora, Montserrat } from "next/font/google";
 
-import { Drawer } from "./components/Drawer";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
+import { ScrollToTopButton } from "./components/ScrollToTopButton";
 
 import "./globals.css";
+import { repositoryName } from "@/prismicio";
 
 const headlineFont = Lora({
   subsets: ["latin"],
@@ -19,7 +23,7 @@ const paragraphFont = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Hyein Lee",
+  title: { default: "Hyein Lee", template: "%s | Hyein Lee" },
   description: "Hyein Lee - law, art and AI.",
   generator: "Next.js",
   applicationName: "Hyein Lee",
@@ -42,11 +46,17 @@ export default function RootLayout({
     <html lang="en">
       <LazyMotion features={domAnimation}>
         <body
-          className={`${headlineFont.variable} ${paragraphFont.variable} text-paragraph font-paragraph bg-background antialiased`}
+          className={`${headlineFont.variable} ${paragraphFont.variable} bg-background font-paragraph text-paragraph antialiased`}
         >
-          <Drawer />
+          <div className="flex min-h-svh flex-col">
+            <Header />
+            <main className="grow">{children}</main>
+            <Footer />
+          </div>
 
-          {children}
+          <ScrollToTopButton />
+
+          <PrismicPreview repositoryName={repositoryName} />
         </body>
       </LazyMotion>
     </html>

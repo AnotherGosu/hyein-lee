@@ -1,17 +1,23 @@
+import { Metadata } from "next";
+
 import { About } from "./components/About";
 import { Artworks } from "./components/Artworks";
 import { Blog } from "./components/Blog";
+import { Generatives } from "./components/Generatives";
 import { Hero } from "./components/Hero";
-import { Images } from "./components/Images";
 
-export default function Home() {
+export const metadata: Metadata = {
+  description: "Hyein Lee - law, art and AI.",
+};
+
+export default function Page() {
   return (
-    <main>
+    <>
       <Hero />
       <About />
       <Artworks />
-      <Images />
+      <Generatives />
       <Blog />
-    </main>
+    </>
   );
 }

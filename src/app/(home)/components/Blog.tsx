@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { Suspense } from "react";
+
+import { getFeatures } from "@/api/getFeatures";
 
 import { ButtonLink } from "@/components/common/ButtonLink";
+import { ListFallback } from "@/components/common/Fallback";
 import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
 export const Blog = () => {
@@ -16,12 +20,16 @@ export const Blog = () => {
       </Paragpraph>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        {POSTS.map((post) => (
-          <Post
-            key={post.title}
-            {...post}
-          />
-        ))}
+        <Suspense
+          fallback={
+            <ListFallback
+              length={4}
+              className="h-32"
+            />
+          }
+        >
+          <FeaturedItems />
+        </Suspense>
       </div>
 
       <ButtonLink href="/blog">All posts</ButtonLink>
@@ -29,46 +37,28 @@ export const Blog = () => {
   );
 };
 
-const Post = ({
-  title,
-  description,
-}: {
-  title: string;
-  description: string;
-}) => {
-  return (
-    <Link
-      href="/blog"
-      className="focus-ring overflow-hidden rounded-md border border-primary-200"
-    >
-      <div className="p-6 duration-500 hover:bg-primary-100">
-        <h3 className="mb-2 text-xl font-semibold text-primary-600">{title}</h3>
+const FeaturedItems = async () => {
+  const { featuredPosts } = await getFeatures();
 
-        <p className="text-sm font-medium leading-relaxed">{description}</p>
-      </div>
-    </Link>
+  return (
+    <>
+      {featuredPosts.map(({ uid, data }) => (
+        <Link
+          key={uid}
+          href={`/blog/${uid}`}
+          className="focus-ring overflow-hidden rounded-md border border-primary-200"
+        >
+          <div className="p-6 duration-500 hover:bg-primary-100">
+            <h3 className="mb-2 text-xl font-semibold text-primary-600">
+              {data.title}
+            </h3>
+
+            <p className="text-sm font-medium leading-relaxed">
+              {data.subtitle}
+            </p>
+          </div>
+        </Link>
+      ))}
+    </>
   );
 };
-
-const POSTS = [
-  {
-    title: "The Role of Precedent in Modern Legal Systems",
-    description:
-      "Precedents serve as the backbone of common law, ensuring consistency while allowing flexibility for societal evolution.",
-  },
-  {
-    title: "Understanding Constitutional Rights in a Digital Era",
-    description:
-      "As technology advances, interpreting constitutional rights in the context of privacy and data security becomes increasingly complex.",
-  },
-  {
-    title: "The Impact of International Law on Climate Change Policy",
-    description:
-      "International law plays a critical role in shaping global efforts to combat climate change, but enforcement remains a significant challenge.",
-  },
-  {
-    title: "The Importance of Legal Ethics in Modern Practice",
-    description:
-      "Legal ethics are essential in ensuring that lawyers maintain integrity, fairness, and responsibility while advocating for justice in a rapidly changing world.",
-  },
-];

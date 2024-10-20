@@ -9,7 +9,7 @@ import { Section } from "@/components/common/Typography";
 
 export const Hero = () => {
   return (
-    <Section className="mb-20 h-svh items-center justify-center overflow-hidden md:mb-40">
+    <Section className="items-center justify-center overflow-hidden">
       <div className="relative flex w-full justify-end">
         <Title />
         <ImageContainer />
@@ -23,7 +23,7 @@ const Title = () => {
     <h1
       className={cn(
         "absolute bottom-0 left-0 z-10 uppercase leading-none [text-shadow:_2px_2px_0px_white]",
-        "text-7xl xs:text-8xl sm:text-9xl lg:text-[10rem] xl:text-[12rem] 2xl:text-[14rem]",
+        "text-7xl xs:text-8xl sm:text-9xl lg:text-[10rem] xl:text-[10rem] 2xl:text-[12rem]",
       )}
     >
       <motion.div
@@ -56,7 +56,7 @@ const ImageContainer = () => {
         src={heroImage}
         alt="Portrait of Hyein Lee"
         priority
-        className="max-h-svh object-cover"
+        className="max-h-[calc(100svh-6.25rem)] object-cover"
       />
     </motion.div>
   );

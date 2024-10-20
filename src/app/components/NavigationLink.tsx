@@ -1,30 +1,23 @@
 "use client";
 
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/utils/cn";
 
-interface NavigationLinkProps {
+interface NavigationLinkProps extends LinkProps {
   title: string;
-  href: string;
-  onClick: () => void;
 }
 
-export const NavigationLink = ({
-  title,
-  href,
-  onClick,
-}: NavigationLinkProps) => {
-  const { isActive } = useComponent(href);
+export const NavigationLink = ({ title, ...props }: NavigationLinkProps) => {
+  const { isActive } = useComponent(props.href.toString());
 
   return (
     <Link
-      href={href}
-      onClick={onClick}
+      {...props}
       className={cn("focus-ring rounded-sm text-xl font-medium", {
-        "font-bold text-primary-600": isActive,
-        "hover:text-primary-400": !isActive,
+        "text-primary-500": isActive,
+        "hover:text-primary-300": !isActive,
       })}
     >
       {title}
