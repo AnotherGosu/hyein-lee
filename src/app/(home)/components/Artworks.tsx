@@ -59,7 +59,7 @@ const FeaturedItems = async () => {
           image={data.image}
           title={data.title}
           subtitle={data.subtitle}
-          className={cn({ "row-span-2 h-[40rem]": idx === 0 })}
+          className={cn({ "row-span-2 h-[25rem] md:h-[35rem]": idx === 0 })}
         />
       ))}
     </>

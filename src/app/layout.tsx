@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   generator: "Next.js",
   applicationName: "Hyein Lee",
   referrer: "origin-when-cross-origin",
-  keywords: ["Hyein Lee", "Law", "Art", "AI"],
+  keywords: ["Hyein Lee", "Artworks", "Generatives", "Blog"],
   authors: [
     { name: "Hyein Lee" },
     { name: "Maksim Dubinin", url: "https://anothergosu.com" },
@@ -50,7 +50,7 @@ export default function RootLayout({
         >
           <div className="flex min-h-svh flex-col">
             <Header />
-            <main className="grow">{children}</main>
+            <main className="relative grow">{children}</main>
             <Footer />
           </div>
 

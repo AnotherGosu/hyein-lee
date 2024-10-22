@@ -17,7 +17,7 @@ export const ListItem = ({ idx, uid, data }: ListItemProps) => {
         field={data.images[0]?.image}
         alt=""
         priority={idx < 2}
-        className="h-96 object-cover sm:h-[30rem]"
+        className="h-72 object-cover sm:h-96"
       />
 
       <div className="p-4 duration-500 group-hover:bg-primary-100">

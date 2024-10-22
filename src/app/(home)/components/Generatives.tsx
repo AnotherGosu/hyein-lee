@@ -58,7 +58,7 @@ const FeaturedItems = async () => {
           image={data.images[0]?.image}
           title={data.title}
           subtitle={data.subtitle}
-          className="h-[30rem]"
+          className="h-[25rem] md:h-[30rem]"
         />
       ))}
     </>
