@@ -1,40 +1,45 @@
-import * as prismic from "@prismicio/client";
+import { Suspense } from "react";
 
 import { SearchParams } from "@/types/common";
 
+import { getArtworks } from "@/api/getArtworks";
+
+import { getSearchParamsString } from "@/lib/getSearchParamsString";
+
+import { ListFallback } from "@/components/common/Fallback";
+
 import { ListItem } from "./ListItem";
-import { createClient } from "@/prismicio";
 
 interface ListProps {
   searchParams: SearchParams;
 }
 
-export const List = async ({ searchParams }: ListProps) => {
-  const client = createClient();
+export const List = ({ searchParams }: ListProps) => {
+  return (
+    <Suspense
+      key={`${getSearchParamsString(searchParams)}-list`}
+      fallback={
+        <ListFallback
+          length={8}
+          className="row-span-3 md:row-span-1"
+        />
+      }
+    >
+      <SuspendedList searchParams={searchParams} />
+    </Suspense>
+  );
+};
 
-  const pages = await client.getAllByType("artwork", {
-    filters: [
-      prismic.filter.fulltext(
-        "my.artwork.title",
-        searchParams.search?.toString() || "",
-      ),
-      prismic.filter.any(
-        "document.tags",
-        searchParams.tags?.toString().split(",") || [],
-      ),
-    ],
-    orderings: [
-      { field: "document.first_publication_date", direction: "desc" },
-    ],
-  });
+const SuspendedList = async ({ searchParams }: ListProps) => {
+  const data = await getArtworks(searchParams);
 
   return (
     <>
-      {pages.map((page, idx) => (
+      {data.results.map((result, idx) => (
         <ListItem
-          key={page.uid}
+          key={result.uid}
           idx={idx}
-          {...page}
+          {...result}
         />
       ))}
     </>

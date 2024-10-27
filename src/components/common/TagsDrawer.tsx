@@ -41,46 +41,27 @@ export const TagsDrawer = ({ tags }: TagsDrawerProps) => {
               Search by tags
             </Drawer.Title>
 
-            <div className="mx-auto flex flex-wrap gap-3">
+            <div className="mx-auto flex max-h-96 flex-wrap gap-3 overflow-y-auto">
               {tags.map((tag) => (
-                <TagButton
+                <button
                   key={tag}
-                  tag={tag}
-                  isActive={activeTags.includes(tag)}
+                  type="button"
                   onClick={() => onToggleTag(tag)}
-                />
+                  className={cn(
+                    "focus-ring rounded-md border border-primary-200 px-2 py-1 hover:bg-primary-100",
+                    {
+                      "bg-primary-200": activeTags.includes(tag),
+                    },
+                  )}
+                >
+                  {tag}
+                </button>
               ))}
             </div>
           </div>
         </Drawer.Content>
       </Drawer.Portal>
     </Drawer.Root>
-  );
-};
-
-const TagButton = ({
-  tag,
-  isActive,
-  onClick,
-}: {
-  tag: string;
-  isActive: boolean;
-  onClick: () => void;
-}) => {
-  return (
-    <button
-      key={tag}
-      type="button"
-      onClick={onClick}
-      className={cn(
-        "focus-ring rounded-md border border-primary-200 px-2 py-1 hover:bg-primary-100",
-        {
-          "bg-primary-200": isActive,
-        },
-      )}
-    >
-      {tag}
-    </button>
   );
 };
 

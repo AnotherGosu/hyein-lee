@@ -1,10 +1,11 @@
 import { ImageFieldImage, KeyTextField } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import Link, { LinkProps } from "next/link";
+import { PropsWithChildren } from "react";
 
 import { cn } from "@/utils/cn";
 
-interface ImageLinkProps {
+interface ImageLinkProps extends PropsWithChildren {
   href: LinkProps["href"];
   image: ImageFieldImage | null | undefined;
   title: KeyTextField;
@@ -20,6 +21,7 @@ export const ImageLink = ({
   subtitle,
   priority = false,
   className,
+  children,
 }: ImageLinkProps) => {
   return (
     <Link
@@ -36,12 +38,14 @@ export const ImageLink = ({
 
       <PrismicNextImage
         field={image}
-        fallbackAlt=""
+        alt=""
         priority={priority}
         fill
         sizes="(min-width: 768px) 33vw, 100vw"
         className="object-cover"
       />
+
+      {children}
     </Link>
   );
 };
@@ -54,10 +58,10 @@ const Note = ({
     <div
       className={cn(
         "absolute bottom-0 left-0 z-10 w-full select-none bg-black/30 px-4 py-2 text-white",
-        "transition-opacity duration-1000 group-hover:opacity-100 md:opacity-0",
+        "transition-opacity duration-1000 group-hover:opacity-100 sm:opacity-0",
       )}
     >
-      <h3 className="font-semibold text-white">{title}</h3>
+      <h3 className="truncate font-semibold text-white">{title}</h3>
       <p className="truncate text-sm">{subtitle}</p>
     </div>
   );

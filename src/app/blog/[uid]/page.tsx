@@ -1,12 +1,9 @@
+import { PrismicNextImage } from "@prismicio/next";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { RichText } from "@/components/common/RichText";
 import { Heading, Section } from "@/components/common/Typography";
-
-import { Carousel } from "./components/Carousel";
-import { PromptSection } from "./components/PromptSection";
-import { TagsSection } from "./components/TagsSection";
-import { ToolsSection } from "./components/ToolSection";
 
 import { createClient } from "@/prismicio";
 
@@ -19,7 +16,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const client = createClient();
 
-  const page = await client.getByUID("generative", uid).catch(() => notFound());
+  const page = await client.getByUID("post", uid).catch(() => notFound());
 
   return {
     title: page.data.meta_title,
@@ -39,7 +36,7 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   const client = createClient();
 
-  const pages = await client.getAllByType("generative");
+  const pages = await client.getAllByType("post");
 
   return pages.map(({ uid }) => ({ uid }));
 }
@@ -47,20 +44,20 @@ export async function generateStaticParams() {
 export default async function Page({ params: { uid } }: PageProps) {
   const client = createClient();
 
-  const page = await client.getByUID("generative", uid).catch(() => notFound());
+  const page = await client.getByUID("post", uid).catch(() => notFound());
 
   return (
     <>
       <Section>
         <Heading>{page.data.title}</Heading>
 
-        <Carousel images={page.data.images} />
+        <PrismicNextImage
+          field={page.data.image}
+          alt=""
+          className="max-h-60 rounded-md object-cover"
+        />
 
-        <ToolsSection tool={page.data.tool} />
-
-        <TagsSection tags={page.tags} />
-
-        <PromptSection prompt={page.data.prompt} />
+        <RichText field={page.data.content} />
       </Section>
     </>
   );

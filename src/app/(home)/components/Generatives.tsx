@@ -23,20 +23,13 @@ export const Generatives = () => {
 
       <div
         className={cn(
-          "grid grid-cols-1 grid-rows-[1fr_1fr_1fr] gap-8 transition-all duration-1000 md:grid-cols-[1fr_1fr_1fr] md:grid-rows-1",
+          "grid grid-cols-1 grid-rows-[23rem_23rem_23rem] gap-4 transition-all duration-1000 md:grid-cols-[1fr_1fr_1fr] md:grid-rows-[29rem]",
           "md:has-[a:nth-child(1):hover]:grid-cols-[4fr_3fr_3fr]",
           "md:has-[a:nth-child(2):hover]:grid-cols-[3fr_4fr_3fr]",
           "md:has-[a:nth-child(3):hover]:grid-cols-[3fr_3fr_4fr]",
         )}
       >
-        <Suspense
-          fallback={
-            <ListFallback
-              length={3}
-              className="h-[30rem]"
-            />
-          }
-        >
+        <Suspense fallback={<ListFallback length={3} />}>
           <FeaturedItems />
         </Suspense>
       </div>
@@ -58,7 +51,6 @@ const FeaturedItems = async () => {
           image={data.images[0]?.image}
           title={data.title}
           subtitle={data.subtitle}
-          className="h-[25rem] md:h-[30rem]"
         />
       ))}
     </>

@@ -2,18 +2,27 @@ import type { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link";
 
+import { HighlightBadge } from "@/components/common/HighlightBadge";
+
 interface ListItemProps extends Content.GenerativeDocument {
   idx: number;
+  isHighlight?: boolean;
 }
 
-export const ListItem = ({ idx, uid, data }: ListItemProps) => {
+export const ListItem = ({
+  idx,
+  isHighlight = false,
+  uid,
+  data,
+}: ListItemProps) => {
   return (
     <Link
       href={`/generatives/${uid}`}
-      className="focus-ring group animate-fadeIn overflow-hidden rounded-md border border-primary-200"
+      className="focus-ring group relative animate-fadeIn overflow-hidden rounded-md border border-primary-200"
     >
+      {isHighlight && <HighlightBadge />}
+
       <PrismicNextImage
-        key={data.images[0]?.image.id}
         field={data.images[0]?.image}
         alt=""
         priority={idx < 2}
@@ -21,7 +30,9 @@ export const ListItem = ({ idx, uid, data }: ListItemProps) => {
       />
 
       <div className="p-4 duration-500 group-hover:bg-primary-100">
-        <h3 className="font-semibold text-primary-500">{data.title}</h3>
+        <h3 className="truncate font-semibold text-primary-500">
+          {data.title}
+        </h3>
         <p className="truncate text-sm">{data.subtitle}</p>
       </div>
     </Link>

@@ -8,7 +8,7 @@ export const getFeatures = async () => {
   const { data } = await client.getSingle<LinkedData>("features", {
     fetchLinks: [
       "artwork.title",
-      "artwork.subtitle",
+      "artwork.description",
       "artwork.image",
       "generative.title",
       "generative.subtitle",
@@ -32,7 +32,7 @@ export const getFeatures = async () => {
 };
 
 interface LinkedArtwork extends Omit<Content.ArtworkDocument, "data"> {
-  data: Pick<Content.ArtworkDocumentData, "title" | "subtitle" | "image">;
+  data: Pick<Content.ArtworkDocumentData, "title" | "description" | "image">;
 }
 
 interface LinkedGenerative extends Omit<Content.GenerativeDocument, "data"> {

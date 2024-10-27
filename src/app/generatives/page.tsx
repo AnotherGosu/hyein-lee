@@ -1,20 +1,13 @@
 import { Metadata } from "next";
-import { Suspense } from "react";
 
 import { SearchParams } from "@/types/common";
 
-import { getSearchParamsString } from "@/lib/getSearchParamsString";
-
-import {
-  ListFallback,
-  SearchInputFallback,
-  TagSearchFallback,
-} from "@/components/common/Fallback";
-import { SearchInput } from "@/components/common/SearchInput";
-import { TagSearch } from "@/components/common/TagSearch";
 import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
+import { HighlightList } from "./components/HighlightList";
 import { List } from "./components/List";
+import { Pagination } from "./components/Pagination";
+import { Search } from "./components/Search";
 
 export const metadata: Metadata = {
   title: "Generatives",
@@ -26,6 +19,8 @@ interface PageProps {
 }
 
 export default function Page({ searchParams }: PageProps) {
+  const isHighlightList = Object.keys(searchParams).length === 0;
+
   return (
     <>
       <Section>
@@ -38,29 +33,14 @@ export default function Page({ searchParams }: PageProps) {
           the future of art, where imagination meets innovation.
         </Paragpraph>
 
-        <div className="flex gap-2">
-          <Suspense fallback={<SearchInputFallback />}>
-            <SearchInput placeholder="Search by title" />
-          </Suspense>
-
-          <Suspense fallback={<TagSearchFallback />}>
-            <TagSearch type="generative" />
-          </Suspense>
-        </div>
+        <Search />
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <Suspense
-            key={getSearchParamsString(searchParams)}
-            fallback={
-              <ListFallback
-                length={8}
-                className="h-96 sm:h-[30rem]"
-              />
-            }
-          >
-            <List searchParams={searchParams} />
-          </Suspense>
+          {isHighlightList && <HighlightList />}
+          <List searchParams={searchParams} />
         </div>
+
+        <Pagination searchParams={searchParams} />
       </Section>
     </>
   );

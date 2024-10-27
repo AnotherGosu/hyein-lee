@@ -10,7 +10,7 @@ export const Section = ({ children, className }: TypographyProps) => {
   return (
     <section
       className={cn(
-        "mx-auto mb-20 mt-10 flex max-w-7xl flex-col gap-8 px-4",
+        "mx-auto mb-20 mt-10 flex max-w-5xl flex-col gap-8 px-4",
         className,
       )}
     >

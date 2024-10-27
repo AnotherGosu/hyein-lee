@@ -19,12 +19,12 @@ export const Blog = () => {
         the world of law.
       </Paragpraph>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <Suspense
           fallback={
             <ListFallback
               length={4}
-              className="h-32"
+              className="h-36"
             />
           }
         >
@@ -46,16 +46,14 @@ const FeaturedItems = async () => {
         <Link
           key={uid}
           href={`/blog/${uid}`}
-          className="focus-ring overflow-hidden rounded-md border border-primary-200"
+          className="focus-ring rounded-md border border-primary-200"
         >
-          <div className="p-6 duration-500 hover:bg-primary-100">
-            <h3 className="mb-2 text-xl font-semibold text-primary-600">
+          <div className="h-full p-6 duration-500 hover:bg-primary-100">
+            <h3 className="mb-2 truncate text-lg font-semibold text-primary-600">
               {data.title}
             </h3>
 
-            <p className="text-sm font-medium leading-relaxed">
-              {data.subtitle}
-            </p>
+            <p className="line-clamp-3 text-sm font-medium">{data.subtitle}</p>
           </div>
         </Link>
       ))}

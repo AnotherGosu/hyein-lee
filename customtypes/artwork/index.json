@@ -6,24 +6,11 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": {
-        "type": "UID",
-        "config": {
-          "label": "UID"
-        }
-      },
       "title": {
         "type": "Text",
         "config": {
           "label": "Title",
           "placeholder": "Title of the artwork"
-        }
-      },
-      "subtitle": {
-        "type": "Text",
-        "config": {
-          "label": "Subtitle",
-          "placeholder": "Short artwork description"
         }
       },
       "description": {
@@ -43,19 +30,25 @@
           "thumbnails": []
         }
       },
-      "big": {
-        "type": "Boolean",
+      "uid": {
+        "type": "UID",
         "config": {
-          "label": "Big",
-          "placeholder_false": "false",
-          "placeholder_true": "true",
-          "default_value": false
+          "label": "UID"
         }
       },
       "tall": {
         "type": "Boolean",
         "config": {
           "label": "Tall",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": false
+        }
+      },
+      "highlight": {
+        "type": "Boolean",
+        "config": {
+          "label": "Highlight",
           "placeholder_false": "false",
           "placeholder_true": "true",
           "default_value": false

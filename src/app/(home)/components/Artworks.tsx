@@ -23,18 +23,18 @@ export const Artworks = () => {
 
       <div
         className={cn(
-          "grid grid-cols-1 grid-rows-4 gap-8 transition-all duration-1000 md:grid-cols-[1fr_1fr] md:grid-rows-[1fr_1fr]",
-          "md:has-[a:nth-child(1):hover]:grid-cols-[4fr_3fr]",
-          "md:has-[a:nth-child(2):hover]:grid-cols-[3fr_4fr] md:has-[a:nth-child(2):hover]:grid-rows-[4fr_3fr]",
-          "md:has-[a:nth-child(3):hover]:grid-cols-[3fr_4fr] md:has-[a:nth-child(3):hover]:grid-rows-[3fr_4fr]",
+          "grid auto-rows-[5rem] grid-cols-1 gap-4 transition-all duration-1000 sm:grid-cols-[1fr_1fr] sm:grid-rows-[18rem_18rem]",
+          "sm:has-[a:nth-child(1):hover]:grid-cols-[4fr_3fr]",
+          "sm:has-[a:nth-child(2):hover]:grid-cols-[3fr_4fr] sm:has-[a:nth-child(2):hover]:grid-rows-[20rem_16rem]",
+          "sm:has-[a:nth-child(3):hover]:grid-cols-[3fr_4fr] sm:has-[a:nth-child(3):hover]:grid-rows-[16rem_20rem]",
         )}
       >
         <Suspense
           fallback={
             <>
-              <div className="fallback row-span-2 h-[40rem]" />
-              <div className="fallback" />
-              <div className="fallback" />
+              <div className="fallback row-span-4 sm:row-span-2" />
+              <div className="fallback row-span-3 sm:row-span-1" />
+              <div className="fallback row-span-3 sm:row-span-1" />
             </>
           }
         >
@@ -52,16 +52,26 @@ const FeaturedItems = async () => {
 
   return (
     <>
-      {featuredArtworks.map(({ uid, data }, idx) => (
-        <ImageLink
-          key={uid}
-          href={`/artworks/${uid}`}
-          image={data.image}
-          title={data.title}
-          subtitle={data.subtitle}
-          className={cn({ "row-span-2 h-[25rem] md:h-[35rem]": idx === 0 })}
-        />
-      ))}
+      {featuredArtworks.map(({ uid, data }, idx) => {
+        let subtitle = "";
+
+        if (data.description[0]?.type === "paragraph") {
+          subtitle = data.description[0].text;
+        }
+
+        return (
+          <ImageLink
+            key={uid}
+            href={`/artworks/${uid}`}
+            image={data.image}
+            title={data.title}
+            subtitle={subtitle}
+            className={cn("row-span-3 animate-fadeIn sm:row-span-1", {
+              "row-span-4 sm:row-span-2": idx === 0,
+            })}
+          />
+        );
+      })}
     </>
   );
 };

@@ -21,17 +21,6 @@ interface ArtworkDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Subtitle field in *Artwork*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Short artwork description
-   * - **API ID Path**: artwork.subtitle
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  subtitle: prismic.KeyTextField;
-
-  /**
    * Description field in *Artwork*
    *
    * - **Field Type**: Rich Text
@@ -54,18 +43,6 @@ interface ArtworkDocumentData {
   image: prismic.ImageField<never>;
 
   /**
-   * Big field in *Artwork*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: artwork.big
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  big: prismic.BooleanField;
-
-  /**
    * Tall field in *Artwork*
    *
    * - **Field Type**: Boolean
@@ -76,6 +53,18 @@ interface ArtworkDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   tall: prismic.BooleanField;
+
+  /**
+   * Highlight field in *Artwork*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: artwork.highlight
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  highlight: prismic.BooleanField;
 
   /**
    * Slice Zone field in *Artwork*
@@ -345,6 +334,18 @@ interface GenerativeDocumentData {
   tool: prismic.SelectField<"Midjourney" | "Ideogram", "filled">;
 
   /**
+   * Highlight field in *Generative*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: generative.highlight
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  highlight: prismic.BooleanField;
+
+  /**
    * Slice Zone field in *Generative*
    *
    * - **Field Type**: Slice Zone
@@ -452,6 +453,18 @@ interface PostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Highlight field in *Post*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: post.highlight
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  highlight: prismic.BooleanField;
 
   /**
    * Slice Zone field in *Post*

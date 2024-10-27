@@ -1,20 +1,13 @@
 import { Metadata } from "next";
-import { Suspense } from "react";
 
 import { SearchParams } from "@/types/common";
 
-import { getSearchParamsString } from "@/lib/getSearchParamsString";
-
-import {
-  ListFallback,
-  SearchInputFallback,
-  TagSearchFallback,
-} from "@/components/common/Fallback";
-import { SearchInput } from "@/components/common/SearchInput";
-import { TagSearch } from "@/components/common/TagSearch";
 import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
+import { HighlightList } from "./components/HighlightList";
 import { List } from "./components/List";
+import { Pagination } from "./components/Pagination";
+import { Search } from "./components/Search";
 
 export const metadata: Metadata = {
   title: "Artworks",
@@ -26,6 +19,8 @@ interface PageProps {
 }
 
 export default function Page({ searchParams }: PageProps) {
+  const isHighlightList = Object.keys(searchParams).length === 0;
+
   return (
     <>
       <Section>
@@ -39,29 +34,14 @@ export default function Page({ searchParams }: PageProps) {
           its purest form.
         </Paragpraph>
 
-        <div className="flex gap-2">
-          <Suspense fallback={<SearchInputFallback />}>
-            <SearchInput placeholder="Search by title" />
-          </Suspense>
+        <Search />
 
-          <Suspense fallback={<TagSearchFallback />}>
-            <TagSearch type="artwork" />
-          </Suspense>
+        <div className="grid grid-flow-dense auto-rows-[5rem] grid-cols-1 gap-4 sm:auto-rows-[18rem] sm:grid-cols-2">
+          {isHighlightList && <HighlightList />}
+          <List searchParams={searchParams} />
         </div>
 
-        <div className="grid grid-flow-dense auto-rows-fr grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <Suspense
-            key={getSearchParamsString(searchParams)}
-            fallback={
-              <ListFallback
-                length={9}
-                className="min-h-80 md:min-h-60"
-              />
-            }
-          >
-            <List searchParams={searchParams} />
-          </Suspense>
-        </div>
+        <Pagination searchParams={searchParams} />
       </Section>
     </>
   );
