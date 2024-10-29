@@ -1,9 +1,10 @@
-import { PrismicNextImage } from "@prismicio/next";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { RichText } from "@/components/common/RichText";
-import { Heading, Section } from "@/components/common/Typography";
+import { Section } from "@/components/common/Typography";
+
+import { Layout } from "./components/Layout";
+import { TallLayout } from "./components/TallLayout";
 
 import { createClient } from "@/prismicio";
 
@@ -44,24 +45,18 @@ export async function generateStaticParams() {
 export default async function Page({ params: { uid } }: PageProps) {
   const client = createClient();
 
-  const page = await client.getByUID("artwork", uid).catch(() => notFound());
+  const document = await client
+    .getByUID("artwork", uid)
+    .catch(() => notFound());
 
   return (
     <>
-      <Section className="grid grid-cols-1 gap-8 xl:grid-cols-2 xl:grid-rows-[min-content_1fr]">
-        <PrismicNextImage
-          field={page.data.image}
-          className="pointer-events-none row-span-2 mx-auto max-h-[40rem] w-auto rounded-md xl:max-h-none"
-          priority
-        />
-
-        <Heading className="row-start-1 xl:col-start-2 xl:text-left">
-          {page.data.title}
-        </Heading>
-
-        <div className="flex flex-col gap-8">
-          <RichText field={page.data.description} />
-        </div>
+      <Section>
+        {document.data.tall ? (
+          <TallLayout {...document} />
+        ) : (
+          <Layout {...document} />
+        )}
       </Section>
     </>
   );

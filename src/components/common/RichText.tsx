@@ -3,13 +3,15 @@ import { PropsWithChildren } from "react";
 
 export const RichText = (props: PrismicRichTextProps) => {
   return (
-    <PrismicRichText
-      components={{
-        paragraph: ({ children }: PropsWithChildren) => (
-          <p className="text-sm leading-relaxed md:text-lg">{children}</p>
-        ),
-      }}
-      {...props}
-    />
+    <div>
+      <PrismicRichText
+        components={{
+          paragraph: ({ children }: PropsWithChildren) => (
+            <p className="mb-4 md:text-lg">{children}</p>
+          ),
+        }}
+        {...props}
+      />
+    </div>
   );
 };

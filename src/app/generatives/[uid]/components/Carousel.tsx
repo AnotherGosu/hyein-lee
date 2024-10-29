@@ -38,11 +38,11 @@ export const Carousel = ({ images }: CarouselProps) => {
         ref={emblaRef}
         className="mb-4 overflow-hidden"
       >
-        <div className="-ml-8 flex">
+        <div className="-ml-4 flex">
           {images.map(({ image }) => (
             <div
               key={image.id}
-              className="pointer-events-none min-w-0 flex-[0_0_100%] select-none pl-8 md:flex-[0_0_50%] lg:flex-[0_0_calc(100%/3)]"
+              className="pointer-events-none min-w-0 flex-[0_0_100%] select-none pl-4 md:flex-[0_0_50%] lg:flex-[0_0_calc(100%/3)]"
             >
               <PrismicNextImage
                 field={image}

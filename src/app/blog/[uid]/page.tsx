@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { RichText } from "@/components/common/RichText";
-import { Heading, Section } from "@/components/common/Typography";
+import { Section, Title } from "@/components/common/Typography";
 
 import { createClient } from "@/prismicio";
 
@@ -49,12 +49,12 @@ export default async function Page({ params: { uid } }: PageProps) {
   return (
     <>
       <Section>
-        <Heading>{page.data.title}</Heading>
+        <Title>{page.data.title}</Title>
 
         <PrismicNextImage
           field={page.data.image}
           alt=""
-          className="max-h-60 rounded-md object-cover"
+          className="max-h-[30rem] rounded-md object-cover"
         />
 
         <RichText field={page.data.content} />

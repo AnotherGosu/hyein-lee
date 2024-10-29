@@ -50,3 +50,11 @@ export const Paragpraph = ({ children, className }: TypographyProps) => {
     </p>
   );
 };
+
+export const Title = ({ children, className }: TypographyProps) => {
+  return (
+    <h2 className={cn("text-center text-3xl font-semibold", className)}>
+      {children}
+    </h2>
+  );
+};

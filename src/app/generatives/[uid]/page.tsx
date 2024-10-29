@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { Heading, Section } from "@/components/common/Typography";
+import { Section, Title } from "@/components/common/Typography";
 
 import { Carousel } from "./components/Carousel";
 import { PromptSection } from "./components/PromptSection";
@@ -52,7 +52,7 @@ export default async function Page({ params: { uid } }: PageProps) {
   return (
     <>
       <Section>
-        <Heading>{page.data.title}</Heading>
+        <Title>{page.data.title}</Title>
 
         <Carousel images={page.data.images} />
 
