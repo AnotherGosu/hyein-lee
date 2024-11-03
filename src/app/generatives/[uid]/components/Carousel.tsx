@@ -55,7 +55,7 @@ export const Carousel = ({ images }: CarouselProps) => {
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-5">
+      <div className="flex items-center justify-center gap-2">
         <CarouselButton
           icon={<ArrowLeft />}
           ariaLabel="Previous image"
@@ -63,16 +63,14 @@ export const Carousel = ({ images }: CarouselProps) => {
           onClick={onPrevButtonClick}
         />
 
-        <div className="flex gap-2">
-          {scrollSnaps.map((_, idx) => (
-            <CarouselDot
-              key={idx}
-              arialLabel={`Go to image ${idx + 1}`}
-              isSelected={selectedIndex === idx}
-              onClick={() => onDotClick(idx)}
-            />
-          ))}
-        </div>
+        {scrollSnaps.map((_, idx) => (
+          <CarouselDot
+            key={idx}
+            arialLabel={`Go to image ${idx + 1}`}
+            isSelected={selectedIndex === idx}
+            onClick={() => onDotClick(idx)}
+          />
+        ))}
 
         <CarouselButton
           icon={<ArrowRight />}

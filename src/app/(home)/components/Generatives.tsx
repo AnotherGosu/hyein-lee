@@ -34,7 +34,7 @@ export const Generatives = () => {
         </Suspense>
       </div>
 
-      <ButtonLink href="/generatives">All generatives</ButtonLink>
+      <ButtonLink href="/generatives">All Generatives</ButtonLink>
     </Section>
   );
 };

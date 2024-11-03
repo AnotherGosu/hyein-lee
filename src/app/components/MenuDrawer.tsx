@@ -85,7 +85,7 @@ const Socials = () => {
           key={href}
           href={href}
           target="_blank"
-          className="focus-ring rounded-sm *:size-6 hover:fill-primary-300"
+          className="focus-ring rounded-sm *:size-6 hover:fill-primary-500"
         >
           {icon}
         </a>

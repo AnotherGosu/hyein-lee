@@ -1,7 +1,6 @@
 import { PrismicPreview } from "@prismicio/next";
-import { domAnimation, LazyMotion } from "framer-motion";
 import { Metadata } from "next";
-import { Lora, Montserrat } from "next/font/google";
+import { Lora } from "next/font/google";
 
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
@@ -10,31 +9,39 @@ import { ScrollToTopButton } from "./components/ScrollToTopButton";
 import "./globals.css";
 import { repositoryName } from "@/prismicio";
 
-const headlineFont = Lora({
+const lora = Lora({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-headline",
-});
-
-const paragraphFont = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-paragraph",
+  variable: "--font-lora",
 });
 
 export const metadata: Metadata = {
   title: { default: "Hyein Lee", template: "%s | Hyein Lee" },
-  description: "Hyein Lee - law, art and AI.",
+  description: "Hyein Lee - Artist & AI Creator",
   generator: "Next.js",
   applicationName: "Hyein Lee",
   referrer: "origin-when-cross-origin",
-  keywords: ["Hyein Lee", "Artworks", "Generatives", "Blog"],
+  keywords: [
+    "Hyein Lee",
+    "Artist",
+    "Artworks",
+    "AI",
+    "AI Images",
+    "Generative Images",
+    "Generatives",
+    "Blog",
+  ],
   authors: [
     { name: "Hyein Lee" },
     { name: "Maksim Dubinin", url: "https://anothergosu.com" },
   ],
   creator: "Hyein Lee",
   publisher: "Hyein Lee",
+  openGraph: {
+    siteName: "Hyein Lee",
+    description: "Hyein Lee - Artist & AI Creator",
+    url: "https://hyein-lee.vercel.app/",
+  },
 };
 
 export default function RootLayout({
@@ -44,21 +51,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <LazyMotion features={domAnimation}>
-        <body
-          className={`${headlineFont.variable} ${paragraphFont.variable} bg-background font-paragraph text-paragraph antialiased`}
-        >
-          <div className="flex min-h-svh flex-col">
-            <Header />
-            <main className="relative grow">{children}</main>
-            <Footer />
-          </div>
+      <body
+        className={`${lora.variable} font-lora bg-background text-slate-950 antialiased`}
+      >
+        <div className="flex min-h-svh flex-col">
+          <Header />
+          <main className="relative grow">{children}</main>
+          <Footer />
+        </div>
 
-          <ScrollToTopButton />
+        <ScrollToTopButton />
 
-          <PrismicPreview repositoryName={repositoryName} />
-        </body>
-      </LazyMotion>
+        <PrismicPreview repositoryName={repositoryName} />
+      </body>
     </html>
   );
 }

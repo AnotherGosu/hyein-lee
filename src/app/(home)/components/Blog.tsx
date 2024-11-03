@@ -24,7 +24,7 @@ export const Blog = () => {
           fallback={
             <ListFallback
               length={4}
-              className="h-36"
+              className="h-[9.5rem]"
             />
           }
         >
@@ -32,7 +32,7 @@ export const Blog = () => {
         </Suspense>
       </div>
 
-      <ButtonLink href="/blog">All posts</ButtonLink>
+      <ButtonLink href="/blog">All Posts</ButtonLink>
     </Section>
   );
 };
@@ -46,14 +46,16 @@ const FeaturedItems = async () => {
         <Link
           key={uid}
           href={`/blog/${uid}`}
-          className="focus-ring rounded-md border border-primary-200"
+          className="focus-ring rounded-md border border-primary-300"
         >
-          <div className="h-full p-6 duration-500 hover:bg-primary-100">
+          <div className="h-full p-6 duration-500 hover:bg-primary-300">
             <h3 className="mb-2 truncate text-lg font-semibold text-primary-600">
               {data.title}
             </h3>
 
-            <p className="line-clamp-3 text-sm font-medium">{data.subtitle}</p>
+            <p className="line-clamp-3 text-sm font-medium leading-relaxed">
+              {data.subtitle}
+            </p>
           </div>
         </Link>
       ))}

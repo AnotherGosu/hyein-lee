@@ -7,7 +7,9 @@ export const RichText = (props: PrismicRichTextProps) => {
       <PrismicRichText
         components={{
           paragraph: ({ children }: PropsWithChildren) => (
-            <p className="mb-4 md:text-lg">{children}</p>
+            <p className="mb-4 text-sm leading-relaxed md:text-base md:leading-loose">
+              {children}
+            </p>
           ),
         }}
         {...props}

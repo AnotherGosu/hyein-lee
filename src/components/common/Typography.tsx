@@ -42,7 +42,7 @@ export const Paragpraph = ({ children, className }: TypographyProps) => {
   return (
     <p
       className={cn(
-        "mx-auto max-w-5xl text-center text-sm leading-relaxed md:text-lg",
+        "mx-auto max-w-5xl text-center text-sm leading-relaxed md:text-base md:leading-loose",
         className,
       )}
     >

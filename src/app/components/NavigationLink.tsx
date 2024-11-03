@@ -15,8 +15,8 @@ export const NavigationLink = ({ title, ...props }: NavigationLinkProps) => {
   return (
     <Link
       {...props}
-      className={cn("focus-ring rounded-sm p-1 text-xl font-medium", {
-        "text-primary-500": isActive,
+      className={cn("focus-ring rounded-sm px-0.5 text-xl font-medium", {
+        "text-primary-600": isActive,
         "hover:text-primary-300": !isActive,
       })}
     >

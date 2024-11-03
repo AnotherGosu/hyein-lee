@@ -18,7 +18,7 @@ export const ListItem = ({
   return (
     <Link
       href={`/generatives/${uid}`}
-      className="focus-ring group relative animate-fadeIn overflow-hidden rounded-md border border-primary-200"
+      className="focus-ring group relative animate-fadeIn overflow-hidden rounded-md border border-primary-300"
     >
       {isHighlight && <HighlightBadge />}
 
@@ -29,8 +29,8 @@ export const ListItem = ({
         className="h-72 object-cover sm:h-96"
       />
 
-      <div className="p-4 duration-500 group-hover:bg-primary-100">
-        <h3 className="truncate font-semibold text-primary-500">
+      <div className="p-4 duration-500 group-hover:bg-primary-300">
+        <h3 className="truncate font-semibold text-primary-600">
           {data.title}
         </h3>
         <p className="truncate text-sm">{data.subtitle}</p>

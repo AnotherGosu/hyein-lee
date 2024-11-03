@@ -16,7 +16,7 @@ export const TagsSection = ({ tags }: TagsSectionProps) => {
           <Link
             key={tag}
             href={`/generatives?tags=${tag}`}
-            className="focus-ring rounded-md border border-primary-200 px-2 py-1 hover:bg-primary-100"
+            className="focus-ring rounded-md border border-primary-600 px-2 py-1 hover:bg-primary-400"
           >
             {tag}
           </Link>

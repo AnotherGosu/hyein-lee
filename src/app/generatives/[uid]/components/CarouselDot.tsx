@@ -17,8 +17,8 @@ export const CarouselDot = ({
       aria-label={arialLabel}
       onClick={onClick}
       className={cn(
-        "focus-ring size-5 rounded-full border border-primary-300",
-        { "bg-primary-300": isSelected, "hover:bg-primary-200": !isSelected },
+        "focus-ring size-5 rounded-full border border-primary-600",
+        { "bg-primary-600": isSelected, "hover:bg-primary-400": !isSelected },
       )}
     />
   );

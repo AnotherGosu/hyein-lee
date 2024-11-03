@@ -1,63 +1,34 @@
-import * as motion from "framer-motion/m";
 import Image from "next/image";
-
-import { cn } from "@/utils/cn";
 
 import heroImage from "@/images/hero.png";
 
-import { Section } from "@/components/common/Typography";
+import { Paragpraph, Section } from "@/components/common/Typography";
 
 export const Hero = () => {
   return (
-    <Section className="items-center justify-center overflow-hidden">
-      <div className="relative flex w-full justify-end">
-        <Title />
-        <ImageContainer />
+    <Section>
+      <h1 className="border-b border-t border-slate-950 py-4 text-center text-5xl uppercase tracking-wider sm:text-7xl md:text-9xl">
+        Hyein Lee
+      </h1>
+
+      <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
+        <Paragpraph className="order-2 text-center lg:order-1 lg:text-left">
+          <b>Hello! I&#39;m Hyein Lee</b>, someone deeply passionate about{" "}
+          <i>law, art and AI</i>. I&#39;m always curious about how legal
+          principles shape society and eager to explore justice. As an artist, I
+          express myself through drawing and love creating works inspired by
+          life and imagination. Recently, I&#39;ve been blending my creativity
+          with AI tools, pushing the boundaries of traditional art forms by
+          generating unique, tech-assisted visuals.
+        </Paragpraph>
+
+        <Image
+          src={heroImage}
+          alt="Portrait of Hyein Lee"
+          priority
+          className="order-1 mx-auto max-h-[30rem] w-auto lg:order-2 lg:max-h-max"
+        />
       </div>
     </Section>
-  );
-};
-
-const Title = () => {
-  return (
-    <h1
-      className={cn(
-        "absolute bottom-0 left-0 z-10 uppercase leading-none [text-shadow:_2px_2px_0px_white]",
-        "text-7xl xs:text-8xl sm:text-9xl lg:text-[10rem] xl:text-[10rem] 2xl:text-[12rem]",
-      )}
-    >
-      <motion.div
-        initial={{ opacity: 0, y: "50%" }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.7 }}
-      >
-        Hyein
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: "50%" }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9, duration: 0.7 }}
-      >
-        Lee
-      </motion.div>
-    </h1>
-  );
-};
-
-const ImageContainer = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1.6, duration: 0.7 }}
-    >
-      <Image
-        src={heroImage}
-        alt="Portrait of Hyein Lee"
-        priority
-        className="max-h-[calc(100svh-6.25rem)] object-cover"
-      />
-    </motion.div>
   );
 };

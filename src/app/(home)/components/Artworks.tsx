@@ -42,7 +42,7 @@ export const Artworks = () => {
         </Suspense>
       </div>
 
-      <ButtonLink href="/artworks">All artworks</ButtonLink>
+      <ButtonLink href="/artworks">All Artworks</ButtonLink>
     </Section>
   );
 };

@@ -48,9 +48,10 @@ export const TagsDrawer = ({ tags }: TagsDrawerProps) => {
                   type="button"
                   onClick={() => onToggleTag(tag)}
                   className={cn(
-                    "focus-ring rounded-md border border-primary-200 px-2 py-1 hover:bg-primary-100",
+                    "focus-ring rounded-md border border-primary-600 px-2 py-1 hover:bg-primary-400",
                     {
-                      "bg-primary-200": activeTags.includes(tag),
+                      "bg-primary-600 text-white hover:bg-primary-500":
+                        activeTags.includes(tag),
                     },
                   )}
                 >

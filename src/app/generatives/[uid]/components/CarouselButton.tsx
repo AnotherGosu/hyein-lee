@@ -1,3 +1,5 @@
+import { Button } from "@/components/common/Button";
+
 interface CarosuleButtonProps {
   icon: React.ReactNode;
   ariaLabel: string;
@@ -12,14 +14,13 @@ export const CarouselButton = ({
   onClick,
 }: CarosuleButtonProps) => {
   return (
-    <button
-      type="button"
+    <Button
       aria-label={ariaLabel}
       disabled={isDisabled}
       onClick={onClick}
-      className="focus-ring rounded-full bg-primary-200 p-2.5 hover:bg-primary-300 disabled:pointer-events-none disabled:opacity-50"
+      className="size-10 rounded-full p-0"
     >
       {icon}
-    </button>
+    </Button>
   );
 };
