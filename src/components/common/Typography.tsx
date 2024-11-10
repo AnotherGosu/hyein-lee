@@ -53,7 +53,12 @@ export const Paragpraph = ({ children, className }: TypographyProps) => {
 
 export const Title = ({ children, className }: TypographyProps) => {
   return (
-    <h2 className={cn("text-center text-3xl font-semibold", className)}>
+    <h2
+      className={cn(
+        "text-center text-2xl font-semibold md:text-3xl",
+        className,
+      )}
+    >
       {children}
     </h2>
   );
