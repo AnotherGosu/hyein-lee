@@ -1,3 +1,5 @@
+import { cn } from "@/utils/cn";
+
 import { DEV_LINK, EMAIl, SOCIAL_LINKS } from "@/constants/common";
 
 import { Mail } from "@/components/icons/Mail";
@@ -29,7 +31,10 @@ const Development = () => {
     <a
       href={DEV_LINK}
       target="_blank"
-      className="focus-ring rounded-sm text-sm underline"
+      className={cn(
+        "text-sm underline outline-none transition",
+        "hover:text-primary-500 focus:text-primary-500 active:text-primary-600",
+      )}
     >
       Development by Maksim Dubinin
     </a>
@@ -38,13 +43,16 @@ const Development = () => {
 
 const Socials = () => {
   return (
-    <div className="flex gap-3 sm:justify-end">
+    <div className="flex gap-4 sm:justify-end">
       {SOCIAL_LINKS.map(({ icon, href }) => (
         <a
           key={href}
           href={href}
           target="_blank"
-          className="focus-ring rounded-sm hover:fill-primary-500"
+          className={cn(
+            "outline-none transition",
+            "hover:fill-primary-500 focus:fill-primary-500 active:fill-primary-600",
+          )}
         >
           {icon}
         </a>
@@ -58,7 +66,10 @@ const Contact = () => {
     <a
       href={`mailto:${EMAIl}`}
       target="_blank"
-      className="focus-ring flex items-center gap-1 rounded-sm"
+      className={cn(
+        "flex items-center gap-1 rounded-sm outline-none transition",
+        "hover:text-primary-500 focus:text-primary-500 active:text-primary-600",
+      )}
     >
       <Mail />
       {EMAIl}

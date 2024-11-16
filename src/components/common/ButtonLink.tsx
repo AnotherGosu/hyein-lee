@@ -19,7 +19,8 @@ export const ButtonLink = ({
   return (
     <Link
       className={cn(
-        "focus-ring group flex w-max items-center justify-center gap-2 rounded-full bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700",
+        "group flex h-10 w-max items-center justify-center gap-2 rounded-full bg-primary-600 px-3 text-sm font-semibold text-white outline-none ring-inset ring-blue-500 transition",
+        "hover:bg-primary-700 focus:ring-2 active:bg-primary-800",
         className,
       )}
       {...props}

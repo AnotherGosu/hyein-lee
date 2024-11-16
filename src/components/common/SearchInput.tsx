@@ -16,7 +16,8 @@ export const SearchInput = ({
       defaultValue={search}
       onChange={(e) => onSearch(e.target.value)}
       className={cn(
-        "focus-ring grow rounded-md border border-primary-600 bg-primary-50 px-4 py-2.5 font-medium placeholder:text-primary-500",
+        "h-10 grow rounded-md border border-primary-300 bg-primary-50 px-3 text-sm font-medium outline-none ring-primary-500 transition",
+        "placeholder:text-primary-500 hover:border-primary-400 focus:ring-1",
         className,
       )}
       {...props}

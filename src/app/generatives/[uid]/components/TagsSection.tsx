@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { cn } from "@/utils/cn";
+
 import { SubHeading } from "@/components/common/Typography";
 
 interface TagsSectionProps {
@@ -16,7 +18,10 @@ export const TagsSection = ({ tags }: TagsSectionProps) => {
           <Link
             key={tag}
             href={`/generatives?tags=${tag}`}
-            className="focus-ring rounded-md border border-primary-600 px-2 py-1 hover:bg-primary-400"
+            className={cn(
+              "rounded-md border border-primary-300 px-2 py-1 outline-none transition",
+              "hover:border-primary-400 hover:bg-primary-200 focus:border-primary-400 focus:bg-primary-200 active:bg-primary-300",
+            )}
           >
             {tag}
           </Link>

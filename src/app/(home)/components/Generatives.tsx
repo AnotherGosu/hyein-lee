@@ -24,9 +24,9 @@ export const Generatives = () => {
       <div
         className={cn(
           "grid grid-cols-1 grid-rows-[23rem_23rem_23rem] gap-4 transition-all duration-1000 md:grid-cols-[1fr_1fr_1fr] md:grid-rows-[29rem]",
-          "md:has-[a:nth-child(1):hover]:grid-cols-[4fr_3fr_3fr]",
-          "md:has-[a:nth-child(2):hover]:grid-cols-[3fr_4fr_3fr]",
-          "md:has-[a:nth-child(3):hover]:grid-cols-[3fr_3fr_4fr]",
+          "md:has-[a:nth-child(1):focus]:grid-cols-[4fr_3fr_3fr] md:has-[a:nth-child(1):hover]:grid-cols-[4fr_3fr_3fr]",
+          "md:has-[a:nth-child(2):focus]:grid-cols-[3fr_4fr_3fr] md:has-[a:nth-child(2):hover]:grid-cols-[3fr_4fr_3fr]",
+          "md:has-[a:nth-child(3):focus]:grid-cols-[3fr_3fr_4fr] md:has-[a:nth-child(3):hover]:grid-cols-[3fr_3fr_4fr]",
         )}
       >
         <Suspense fallback={<ListFallback length={3} />}>

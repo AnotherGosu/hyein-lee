@@ -6,6 +6,7 @@ import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
 import { HighlightList } from "./components/HighlightList";
 import { List } from "./components/List";
+import { Pagination } from "./components/Pagination";
 import { Search } from "./components/Search";
 
 export const metadata: Metadata = {
@@ -38,6 +39,8 @@ export default function Page({ searchParams }: PageProps) {
           {isHighlightList && <HighlightList />}
           <List searchParams={searchParams} />
         </div>
+
+        <Pagination searchParams={searchParams} />
       </Section>
     </>
   );

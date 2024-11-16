@@ -24,11 +24,11 @@ export const ListFallback = ({
 };
 
 export const SearchInputFallback = () => {
-  return <div className="fallback h-[2.875rem] grow" />;
+  return <div className="fallback h-10 grow" />;
 };
 
 export const TagSearchFallback = () => {
-  return <div className="fallback h-[2.875rem] w-[6.125rem]" />;
+  return <div className="fallback h-10 w-[6.125rem]" />;
 };
 
 export const PaginationFallback = () => {

@@ -3,7 +3,14 @@
 import { useState } from "react";
 import { Drawer as VaulDrawer } from "vaul";
 
-import { NAVIGATION_LINKS, SOCIAL_LINKS } from "@/constants/common";
+import { cn } from "@/utils/cn";
+
+import {
+  DEV_LINK,
+  EMAIl,
+  NAVIGATION_LINKS,
+  SOCIAL_LINKS,
+} from "@/constants/common";
 
 import { Button } from "@/components/common/Button";
 import { Mail } from "@/components/icons/Mail";
@@ -39,7 +46,8 @@ export const MenuDrawer = () => {
 
             <div className="flex flex-col gap-4">
               <Socials />
-              <Contacts />
+              <Development />
+              <Contact />
             </div>
           </div>
         </VaulDrawer.Content>
@@ -79,13 +87,16 @@ const Navigation = ({ onClick }: { onClick: () => void }) => {
 
 const Socials = () => {
   return (
-    <div className="flex justify-between">
+    <div className="flex gap-4">
       {SOCIAL_LINKS.map(({ icon, href }) => (
         <a
           key={href}
           href={href}
           target="_blank"
-          className="focus-ring rounded-sm *:size-6 hover:fill-primary-500"
+          className={cn(
+            "outline-none transition",
+            "hover:fill-primary-500 focus:fill-primary-500 active:fill-primary-600",
+          )}
         >
           {icon}
         </a>
@@ -94,25 +105,33 @@ const Socials = () => {
   );
 };
 
-const Contacts = () => {
+const Development = () => {
   return (
-    <>
-      <a
-        href="mailto:hyein2399@gmail.com"
-        target="_blank"
-        className="focus-ring flex items-center gap-1 rounded-sm"
-      >
-        <Mail />
-        hyein2399@gmail.com
-      </a>
+    <a
+      href={DEV_LINK}
+      target="_blank"
+      className={cn(
+        "text-sm underline outline-none transition",
+        "hover:text-primary-500 focus:text-primary-500 active:text-primary-600",
+      )}
+    >
+      Development by Maksim Dubinin
+    </a>
+  );
+};
 
-      <a
-        href="https://www.anothergosu.com/"
-        target="_blank"
-        className="focus-ring rounded-sm text-xs underline"
-      >
-        Development by Maksim Dubinin
-      </a>
-    </>
+const Contact = () => {
+  return (
+    <a
+      href={`mailto:${EMAIl}`}
+      target="_blank"
+      className={cn(
+        "flex items-center gap-1 rounded-sm outline-none transition",
+        "hover:text-primary-500 focus:text-primary-500 active:text-primary-600",
+      )}
+    >
+      <Mail />
+      {EMAIl}
+    </a>
   );
 };

@@ -3,10 +3,10 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Drawer } from "vaul";
 
-import { cn } from "@/utils/cn";
-
 import { Button } from "@/components/common/Button";
 import { Tags } from "@/components/icons/Tags";
+
+import { TagButton } from "./TagButton";
 
 interface TagsDrawerProps {
   tags: string[];
@@ -42,22 +42,18 @@ export const TagsDrawer = ({ tags }: TagsDrawerProps) => {
             </Drawer.Title>
 
             <div className="mx-auto flex max-h-96 flex-wrap gap-3 overflow-y-auto">
-              {tags.map((tag) => (
-                <button
-                  key={tag}
-                  type="button"
-                  onClick={() => onToggleTag(tag)}
-                  className={cn(
-                    "focus-ring rounded-md border border-primary-600 px-2 py-1 hover:bg-primary-400",
-                    {
-                      "bg-primary-600 text-white hover:bg-primary-500":
-                        activeTags.includes(tag),
-                    },
-                  )}
-                >
-                  {tag}
-                </button>
-              ))}
+              {tags.map((tag) => {
+                const isActive = activeTags.includes(tag);
+
+                return (
+                  <TagButton
+                    key={tag}
+                    tag={tag}
+                    onClick={() => onToggleTag(tag)}
+                    isActive={isActive}
+                  />
+                );
+              })}
             </div>
           </div>
         </Drawer.Content>

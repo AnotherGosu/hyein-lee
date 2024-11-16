@@ -27,7 +27,8 @@ export const ImageLink = ({
     <Link
       href={href}
       className={cn(
-        "focus-ring group relative overflow-hidden rounded-md",
+        "group relative overflow-hidden rounded-md outline-none ring-blue-500 transition",
+        "focus:ring-2",
         className,
       )}
     >
@@ -57,8 +58,9 @@ const Note = ({
   return (
     <div
       className={cn(
-        "absolute bottom-0 left-0 z-10 w-full select-none bg-black/30 px-4 py-2 text-white",
-        "transition-opacity duration-1000 group-hover:opacity-100 sm:opacity-0",
+        "absolute bottom-0 left-0 z-10 w-full select-none bg-black/30 px-4 py-2 text-white transition-all duration-500",
+        "sm:opacity-0",
+        "group-hover:opacity-100 group-focus:opacity-100",
       )}
     >
       <h3 className="truncate font-semibold text-white">{title}</h3>

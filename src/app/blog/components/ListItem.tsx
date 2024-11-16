@@ -21,8 +21,9 @@ export const ListItem = ({
     <Link
       href={`/blog/${uid}`}
       className={cn(
-        "focus-ring group relative grid animate-fadeIn overflow-hidden rounded-md border border-primary-300",
-        "grid-cols-1 md:h-52 md:grid-cols-[1fr_2fr]",
+        "group relative grid animate-fadeIn grid-cols-1 overflow-hidden rounded-md border border-primary-300 outline-none transition",
+        "md:h-52 md:grid-cols-[1fr_2fr]",
+        "focus:border-primary-400",
       )}
     >
       {isHighlight && <HighlightBadge />}
@@ -34,7 +35,12 @@ export const ListItem = ({
         className="h-40 object-cover md:h-52"
       />
 
-      <div className="p-4 duration-500 group-hover:bg-primary-300">
+      <div
+        className={cn(
+          "p-4 transition duration-500",
+          "group-hover:bg-primary-200 group-focus:bg-primary-200 group-active:bg-primary-300",
+        )}
+      >
         <h3 className="mb-2 text-lg font-semibold text-primary-600 md:text-xl">
           {data.title}
         </h3>

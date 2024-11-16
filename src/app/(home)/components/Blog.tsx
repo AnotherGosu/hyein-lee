@@ -3,6 +3,8 @@ import { Suspense } from "react";
 
 import { getFeatures } from "@/api/getFeatures";
 
+import { cn } from "@/utils/cn";
+
 import { ButtonLink } from "@/components/common/ButtonLink";
 import { ListFallback } from "@/components/common/Fallback";
 import { Heading, Paragpraph, Section } from "@/components/common/Typography";
@@ -46,9 +48,12 @@ const FeaturedItems = async () => {
         <Link
           key={uid}
           href={`/blog/${uid}`}
-          className="focus-ring rounded-md border border-primary-300"
+          className={cn(
+            "rounded-md border border-primary-300 outline-none transition duration-500",
+            "hover:border-primary-400 hover:bg-primary-100 focus:border-primary-400 focus:bg-primary-100 active:bg-primary-200",
+          )}
         >
-          <div className="h-full p-6 duration-500 hover:bg-primary-300">
+          <div className="h-full p-6">
             <h3 className="mb-2 truncate text-lg font-semibold text-primary-600">
               {data.title}
             </h3>

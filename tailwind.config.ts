@@ -29,7 +29,7 @@ const config: Config = {
         },
       },
       screens: { xs: "475px" },
-      animation: { fadeIn: "fade 0.7s ease-in-out" },
+      animation: { fadeIn: "fade 1s ease-in-out" },
       keyframes: { fade: { "0%": { opacity: "0" }, "100%": { opacity: "1" } } },
     },
   },

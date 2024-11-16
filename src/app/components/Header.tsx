@@ -6,7 +6,7 @@ import { NavigationLink } from "./NavigationLink";
 export const Header = () => {
   return (
     <header>
-      <div className="mx-auto max-w-7xl p-4">
+      <div className="mx-auto max-w-7xl p-4 pb-0">
         <Navigation />
         <MenuDrawer />
       </div>

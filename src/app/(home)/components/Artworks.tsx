@@ -24,9 +24,11 @@ export const Artworks = () => {
       <div
         className={cn(
           "grid auto-rows-[5rem] grid-cols-1 gap-4 transition-all duration-1000 sm:grid-cols-[1fr_1fr] sm:grid-rows-[18rem_18rem]",
-          "sm:has-[a:nth-child(1):hover]:grid-cols-[4fr_3fr]",
+          "sm:has-[a:nth-child(1):focus]:grid-cols-[4fr_3fr] sm:has-[a:nth-child(1):hover]:grid-cols-[4fr_3fr]",
           "sm:has-[a:nth-child(2):hover]:grid-cols-[3fr_4fr] sm:has-[a:nth-child(2):hover]:grid-rows-[20rem_16rem]",
+          "sm:has-[a:nth-child(2):focus]:grid-cols-[3fr_4fr] sm:has-[a:nth-child(2):focus]:grid-rows-[20rem_16rem]",
           "sm:has-[a:nth-child(3):hover]:grid-cols-[3fr_4fr] sm:has-[a:nth-child(3):hover]:grid-rows-[16rem_20rem]",
+          "sm:has-[a:nth-child(3):focus]:grid-cols-[3fr_4fr] sm:has-[a:nth-child(3):focus]:grid-rows-[16rem_20rem]",
         )}
       >
         <Suspense
