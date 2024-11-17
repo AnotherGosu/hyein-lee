@@ -50,7 +50,7 @@ const FeaturedItems = async () => {
           href={`/blog/${uid}`}
           className={cn(
             "rounded-md border border-primary-300 outline-none transition duration-500",
-            "hover:border-primary-400 hover:bg-primary-100 focus:border-primary-400 focus:bg-primary-100 active:bg-primary-200",
+            "hover:border-primary-400 hover:bg-primary-200 focus:border-primary-400 focus:bg-primary-100 active:bg-primary-200",
           )}
         >
           <div className="h-full p-6">
