@@ -1,3 +1,4 @@
+import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -50,10 +51,16 @@ const FeaturedItems = async () => {
           href={`/blog/${uid}`}
           className={cn(
             "rounded-md border border-primary-300 outline-none transition duration-500",
-            "hover:border-primary-400 hover:bg-primary-200 focus:border-primary-400 focus:bg-primary-100 active:bg-primary-200",
+            "hover:border-primary-400 hover:bg-primary-200 focus:border-primary-400 focus:bg-primary-200 active:bg-primary-300",
           )}
         >
-          <div className="h-full p-6">
+          <PrismicNextImage
+            field={data.image}
+            alt=""
+            className="h-40 object-cover"
+          />
+
+          <div className="p-6">
             <h3 className="mb-2 truncate text-lg font-semibold text-primary-600">
               {data.title}
             </h3>

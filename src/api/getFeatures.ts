@@ -15,6 +15,7 @@ export const getFeatures = async () => {
       "generative.images",
       "post.title",
       "post.subtitle",
+      "post.image",
     ],
   });
 
@@ -40,7 +41,7 @@ interface LinkedGenerative extends Omit<Content.GenerativeDocument, "data"> {
 }
 
 interface LinkedPost extends Omit<Content.PostDocument, "data"> {
-  data: Pick<Content.PostDocumentData, "title" | "subtitle">;
+  data: Pick<Content.PostDocumentData, "title" | "subtitle" | "image">;
 }
 
 type LinkedData = Content.FeaturesDocument & {
