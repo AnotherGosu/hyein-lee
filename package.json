@@ -13,6 +13,7 @@
     "@prismicio/client": "^7.11.0",
     "@prismicio/next": "^1.7.0",
     "@prismicio/react": "^2.9.0",
+    "@vercel/speed-insights": "^1.1.0",
     "embla-carousel-react": "^8.3.0",
     "embla-carousel-wheel-gestures": "^8.0.1",
     "next": "14.2.13",

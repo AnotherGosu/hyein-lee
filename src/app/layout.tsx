@@ -1,4 +1,5 @@
 import { PrismicPreview } from "@prismicio/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import { Lora } from "next/font/google";
 
@@ -52,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lora.variable} font-lora bg-background text-slate-950 antialiased`}
+        className={`${lora.variable} bg-background font-lora text-slate-950 antialiased`}
       >
         <div className="flex min-h-svh flex-col">
           <Header />
@@ -63,6 +64,7 @@ export default function RootLayout({
         <ScrollToTopButton />
 
         <PrismicPreview repositoryName={repositoryName} />
+        <SpeedInsights />
       </body>
     </html>
   );
