@@ -21,7 +21,7 @@ export const ListItem = ({
     <Link
       href={`/blog/${uid}`}
       className={cn(
-        "group relative grid animate-fadeIn grid-cols-1 overflow-hidden rounded-md border border-primary-300 outline-none transition",
+        "group relative grid grid-cols-1 overflow-hidden rounded-md border border-primary-300 outline-none transition",
         "md:h-52 md:grid-cols-[1fr_2fr]",
         "focus:border-primary-400",
       )}

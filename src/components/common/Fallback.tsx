@@ -14,7 +14,7 @@ export const ListFallback = ({
       {keys.map((key) => (
         <div
           key={key}
-          className={cn("h-full animate-fadeIn transition", className)}
+          className={cn("h-full", className)}
         >
           <div className="fallback h-full" />
         </div>

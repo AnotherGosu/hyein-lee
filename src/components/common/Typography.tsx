@@ -19,6 +19,19 @@ export const Section = ({ children, className }: TypographyProps) => {
   );
 };
 
+export const Title = ({ children, className }: TypographyProps) => {
+  return (
+    <h1
+      className={cn(
+        "text-center text-2xl font-semibold md:text-3xl",
+        className,
+      )}
+    >
+      {children}
+    </h1>
+  );
+};
+
 export const Heading = ({ children, className }: TypographyProps) => {
   return (
     <h2
@@ -48,18 +61,5 @@ export const Paragpraph = ({ children, className }: TypographyProps) => {
     >
       {children}
     </p>
-  );
-};
-
-export const Title = ({ children, className }: TypographyProps) => {
-  return (
-    <h2
-      className={cn(
-        "text-center text-2xl font-semibold md:text-3xl",
-        className,
-      )}
-    >
-      {children}
-    </h2>
   );
 };

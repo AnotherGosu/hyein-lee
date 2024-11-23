@@ -21,7 +21,7 @@ export const ListItem = ({
     <Link
       href={`/generatives/${uid}`}
       className={cn(
-        "group relative animate-fadeIn overflow-hidden rounded-md border border-primary-300 outline-none transition",
+        "group relative overflow-hidden rounded-md border border-primary-300 outline-none transition",
         "hover:border-primary-400 focus:border-primary-400",
       )}
     >

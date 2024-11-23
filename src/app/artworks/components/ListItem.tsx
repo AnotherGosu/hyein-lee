@@ -30,7 +30,7 @@ export const ListItem = ({
       title={data.title}
       subtitle={subtitle}
       priority={idx < 4}
-      className={cn("row-span-3 animate-fadeIn sm:row-span-1", {
+      className={cn("row-span-3 sm:row-span-1", {
         "row-span-4 sm:row-span-2": data.tall,
       })}
     >

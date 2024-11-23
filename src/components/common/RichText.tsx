@@ -10,29 +10,66 @@ export const RichText = (props: PrismicRichTextProps) => {
         "text-sm leading-relaxed md:text-base md:leading-loose",
         "[&_a]:text-primary-600 [&_a]:underline",
         "[&_sup]:text-primary-600",
+        "[&_img]:mx-auto [&_img]:mb-3 [&_img]:max-h-[40rem] [&_img]:rounded-md",
       )}
     >
       <PrismicRichText
         components={{
+          heading1: ({ children }) => (
+            <h1 className="mb-3 mt-6 text-2xl font-semibold md:text-3xl">
+              {children}
+            </h1>
+          ),
+
+          heading2: ({ children }) => (
+            <h2 className="mb-3 mt-6 text-xl font-semibold md:text-2xl">
+              {children}
+            </h2>
+          ),
+
           heading3: ({ children }) => (
-            <h3 className="mb-4 mt-6 text-base font-medium md:text-lg">
+            <h3 className="mb-3 mt-6 text-lg font-semibold md:text-xl">
               {children}
             </h3>
           ),
 
           heading4: ({ children }) => (
-            <h4 className="mb-4 mt-6 font-medium">{children}</h4>
+            <h4 className="mb-3 mt-6 text-base font-semibold md:text-lg">
+              {children}
+            </h4>
+          ),
+
+          heading5: ({ children }) => (
+            <h5 className="mb-3 mt-6 text-sm font-semibold md:text-base">
+              {children}
+            </h5>
+          ),
+
+          heading6: ({ children }) => (
+            <h6 className="mb-3 mt-6 text-sm font-medium md:text-base">
+              {children}
+            </h6>
           ),
 
           paragraph: ({ node }) => (
             <p
-              className="mb-4"
+              className="mb-3"
               dangerouslySetInnerHTML={{ __html: formatParagraphNode(node) }}
             />
           ),
 
+          preformatted: ({ children }) => (
+            <pre className="mb-3 text-wrap rounded-sm bg-primary-200 px-2 py-1">
+              {children}
+            </pre>
+          ),
+
           oList: ({ children }) => (
-            <ol className="mb-4 list-inside list-decimal">{children}</ol>
+            <ol className="mb-3 list-inside list-decimal">{children}</ol>
+          ),
+
+          list: ({ children }) => (
+            <ul className="mb-3 list-inside list-disc">{children}</ul>
           ),
         }}
         {...props}
