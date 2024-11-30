@@ -27,10 +27,9 @@ export default function Page({ searchParams }: PageProps) {
         <Heading>Blog</Heading>
 
         <Paragpraph>
-          Exploring the complexities of legal systems, I’m passionate about
-          understanding the principles of justice and how laws shape our
-          society. Whether it&#39;s case studies or legal theory, I love diving
-          deep into the world of law.
+          I created this space to explore and share valuable insights into the
+          complex world of law. Here, you&#39;ll find articles on legal
+          developments, case analyses, practical advice, and commentary.
         </Paragpraph>
 
         <Search />

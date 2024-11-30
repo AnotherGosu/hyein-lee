@@ -27,11 +27,9 @@ export default function Page({ searchParams }: PageProps) {
         <Heading>Artworks</Heading>
 
         <Paragpraph>
-          Drawing has been my creative outlet for years, and these pieces
-          represent my passion for fine details, textures, and the beauty of
-          imperfection that comes with handmade art. From intricate sketches to
-          more refined illustrations, these works capture my artistic vision in
-          its purest form.
+          I love to create art about nature, animals and stories of women. In my
+          artworks, I combine organic shapes with vibrant colors, expressing
+          balance and strength on the canvas.
         </Paragpraph>
 
         <Search />

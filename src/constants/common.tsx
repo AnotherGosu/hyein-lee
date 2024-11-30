@@ -17,7 +17,7 @@ export const SOCIAL_LINKS = [
     href: "https://www.linkedin.com/in/hyein-lee-04480924b/",
   },
   { icon: <Naver />, href: "https://m.blog.naver.com/vanite77" },
-  { icon: <Threads />, href: "https://www.threads.net/@everly_mid" },
+  { icon: <Threads />, href: "https://www.threads.net/@hyeinnovate" },
 ];
 
 export const DEV_LINK = "https://www.anothergosu.com/";

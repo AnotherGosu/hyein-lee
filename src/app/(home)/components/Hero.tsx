@@ -13,13 +13,11 @@ export const Hero = () => {
 
       <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
         <Paragpraph className="order-2 text-center lg:order-1 lg:text-left">
-          <b>Hello! I&#39;m Hyein Lee</b>, someone deeply passionate about{" "}
-          <i>law, art and AI</i>. I&#39;m always curious about how legal
-          principles shape society and eager to explore justice. As an artist, I
-          express myself through drawing and love creating works inspired by
-          life and imagination. Recently, I&#39;ve been blending my creativity
-          with AI tools, pushing the boundaries of traditional art forms by
-          generating unique, tech-assisted visuals.
+          Hi, I’m <b>Hyein Lee</b>, a law enthusiast, artist and AI creator.
+          Welcome to my blog, where I share insights about law, my artistic
+          journey, AI experiments, and various creative projects. Explore my
+          website and feel free to reach out for collaboration or work
+          opportunities.
         </Paragpraph>
 
         <Image

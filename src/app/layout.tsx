@@ -18,30 +18,28 @@ const lora = Lora({
 
 export const metadata: Metadata = {
   title: { default: "Hyein Lee", template: "%s | Hyein Lee" },
-  description: "Hyein Lee - Artist & AI Creator",
+  description: "Hyein Lee - law enthusiast, artist and AI creator.",
   generator: "Next.js",
   applicationName: "Hyein Lee",
-  referrer: "origin-when-cross-origin",
   keywords: [
     "Hyein Lee",
-    "Artist",
+    "Art",
     "Artworks",
     "AI",
-    "AI Images",
     "Generative Images",
-    "Generatives",
+    "Law",
     "Blog",
   ],
   authors: [
     { name: "Hyein Lee" },
-    { name: "Maksim Dubinin", url: "https://anothergosu.com" },
+    { name: "Maksim Dubinin", url: "https://anothergosu.com/" },
   ],
   creator: "Hyein Lee",
   publisher: "Hyein Lee",
   openGraph: {
     siteName: "Hyein Lee",
-    description: "Hyein Lee - Artist & AI Creator",
-    url: "https://hyein-lee.vercel.app/",
+    description: "Hyein Lee - law enthusiast, artist and AI creator.",
+    url: "https://www.hyeinnovate.com/",
   },
 };
 

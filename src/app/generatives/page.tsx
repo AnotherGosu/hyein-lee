@@ -27,10 +27,10 @@ export default function Page({ searchParams }: PageProps) {
         <Heading>Generatives</Heading>
 
         <Paragpraph>
-          By blending my artistic direction with AI tools, I&#39;ve created
-          visually stunning and unexpected results, pushing the boundaries of
-          what can be achieved with technology. These works are a glimpse into
-          the future of art, where imagination meets innovation.
+          Transforming architectural and interior design concepts into AI
+          generated-art is my passion. With tools like MidJourney, I’m
+          experimenting with parameters to produce unique, high-quality imagery
+          that sparks imagination.
         </Paragpraph>
 
         <Search />
