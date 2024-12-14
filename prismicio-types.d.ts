@@ -521,11 +521,158 @@ interface PostDocumentData {
 export type PostDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PostDocumentData>, "post", Lang>;
 
+/**
+ * Item in *Product → Images*
+ */
+export interface ProductDocumentDataImagesItem {
+  /**
+   * Image field in *Product → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+type ProductDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Product documents
+ */
+interface ProductDocumentData {
+  /**
+   * Title field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Product title
+   * - **API ID Path**: product.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Product description
+   * - **API ID Path**: product.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Type field in *Product*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Product type
+   * - **API ID Path**: product.type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  type: prismic.SelectField<"Book" | "Wallpaper">;
+
+  /**
+   * Price field in *Product*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: Product price
+   * - **API ID Path**: product.price
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  price: prismic.NumberField;
+
+  /**
+   * Images field in *Product*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.images[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<Simplify<ProductDocumentDataImagesItem>>;
+
+  /**
+   * Link field in *Product*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Product link
+   * - **API ID Path**: product.link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Slice Zone field in *Product*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice> /**
+   * Meta Title field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: product.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: product.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Product document from Prismic
+ *
+ * - **API ID**: `product`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProductDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProductDocumentData>,
+    "product",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | ArtworkDocument
   | FeaturesDocument
   | GenerativeDocument
-  | PostDocument;
+  | PostDocument
+  | ProductDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -560,6 +707,10 @@ declare module "@prismicio/client" {
       PostDocument,
       PostDocumentData,
       PostDocumentDataSlicesSlice,
+      ProductDocument,
+      ProductDocumentData,
+      ProductDocumentDataImagesItem,
+      ProductDocumentDataSlicesSlice,
       AllDocumentTypes,
     };
   }
