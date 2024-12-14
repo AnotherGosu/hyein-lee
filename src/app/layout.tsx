@@ -1,4 +1,5 @@
 import { PrismicPreview } from "@prismicio/next";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import { Lora } from "next/font/google";
@@ -63,6 +64,7 @@ export default function RootLayout({
 
         <PrismicPreview repositoryName={repositoryName} />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
