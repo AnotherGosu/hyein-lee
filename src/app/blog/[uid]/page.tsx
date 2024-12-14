@@ -8,12 +8,12 @@ import { Section, Title } from "@/components/common/Typography";
 import { createClient } from "@/prismicio";
 
 interface PageProps {
-  params: { uid: string };
+  params: Promise<{ uid: string }>;
 }
 
-export async function generateMetadata({
-  params: { uid },
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+  const { uid } = await props.params;
+
   const client = createClient();
 
   const page = await client.getByUID("post", uid).catch(() => notFound());
@@ -41,7 +41,9 @@ export async function generateStaticParams() {
   return pages.map(({ uid }) => ({ uid }));
 }
 
-export default async function Page({ params: { uid } }: PageProps) {
+export default async function Page(props: PageProps) {
+  const { uid } = await props.params;
+
   const client = createClient();
 
   const page = await client.getByUID("post", uid).catch(() => notFound());
