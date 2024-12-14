@@ -15,10 +15,12 @@ export const metadata: Metadata = {
 };
 
 interface PageProps {
-  searchParams: SearchParams;
+  searchParams: Promise<SearchParams>;
 }
 
-export default function Page({ searchParams }: PageProps) {
+export default async function Page(props: PageProps) {
+  const searchParams = await props.searchParams;
+
   const isHighlightList = Object.keys(searchParams).length === 0;
 
   return (

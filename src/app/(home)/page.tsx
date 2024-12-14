@@ -6,7 +6,7 @@ import { Generatives } from "./components/Generatives";
 import { Hero } from "./components/Hero";
 
 export const metadata: Metadata = {
-  description: "Hyein Lee - Artist and AI Creator",
+  description: "Hyein Lee - law enthusiast, artist and AI creator",
 };
 
 export default function Page() {
