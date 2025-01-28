@@ -22,7 +22,7 @@ export const TagsDrawer = ({ tags }: TagsDrawerProps) => {
           <Tags />
           Tags
           {activeTags.length > 0 && (
-            <span className="absolute -right-2 -top-2 size-5 rounded-full bg-black text-sm text-white">
+            <span className="absolute -top-2 -right-2 size-5 rounded-full bg-black text-sm text-white">
               {activeTags.length}
             </span>
           )}
@@ -34,7 +34,7 @@ export const TagsDrawer = ({ tags }: TagsDrawerProps) => {
 
         <Drawer.Content
           aria-describedby={undefined}
-          className="fixed bottom-0 left-0 right-0 z-50 bg-background p-8 outline-none"
+          className="bg-background fixed right-0 bottom-0 left-0 z-50 p-8 outline-hidden"
         >
           <div className="mx-auto max-w-7xl">
             <Drawer.Title className="mb-4 text-2xl font-semibold">

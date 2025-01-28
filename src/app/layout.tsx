@@ -14,7 +14,6 @@ import { repositoryName } from "@/prismicio";
 const lora = Lora({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-lora",
 });
 
 export const metadata: Metadata = {
@@ -52,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lora.variable} bg-background font-lora text-slate-950 antialiased`}
+        className={`${lora.className} bg-background text-primary-950 antialiased`}
       >
         <div className="flex min-h-svh flex-col">
           <Header />

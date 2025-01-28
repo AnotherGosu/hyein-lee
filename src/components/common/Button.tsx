@@ -11,8 +11,8 @@ export const Button = forwardRef<
       ref={ref}
       type={type}
       className={cn(
-        "flex h-10 items-center justify-center gap-2 rounded-md bg-primary-500 px-3 font-semibold text-white outline-none ring-inset ring-blue-500 transition",
-        "hover:bg-primary-600 focus:ring-2 active:bg-primary-700 disabled:pointer-events-none disabled:opacity-50",
+        "bg-primary-500 flex h-10 items-center justify-center gap-2 rounded-md px-3 font-semibold text-white ring-blue-500 outline-hidden transition ring-inset",
+        "hover:bg-primary-600 active:bg-primary-700 focus:ring-2 disabled:pointer-events-none disabled:opacity-50",
         className,
       )}
       {...props}

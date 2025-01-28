@@ -21,7 +21,7 @@ export const ListItem = ({
     <Link
       href={`/blog/${uid}`}
       className={cn(
-        "group relative grid grid-cols-1 overflow-hidden rounded-md border border-primary-300 outline-none transition",
+        "group border-primary-300 relative grid grid-cols-1 overflow-hidden rounded-md border outline-hidden transition",
         "md:h-52 md:grid-cols-[1fr_2fr]",
         "focus:border-primary-400",
       )}
@@ -41,7 +41,7 @@ export const ListItem = ({
           "group-hover:bg-primary-200 group-focus:bg-primary-200 group-active:bg-primary-300",
         )}
       >
-        <h3 className="mb-2 text-lg font-semibold text-primary-600 md:text-xl">
+        <h3 className="text-primary-600 mb-2 text-lg font-semibold md:text-xl">
           {data.title}
         </h3>
 

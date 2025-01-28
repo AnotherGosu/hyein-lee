@@ -15,7 +15,7 @@ export const NavigationLink = ({ title, ...props }: NavigationLinkProps) => {
   return (
     <Link
       className={cn(
-        "rounded-sm px-0.5 text-xl font-medium underline decoration-transparent underline-offset-8 outline-none transition",
+        "rounded-xs px-0.5 text-xl font-medium underline decoration-transparent underline-offset-8 outline-hidden transition",
         "hover:decoration-primary-400 focus:decoration-primary-400 active:decoration-primary-500",
         { "text-primary-600": isActive },
       )}

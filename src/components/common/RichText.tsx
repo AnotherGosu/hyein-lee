@@ -16,37 +16,37 @@ export const RichText = (props: PrismicRichTextProps) => {
       <PrismicRichText
         components={{
           heading1: ({ children }) => (
-            <h1 className="mb-3 mt-6 text-2xl font-semibold md:text-3xl">
+            <h1 className="mt-6 mb-3 text-2xl font-semibold md:text-3xl">
               {children}
             </h1>
           ),
 
           heading2: ({ children }) => (
-            <h2 className="mb-3 mt-6 text-xl font-semibold md:text-2xl">
+            <h2 className="mt-6 mb-3 text-xl font-semibold md:text-2xl">
               {children}
             </h2>
           ),
 
           heading3: ({ children }) => (
-            <h3 className="mb-3 mt-6 text-lg font-semibold md:text-xl">
+            <h3 className="mt-6 mb-3 text-lg font-semibold md:text-xl">
               {children}
             </h3>
           ),
 
           heading4: ({ children }) => (
-            <h4 className="mb-3 mt-6 text-base font-semibold md:text-lg">
+            <h4 className="mt-6 mb-3 text-base font-semibold md:text-lg">
               {children}
             </h4>
           ),
 
           heading5: ({ children }) => (
-            <h5 className="mb-3 mt-6 text-sm font-semibold md:text-base">
+            <h5 className="mt-6 mb-3 text-sm font-semibold md:text-base">
               {children}
             </h5>
           ),
 
           heading6: ({ children }) => (
-            <h6 className="mb-3 mt-6 text-sm font-medium md:text-base">
+            <h6 className="mt-6 mb-3 text-sm font-medium md:text-base">
               {children}
             </h6>
           ),
@@ -59,7 +59,7 @@ export const RichText = (props: PrismicRichTextProps) => {
           ),
 
           preformatted: ({ children }) => (
-            <pre className="mb-3 text-wrap rounded-sm bg-primary-200 px-2 py-1">
+            <pre className="bg-primary-200 mb-3 rounded-xs px-2 py-1 text-wrap">
               {children}
             </pre>
           ),

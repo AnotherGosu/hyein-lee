@@ -49,7 +49,7 @@ const FeaturedItems = async () => {
           key={uid}
           href={`/blog/${uid}`}
           className={cn(
-            "rounded-md border border-primary-300 outline-none transition duration-500",
+            "border-primary-300 rounded-md border outline-hidden transition duration-500",
             "hover:border-primary-400 hover:bg-primary-200 focus:border-primary-400 focus:bg-primary-200 active:bg-primary-300",
           )}
         >
@@ -60,11 +60,11 @@ const FeaturedItems = async () => {
           />
 
           <div className="p-6">
-            <h3 className="mb-2 truncate text-lg font-semibold text-primary-600">
+            <h3 className="text-primary-600 mb-2 truncate text-lg font-semibold">
               {data.title}
             </h3>
 
-            <p className="line-clamp-3 text-sm font-medium leading-relaxed">
+            <p className="line-clamp-3 text-sm leading-relaxed font-medium">
               {data.subtitle}
             </p>
           </div>

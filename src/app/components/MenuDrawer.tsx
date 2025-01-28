@@ -37,8 +37,8 @@ export const MenuDrawer = () => {
       <VaulDrawer.Portal>
         <VaulDrawer.Overlay className="fixed inset-0 z-40 bg-black/40" />
 
-        <VaulDrawer.Content className="fixed bottom-0 left-0 top-0 z-50 flex outline-none">
-          <div className="flex flex-col justify-between bg-background p-8">
+        <VaulDrawer.Content className="fixed top-0 bottom-0 left-0 z-50 flex outline-hidden">
+          <div className="bg-background flex flex-col justify-between p-8">
             <div className="flex flex-col gap-10">
               <Header />
               <Navigation onClick={() => setIsOpen(false)} />
@@ -94,7 +94,7 @@ const Socials = () => {
           href={href}
           target="_blank"
           className={cn(
-            "outline-none transition",
+            "outline-hidden transition",
             "hover:fill-primary-500 focus:fill-primary-500 active:fill-primary-600",
           )}
         >
@@ -111,7 +111,7 @@ const Development = () => {
       href={DEV_LINK}
       target="_blank"
       className={cn(
-        "text-sm underline outline-none transition",
+        "text-sm underline outline-hidden transition",
         "hover:text-primary-500 focus:text-primary-500 active:text-primary-600",
       )}
     >
@@ -126,7 +126,7 @@ const Contact = () => {
       href={`mailto:${EMAIl}`}
       target="_blank"
       className={cn(
-        "flex items-center gap-1 rounded-sm outline-none transition",
+        "flex items-center gap-1 rounded-xs outline-hidden transition",
         "hover:text-primary-500 focus:text-primary-500 active:text-primary-600",
       )}
     >
