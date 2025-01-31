@@ -85,6 +85,24 @@
           "select": "document",
           "customtypes": ["post"]
         }
+      },
+      "project_1": {
+        "type": "Link",
+        "config": {
+          "label": "Project 1",
+          "select": "document",
+          "repeat": false,
+          "customtypes": ["project"]
+        }
+      },
+      "project_2": {
+        "type": "Link",
+        "config": {
+          "label": "Project 2",
+          "select": "document",
+          "repeat": false,
+          "customtypes": ["project"]
+        }
       }
     }
   }

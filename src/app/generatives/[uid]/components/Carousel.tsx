@@ -5,10 +5,8 @@ import { PrismicNextImage } from "@prismicio/next";
 import type { EmblaCarouselType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
-
-import { ArrowLeft } from "@/components/icons/ArrowLeft";
-import { ArrowRight } from "@/components/icons/ArrowRight";
 
 import { CarouselButton } from "./CarouselButton";
 import { CarouselDot } from "./CarouselDot";
@@ -42,7 +40,7 @@ export const Carousel = ({ images }: CarouselProps) => {
           {images.map(({ image }) => (
             <div
               key={image.id}
-              className="pointer-events-none min-w-0 flex-[0_0_100%] select-none pl-4 md:flex-[0_0_50%] lg:flex-[0_0_calc(100%/3)]"
+              className="pointer-events-none min-w-0 flex-[0_0_100%] pl-4 select-none md:flex-[0_0_50%] lg:flex-[0_0_calc(100%/3)]"
             >
               <PrismicNextImage
                 field={image}
@@ -57,7 +55,7 @@ export const Carousel = ({ images }: CarouselProps) => {
 
       <div className="flex items-center justify-center gap-2">
         <CarouselButton
-          icon={<ArrowLeft />}
+          icon={<ArrowLeftIcon />}
           ariaLabel="Previous image"
           isDisabled={isPrevButtonDisabled}
           onClick={onPrevButtonClick}
@@ -73,7 +71,7 @@ export const Carousel = ({ images }: CarouselProps) => {
         ))}
 
         <CarouselButton
-          icon={<ArrowRight />}
+          icon={<ArrowRightIcon />}
           ariaLabel="Next image"
           isDisabled={isNextButtonDisabled}
           onClick={onNextButtonClick}

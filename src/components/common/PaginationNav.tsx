@@ -16,20 +16,23 @@ export const PaginationNav = ({ totalPages }: PaginationNavProps) => {
   return (
     <nav>
       <ul className="flex gap-2">
-        {pages.map((page) => (
-          <li key={page}>
-            <ButtonLink
-              href={getPaginationLink(page)}
-              aria-label={`Go to page ${page}`}
-              isArrowIcon={false}
-              className={cn("size-10 p-0", {
-                "pointer-events-none opacity-50": currentPage === page,
-              })}
-            >
-              {page}
-            </ButtonLink>
-          </li>
-        ))}
+        {pages.map((page) => {
+          const isDisabled = currentPage === page;
+
+          return (
+            <li key={page}>
+              <ButtonLink
+                href={getPaginationLink(page)}
+                aria-label={`Go to page ${page}`}
+                className={cn("size-10 p-0", {
+                  "pointer-events-none opacity-50": isDisabled,
+                })}
+              >
+                {page}
+              </ButtonLink>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

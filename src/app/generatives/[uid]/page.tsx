@@ -1,12 +1,12 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 import { Section, Title } from "@/components/common/Typography";
 
 import { Carousel } from "./components/Carousel";
+import { CategorySection } from "./components/CategorySection";
 import { PromptSection } from "./components/PromptSection";
 import { TagsSection } from "./components/TagsSection";
-import { ToolsSection } from "./components/ToolSection";
+import { ToolSection } from "./components/ToolSection";
 
 import { createClient } from "@/prismicio";
 
@@ -17,19 +17,17 @@ interface PageProps {
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const { uid } = await props.params;
 
-  const client = createClient();
-
-  const page = await client.getByUID("generative", uid).catch(() => notFound());
+  const { data } = await createClient().getByUID("generative", uid);
 
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+    title: data.meta_title,
+    description: data.meta_description,
     openGraph: {
       images: [
         {
-          url: page.data.meta_image.url || "",
-          width: page.data.meta_image.dimensions?.width,
-          height: page.data.meta_image.dimensions?.height,
+          url: data.meta_image.url || "",
+          width: data.meta_image.dimensions?.width,
+          height: data.meta_image.dimensions?.height,
         },
       ],
     },
@@ -37,9 +35,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const client = createClient();
-
-  const pages = await client.getAllByType("generative");
+  const pages = await createClient().getAllByType("generative");
 
   return pages.map(({ uid }) => ({ uid }));
 }
@@ -47,22 +43,22 @@ export async function generateStaticParams() {
 export default async function Page(props: PageProps) {
   const { uid } = await props.params;
 
-  const client = createClient();
-
-  const page = await client.getByUID("generative", uid).catch(() => notFound());
+  const { data, tags } = await createClient().getByUID("generative", uid);
 
   return (
     <>
       <Section>
-        <Title>{page.data.title}</Title>
+        <Title>{data.title}</Title>
 
-        <Carousel images={page.data.images} />
+        <Carousel images={data.images} />
 
-        <ToolsSection tool={page.data.tool} />
+        <CategorySection category={data.category} />
 
-        <TagsSection tags={page.tags} />
+        <ToolSection tool={data.tool} />
 
-        <PromptSection prompt={page.data.prompt} />
+        <TagsSection tags={tags} />
+
+        <PromptSection prompt={data.prompt} />
       </Section>
     </>
   );

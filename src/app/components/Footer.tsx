@@ -1,8 +1,8 @@
+import { MailIcon } from "lucide-react";
+
 import { cn } from "@/utils/cn";
 
 import { DEV_LINK, EMAIl, SOCIAL_LINKS } from "@/constants/common";
-
-import { Mail } from "@/components/icons/Mail";
 
 export const Footer = () => {
   return (
@@ -71,7 +71,7 @@ const Contact = () => {
         "hover:text-primary-500 focus:text-primary-500 active:text-primary-600",
       )}
     >
-      <Mail />
+      <MailIcon className="size-4" />
       {EMAIl}
     </a>
   );

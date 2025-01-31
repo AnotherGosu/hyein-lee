@@ -1,21 +1,32 @@
 import { Metadata } from "next";
 
-import { Artworks } from "./components/Artworks";
-import { Blog } from "./components/Blog";
-import { Generatives } from "./components/Generatives";
-import { Hero } from "./components/Hero";
+import { getFeatures } from "@/api/getFeatures";
+
+import { ArtworkSection } from "./components/ArtworkSection";
+import { BlogSection } from "./components/BlogSection";
+import { GenerativeSection } from "./components/GenerativeSection";
+import { HeroSection } from "./components/HeroSection";
+import { ProjectSection } from "./components/ProjectSection";
 
 export const metadata: Metadata = {
   description: "Hyein Lee - law enthusiast, artist and AI creator",
 };
 
-export default function Page() {
+export default async function Page() {
+  const {
+    featuredArtworks,
+    featuredGeneratives,
+    featuredProjects,
+    featuredPosts,
+  } = await getFeatures();
+
   return (
     <>
-      <Hero />
-      <Artworks />
-      <Generatives />
-      <Blog />
+      <HeroSection />
+      <ArtworkSection featuredArtworks={featuredArtworks} />
+      <GenerativeSection featuredGeneratives={featuredGeneratives} />
+      <ProjectSection featuredProjects={featuredProjects} />
+      <BlogSection featuredPosts={featuredPosts} />
     </>
   );
 }

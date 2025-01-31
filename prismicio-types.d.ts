@@ -13,7 +13,7 @@ interface ArtworkDocumentData {
    * Title field in *Artwork*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Title of the artwork
+   * - **Placeholder**: Artwork title
    * - **API ID Path**: artwork.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -21,10 +21,21 @@ interface ArtworkDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Subtitle field in *Artwork*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Short artwork description
+   * - **API ID Path**: artwork.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
    * Description field in *Artwork*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Long artwork description
+   * - **Placeholder**: Artwork description
    * - **API ID Path**: artwork.description
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -238,6 +249,28 @@ interface FeaturesDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   post_4: prismic.ContentRelationshipField<"post">;
+
+  /**
+   * Project 1 field in *Features*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.project_1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_1: prismic.ContentRelationshipField<"project">;
+
+  /**
+   * Project 2 field in *Features*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.project_2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_2: prismic.ContentRelationshipField<"project">;
 }
 
 /**
@@ -325,13 +358,32 @@ interface GenerativeDocumentData {
    * Tool field in *Generative*
    *
    * - **Field Type**: Select
-   * - **Placeholder**: Tool used for generation
+   * - **Placeholder**: Generative tool
    * - **Default Value**: Midjourney
    * - **API ID Path**: generative.tool
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   tool: prismic.SelectField<"Midjourney" | "Ideogram", "filled">;
+
+  /**
+   * Category field in *Generative*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Generative category
+   * - **API ID Path**: generative.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  category: prismic.SelectField<
+    | "Wallpaper & Background"
+    | "Interior & Architecture "
+    | "Digital Illustration"
+    | "3d Render "
+    | "2d Anime "
+    | "Realistic Photography "
+    | "Mockup"
+  >;
 
   /**
    * Highlight field in *Generative*
@@ -521,130 +573,104 @@ interface PostDocumentData {
 export type PostDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PostDocumentData>, "post", Lang>;
 
-/**
- * Item in *Product → Images*
- */
-export interface ProductDocumentDataImagesItem {
-  /**
-   * Image field in *Product → Images*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.images[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-type ProductDocumentDataSlicesSlice = never;
+type ProjectDocumentDataSlicesSlice = never;
 
 /**
- * Content for Product documents
+ * Content for Project documents
  */
-interface ProductDocumentData {
+interface ProjectDocumentData {
   /**
-   * Title field in *Product*
+   * Title field in *Project*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Product title
-   * - **API ID Path**: product.title
+   * - **Placeholder**: Project title
+   * - **API ID Path**: project.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
 
   /**
-   * Description field in *Product*
+   * Subtitle field in *Project*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Product description
-   * - **API ID Path**: product.description
+   * - **Placeholder**: Short project description
+   * - **API ID Path**: project.subtitle
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  description: prismic.KeyTextField;
+  subtitle: prismic.KeyTextField;
 
   /**
-   * Type field in *Product*
+   * Description field in *Project*
    *
-   * - **Field Type**: Select
-   * - **Placeholder**: Product type
-   * - **API ID Path**: product.type
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Project description
+   * - **API ID Path**: project.description
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#select
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  type: prismic.SelectField<"Book" | "Wallpaper">;
+  description: prismic.RichTextField;
 
   /**
-   * Price field in *Product*
+   * Image field in *Project*
    *
-   * - **Field Type**: Number
-   * - **Placeholder**: Product price
-   * - **API ID Path**: product.price
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  price: prismic.NumberField;
-
-  /**
-   * Images field in *Product*
-   *
-   * - **Field Type**: Group
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: product.images[]
+   * - **API ID Path**: project.image
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  images: prismic.GroupField<Simplify<ProductDocumentDataImagesItem>>;
+  image: prismic.ImageField<never>;
 
   /**
-   * Link field in *Product*
+   * Link field in *Project*
    *
    * - **Field Type**: Link
-   * - **Placeholder**: Product link
-   * - **API ID Path**: product.link
+   * - **Placeholder**: Project link
+   * - **API ID Path**: project.link
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
-   * Slice Zone field in *Product*
+   * Slice Zone field in *Project*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: product.slices[]
+   * - **API ID Path**: project.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice> /**
-   * Meta Title field in *Product*
+  slices: prismic.SliceZone<ProjectDocumentDataSlicesSlice> /**
+   * Meta Title field in *Project*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: product.meta_title
+   * - **API ID Path**: project.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *Product*
+   * Meta Description field in *Project*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: product.meta_description
+   * - **API ID Path**: project.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Product*
+   * Meta Image field in *Project*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: product.meta_image
+   * - **API ID Path**: project.meta_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
@@ -652,18 +678,18 @@ interface ProductDocumentData {
 }
 
 /**
- * Product document from Prismic
+ * Project document from Prismic
  *
- * - **API ID**: `product`
+ * - **API ID**: `project`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ProductDocument<Lang extends string = string> =
+export type ProjectDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
-    Simplify<ProductDocumentData>,
-    "product",
+    Simplify<ProjectDocumentData>,
+    "project",
     Lang
   >;
 
@@ -672,7 +698,7 @@ export type AllDocumentTypes =
   | FeaturesDocument
   | GenerativeDocument
   | PostDocument
-  | ProductDocument;
+  | ProjectDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -707,10 +733,9 @@ declare module "@prismicio/client" {
       PostDocument,
       PostDocumentData,
       PostDocumentDataSlicesSlice,
-      ProductDocument,
-      ProductDocumentData,
-      ProductDocumentDataImagesItem,
-      ProductDocumentDataSlicesSlice,
+      ProjectDocument,
+      ProjectDocumentData,
+      ProjectDocumentDataSlicesSlice,
       AllDocumentTypes,
     };
   }

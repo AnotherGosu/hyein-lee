@@ -1,17 +1,22 @@
+import Link from "next/link";
+
 import { SubHeading } from "@/components/common/Typography";
 
 interface ToolSectionProps {
   tool: string;
 }
 
-export const ToolsSection = ({ tool }: ToolSectionProps) => {
+export const ToolSection = ({ tool }: ToolSectionProps) => {
   return (
     <section>
-      <SubHeading>Made with</SubHeading>
+      <SubHeading>Tool</SubHeading>
 
-      <span className="font-medium italic text-primary-500 md:text-lg">
+      <Link
+        href={{ pathname: "/generatives", query: { tool } }}
+        className="text-primary-500 font-medium italic underline underline-offset-4 md:text-lg"
+      >
         {tool}
-      </span>
+      </Link>
     </section>
   );
 };

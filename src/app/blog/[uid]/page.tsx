@@ -1,6 +1,5 @@
 import { PrismicNextImage } from "@prismicio/next";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 import { RichText } from "@/components/common/RichText";
 import { Section, Title } from "@/components/common/Typography";
@@ -14,19 +13,17 @@ interface PageProps {
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const { uid } = await props.params;
 
-  const client = createClient();
-
-  const page = await client.getByUID("post", uid).catch(() => notFound());
+  const { data } = await createClient().getByUID("post", uid);
 
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+    title: data.meta_title,
+    description: data.meta_description,
     openGraph: {
       images: [
         {
-          url: page.data.meta_image.url || "",
-          width: page.data.meta_image.dimensions?.width,
-          height: page.data.meta_image.dimensions?.height,
+          url: data.meta_image.url || "",
+          width: data.meta_image.dimensions?.width,
+          height: data.meta_image.dimensions?.height,
         },
       ],
     },
@@ -34,9 +31,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const client = createClient();
-
-  const pages = await client.getAllByType("post");
+  const pages = await createClient().getAllByType("post");
 
   return pages.map(({ uid }) => ({ uid }));
 }
@@ -44,22 +39,20 @@ export async function generateStaticParams() {
 export default async function Page(props: PageProps) {
   const { uid } = await props.params;
 
-  const client = createClient();
-
-  const page = await client.getByUID("post", uid).catch(() => notFound());
+  const { data } = await createClient().getByUID("post", uid);
 
   return (
     <>
       <Section>
-        <Title>{page.data.title}</Title>
+        <Title>{data.title}</Title>
 
         <PrismicNextImage
-          field={page.data.image}
+          field={data.image}
           alt=""
           className="max-h-[30rem] rounded-md object-cover"
         />
 
-        <RichText field={page.data.content} />
+        <RichText field={data.content} />
       </Section>
     </>
   );

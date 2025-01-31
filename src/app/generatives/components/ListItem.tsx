@@ -7,12 +7,12 @@ import { cn } from "@/utils/cn";
 import { HighlightBadge } from "@/components/common/HighlightBadge";
 
 interface ListItemProps extends Content.GenerativeDocument {
-  idx: number;
+  isImagePriority: boolean;
   isHighlight?: boolean;
 }
 
 export const ListItem = ({
-  idx,
+  isImagePriority,
   isHighlight = false,
   uid,
   data,
@@ -30,7 +30,7 @@ export const ListItem = ({
       <PrismicNextImage
         field={data.images[0]?.image}
         alt=""
-        priority={idx < 2}
+        priority={isImagePriority}
         className="h-72 object-cover sm:h-96"
       />
 
@@ -43,6 +43,7 @@ export const ListItem = ({
         <h3 className="text-primary-600 truncate font-semibold">
           {data.title}
         </h3>
+
         <p className="truncate text-sm">{data.subtitle}</p>
       </div>
     </Link>

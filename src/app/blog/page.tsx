@@ -1,17 +1,28 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 import { SearchParams } from "@/types/common";
 
+import { getPosts } from "@/api/getPosts";
+
+import { getSearchParamsString } from "@/lib/getSearchParamsString";
+
+import {
+  ListFallback,
+  PaginationFallback,
+  SearchInputFallback,
+} from "@/components/common/Fallback";
+import { FiltersDrawer } from "@/components/common/FiltersDrawer";
+import { Pagination } from "@/components/common/Pagination";
+import { SearchInput } from "@/components/common/SearchInput";
 import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
-import { HighlightList } from "./components/HighlightList";
+import { Filters } from "./components/Filters";
 import { List } from "./components/List";
-import { Pagination } from "./components/Pagination";
-import { Search } from "./components/Search";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Explore blog posts by Hyein Lee",
+  description: "Explore various blog posts",
 };
 
 interface PageProps {
@@ -21,6 +32,7 @@ interface PageProps {
 export default async function Page(props: PageProps) {
   const searchParams = await props.searchParams;
 
+  // Show only on "blank" page with no filters or pagination applied
   const isHighlightList = Object.keys(searchParams).length === 0;
 
   return (
@@ -34,14 +46,40 @@ export default async function Page(props: PageProps) {
           developments, case analyses, practical advice, and commentary.
         </Paragpraph>
 
-        <Search />
+        <div className="flex gap-2">
+          <Suspense fallback={<SearchInputFallback />}>
+            <SearchInput placeholder="Search by title" />
+          </Suspense>
 
-        <div className="flex flex-col gap-8">
-          {isHighlightList && <HighlightList />}
-          <List searchParams={searchParams} />
+          <FiltersDrawer>
+            <Suspense>
+              <Filters />
+            </Suspense>
+          </FiltersDrawer>
         </div>
 
-        <Pagination searchParams={searchParams} />
+        <div className="flex flex-col gap-8">
+          <Suspense
+            key={`${getSearchParamsString(searchParams)}-list`}
+            fallback={
+              <ListFallback
+                length={6}
+                className="h-72 md:h-52"
+              />
+            }
+          >
+            {isHighlightList && <List isHighlight="true" />}
+
+            <List searchParams={searchParams} />
+          </Suspense>
+        </div>
+
+        <Suspense
+          key={`${getSearchParamsString(searchParams)}-pagination`}
+          fallback={<PaginationFallback />}
+        >
+          <Pagination fetcher={() => getPosts(searchParams)} />
+        </Suspense>
       </Section>
     </>
   );

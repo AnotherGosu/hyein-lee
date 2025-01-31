@@ -1,11 +1,11 @@
 "use client";
 
+import { MoveUpIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { cn } from "@/utils/cn";
 
 import { Button } from "@/components/common/Button";
-import { ArrowUp } from "@/components/icons/ArrowUp";
 
 export const ScrollToTopButton = () => {
   const { isVisible, onScroll } = useScrollToTop();
@@ -13,11 +13,11 @@ export const ScrollToTopButton = () => {
   return (
     <Button
       onClick={onScroll}
-      className={cn("fixed bottom-4 right-4 z-50 hidden rounded-full px-2.5", {
+      className={cn("fixed right-4 bottom-4 z-50 hidden rounded-full px-2.5", {
         flex: isVisible,
       })}
     >
-      <ArrowUp />
+      <MoveUpIcon />
     </Button>
   );
 };

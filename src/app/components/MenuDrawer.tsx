@@ -1,5 +1,6 @@
 "use client";
 
+import { MailIcon, MenuIcon } from "lucide-react";
 import { useState } from "react";
 import { Drawer as VaulDrawer } from "vaul";
 
@@ -13,8 +14,6 @@ import {
 } from "@/constants/common";
 
 import { Button } from "@/components/common/Button";
-import { Mail } from "@/components/icons/Mail";
-import { Menu } from "@/components/icons/Menu";
 
 import { NavigationLink } from "./NavigationLink";
 
@@ -30,7 +29,7 @@ export const MenuDrawer = () => {
     >
       <VaulDrawer.Trigger asChild>
         <Button className="ml-auto rounded-full px-2.5 sm:hidden">
-          <Menu />
+          <MenuIcon />
         </Button>
       </VaulDrawer.Trigger>
 
@@ -130,7 +129,7 @@ const Contact = () => {
         "hover:text-primary-500 focus:text-primary-500 active:text-primary-600",
       )}
     >
-      <Mail />
+      <MailIcon className="size-4" />
       {EMAIl}
     </a>
   );
