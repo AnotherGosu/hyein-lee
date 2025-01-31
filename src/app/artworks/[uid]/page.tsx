@@ -1,10 +1,10 @@
+import { PrismicNextImage } from "@prismicio/next";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 
-import { Section } from "@/components/common/Typography";
+import { cn } from "@/utils/cn";
 
-import { Layout } from "./components/Layout";
-import { TallLayout } from "./components/TallLayout";
+import { RichText } from "@/components/common/RichText";
+import { Section, Title } from "@/components/common/Typography";
 
 import { createClient } from "@/prismicio";
 
@@ -15,19 +15,17 @@ interface PageProps {
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const { uid } = await props.params;
 
-  const client = createClient();
-
-  const page = await client.getByUID("artwork", uid).catch(() => notFound());
+  const { data } = await createClient().getByUID("artwork", uid);
 
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+    title: data.meta_title,
+    description: data.meta_description,
     openGraph: {
       images: [
         {
-          url: page.data.meta_image.url || "",
-          width: page.data.meta_image.dimensions?.width,
-          height: page.data.meta_image.dimensions?.height,
+          url: data.meta_image.url || "",
+          width: data.meta_image.dimensions?.width,
+          height: data.meta_image.dimensions?.height,
         },
       ],
     },
@@ -35,9 +33,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const client = createClient();
-
-  const pages = await client.getAllByType("artwork");
+  const pages = await createClient().getAllByType("artwork");
 
   return pages.map(({ uid }) => ({ uid }));
 }
@@ -45,21 +41,33 @@ export async function generateStaticParams() {
 export default async function Page(props: PageProps) {
   const { uid } = await props.params;
 
-  const client = createClient();
+  const { data } = await createClient().getByUID("artwork", uid);
 
-  const document = await client
-    .getByUID("artwork", uid)
-    .catch(() => notFound());
+  const isTallImage = data.tall;
 
   return (
-    <>
-      <Section>
-        {document.data.tall ? (
-          <TallLayout {...document} />
-        ) : (
-          <Layout {...document} />
-        )}
-      </Section>
-    </>
+    <Section>
+      <div
+        className={cn("contents", {
+          "md:grid md:grid-cols-2 md:grid-rows-[max-content_1fr] md:gap-8":
+            isTallImage,
+        })}
+      >
+        <Title className={cn({ "md:col-start-2 md:text-left": isTallImage })}>
+          {data.title}
+        </Title>
+
+        <PrismicNextImage
+          field={data.image}
+          className={cn(
+            "pointer-events-none mx-auto max-h-[30rem] w-fit rounded-md",
+            { "row-span-2 row-start-1 w-fit md:max-h-full": isTallImage },
+          )}
+          priority
+        />
+
+        <RichText field={data.description} />
+      </div>
+    </Section>
   );
 }

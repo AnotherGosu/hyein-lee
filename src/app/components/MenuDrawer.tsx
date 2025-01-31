@@ -1,7 +1,8 @@
 "use client";
 
+import { MailIcon, MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
-import { Drawer as VaulDrawer } from "vaul";
+import { Drawer } from "vaul";
 
 import { cn } from "@/utils/cn";
 
@@ -13,35 +14,34 @@ import {
 } from "@/constants/common";
 
 import { Button } from "@/components/common/Button";
-import { Mail } from "@/components/icons/Mail";
-import { Menu } from "@/components/icons/Menu";
 
 import { NavigationLink } from "./NavigationLink";
 
 export const MenuDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const onClose = () => setIsOpen(false);
 
   return (
-    <VaulDrawer.Root
+    <Drawer.Root
       open={isOpen}
       onOpenChange={setIsOpen}
       direction="left"
       handleOnly
     >
-      <VaulDrawer.Trigger asChild>
+      <Drawer.Trigger asChild>
         <Button className="ml-auto rounded-full px-2.5 sm:hidden">
-          <Menu />
+          <MenuIcon />
         </Button>
-      </VaulDrawer.Trigger>
+      </Drawer.Trigger>
 
-      <VaulDrawer.Portal>
-        <VaulDrawer.Overlay className="fixed inset-0 z-40 bg-black/40" />
+      <Drawer.Portal>
+        <Drawer.Overlay className="fixed inset-0 z-40 bg-black/40" />
 
-        <VaulDrawer.Content className="fixed bottom-0 left-0 top-0 z-50 flex outline-none">
-          <div className="flex flex-col justify-between bg-background p-8">
+        <Drawer.Content className="fixed top-0 bottom-0 left-0 z-50 flex outline-hidden">
+          <div className="bg-background flex flex-col justify-between p-6">
             <div className="flex flex-col gap-10">
-              <Header />
-              <Navigation onClick={() => setIsOpen(false)} />
+              <Header onClose={onClose} />
+              <Navigation onClick={onClose} />
             </div>
 
             <div className="flex flex-col gap-4">
@@ -50,20 +50,29 @@ export const MenuDrawer = () => {
               <Contact />
             </div>
           </div>
-        </VaulDrawer.Content>
-      </VaulDrawer.Portal>
-    </VaulDrawer.Root>
+        </Drawer.Content>
+      </Drawer.Portal>
+    </Drawer.Root>
   );
 };
 
-const Header = () => {
+const Header = ({ onClose }: { onClose: () => void }) => {
   return (
     <div>
-      <VaulDrawer.Title className="mb-2 text-2xl font-semibold">
-        Hyein Lee
-      </VaulDrawer.Title>
+      <div className="flex items-center justify-between">
+        <Drawer.Title className="mb-2 text-2xl font-semibold">
+          Hyein Lee
+        </Drawer.Title>
 
-      <VaulDrawer.Description>Navigation & Contacts</VaulDrawer.Description>
+        <Button
+          onClick={onClose}
+          className="size-6 p-0"
+        >
+          <XIcon />
+        </Button>
+      </div>
+
+      <Drawer.Description>Navigation & Contacts</Drawer.Description>
     </div>
   );
 };
@@ -94,7 +103,7 @@ const Socials = () => {
           href={href}
           target="_blank"
           className={cn(
-            "outline-none transition",
+            "outline-hidden transition",
             "hover:fill-primary-500 focus:fill-primary-500 active:fill-primary-600",
           )}
         >
@@ -111,7 +120,7 @@ const Development = () => {
       href={DEV_LINK}
       target="_blank"
       className={cn(
-        "text-sm underline outline-none transition",
+        "text-sm underline outline-hidden transition",
         "hover:text-primary-500 focus:text-primary-500 active:text-primary-600",
       )}
     >
@@ -126,11 +135,11 @@ const Contact = () => {
       href={`mailto:${EMAIl}`}
       target="_blank"
       className={cn(
-        "flex items-center gap-1 rounded-sm outline-none transition",
+        "flex items-center gap-1 rounded-xs outline-hidden transition",
         "hover:text-primary-500 focus:text-primary-500 active:text-primary-600",
       )}
     >
-      <Mail />
+      <MailIcon className="size-4" />
       {EMAIl}
     </a>
   );

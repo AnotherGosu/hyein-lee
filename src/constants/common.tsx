@@ -7,11 +7,12 @@ export const NAVIGATION_LINKS = [
   { href: "/", title: "Home" },
   { href: "/artworks", title: "Artworks" },
   { href: "/generatives", title: "Generatives" },
+  { href: "/projects", title: "Projects" },
   { href: "/blog", title: "Blog" },
 ];
 
 export const SOCIAL_LINKS = [
-  { icon: <Instagram />, href: "https://www.instagram.com/hyeinnnnl/" },
+  { icon: <Instagram />, href: "https://www.instagram.com/hyeinnovate/" },
   {
     icon: <LinkedIn />,
     href: "https://www.linkedin.com/in/hyein-lee-04480924b/",

@@ -1,14 +1,18 @@
-import { IconProps } from "@/types/common";
+import React from "react";
 
 import { cn } from "@/utils/cn";
 
-export const Instagram = ({ className }: IconProps) => {
+export const Instagram = ({
+  className,
+  ...props
+}: React.SVGAttributes<SVGSVGElement>) => {
   return (
     <svg
       role="img"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       className={cn("size-5", className)}
+      {...props}
     >
       <title>Instagram</title>
 

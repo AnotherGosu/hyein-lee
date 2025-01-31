@@ -56,9 +56,25 @@
         "type": "Select",
         "config": {
           "label": "Tool",
-          "placeholder": "Tool used for generation",
+          "placeholder": "Generative tool",
           "options": ["Midjourney", "Ideogram"],
           "default_value": "Midjourney"
+        }
+      },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Category",
+          "placeholder": "Generative category",
+          "options": [
+            "Wallpaper & Background",
+            "Interior & Architecture ",
+            "Digital Illustration",
+            "3d Render ",
+            "2d Anime ",
+            "Realistic Photography ",
+            "Mockup"
+          ]
         }
       },
       "highlight": {

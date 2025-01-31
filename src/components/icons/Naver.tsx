@@ -1,14 +1,16 @@
-import { IconProps } from "@/types/common";
-
 import { cn } from "@/utils/cn";
 
-export const Naver = ({ className }: IconProps) => {
+export const Naver = ({
+  className,
+  ...props
+}: React.SVGAttributes<SVGSVGElement>) => {
   return (
     <svg
       role="img"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       className={cn("size-5", className)}
+      {...props}
     >
       <title>Naver</title>
 

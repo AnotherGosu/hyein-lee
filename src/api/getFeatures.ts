@@ -1,14 +1,19 @@
 import type { Content } from "@prismicio/client";
 
+import {
+  FeaturedArtwork,
+  FeaturedGenerative,
+  FeaturedPost,
+  FeaturedProject,
+} from "@/types/feautres";
+
 import { createClient } from "@/prismicio";
 
 export const getFeatures = async () => {
-  const client = createClient();
-
-  const { data } = await client.getSingle<LinkedData>("features", {
+  const { data } = await createClient().getSingle<FeaturedData>("features", {
     fetchLinks: [
       "artwork.title",
-      "artwork.description",
+      "artwork.subtitle",
       "artwork.image",
       "generative.title",
       "generative.subtitle",
@@ -16,6 +21,9 @@ export const getFeatures = async () => {
       "post.title",
       "post.subtitle",
       "post.image",
+      "project.title",
+      "project.subtitle",
+      "project.image",
     ],
   });
 
@@ -29,32 +37,29 @@ export const getFeatures = async () => {
 
   const featuredPosts = [data.post_1, data.post_2, data.post_3, data.post_4];
 
-  return { featuredArtworks, featuredGeneratives, featuredPosts };
+  const featuredProjects = [data.project_1, data.project_2];
+
+  return {
+    featuredArtworks,
+    featuredGeneratives,
+    featuredPosts,
+    featuredProjects,
+  };
 };
 
-interface LinkedArtwork extends Omit<Content.ArtworkDocument, "data"> {
-  data: Pick<Content.ArtworkDocumentData, "title" | "description" | "image">;
-}
-
-interface LinkedGenerative extends Omit<Content.GenerativeDocument, "data"> {
-  data: Pick<Content.GenerativeDocumentData, "title" | "subtitle" | "images">;
-}
-
-interface LinkedPost extends Omit<Content.PostDocument, "data"> {
-  data: Pick<Content.PostDocumentData, "title" | "subtitle" | "image">;
-}
-
-type LinkedData = Content.FeaturesDocument & {
+type FeaturedData = Content.FeaturesDocument & {
   data: {
-    artwork_1: LinkedArtwork;
-    artwork_2: LinkedArtwork;
-    artwork_3: LinkedArtwork;
-    generative_1: LinkedGenerative;
-    generative_2: LinkedGenerative;
-    generative_3: LinkedGenerative;
-    post_1: LinkedPost;
-    post_2: LinkedPost;
-    post_3: LinkedPost;
-    post_4: LinkedPost;
+    artwork_1: FeaturedArtwork;
+    artwork_2: FeaturedArtwork;
+    artwork_3: FeaturedArtwork;
+    generative_1: FeaturedGenerative;
+    generative_2: FeaturedGenerative;
+    generative_3: FeaturedGenerative;
+    post_1: FeaturedPost;
+    post_2: FeaturedPost;
+    post_3: FeaturedPost;
+    post_4: FeaturedPost;
+    project_1: FeaturedProject;
+    project_2: FeaturedProject;
   };
 };
