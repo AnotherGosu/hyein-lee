@@ -37,7 +37,8 @@ export const ProjectSection = ({ featuredProjects }: ProjectSectionProps) => {
   );
 };
 
-const ProjectLink = ({ uid, data }: FeaturedProject) => {
+const ProjectLink = ({ uid, data, ...rest }: FeaturedProject) => {
+  console.log(rest);
   return (
     <Link
       key={uid}

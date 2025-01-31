@@ -1,7 +1,8 @@
 "use client";
 
-import { FilterIcon } from "lucide-react";
+import { FilterIcon, XIcon } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 import { Drawer } from "vaul";
 
 import { Button } from "./Button";
@@ -9,10 +10,12 @@ import { Button } from "./Button";
 interface FiltersDrawerProps extends React.PropsWithChildren {}
 
 export const FiltersDrawer = ({ children }: FiltersDrawerProps) => {
-  const { activeFilters } = useFiltersDrawer();
+  const { isOpen, setIsOpen, activeFilters } = useFiltersDrawer();
 
   return (
     <Drawer.Root
+      open={isOpen}
+      onOpenChange={setIsOpen}
       direction="left"
       handleOnly
     >
@@ -28,11 +31,20 @@ export const FiltersDrawer = ({ children }: FiltersDrawerProps) => {
         <Drawer.Overlay className="fixed inset-0 z-40 bg-black/40" />
 
         <Drawer.Content className="fixed top-0 bottom-0 left-0 z-50 flex outline-hidden">
-          <div className="bg-background w-xs p-8 sm:w-sm">
+          <div className="bg-background w-xs p-6">
             <div className="mb-10">
-              <Drawer.Title className="mb-2 text-2xl font-semibold">
-                Filters
-              </Drawer.Title>
+              <div className="flex items-center justify-between">
+                <Drawer.Title className="mb-2 text-2xl font-semibold">
+                  Filters
+                </Drawer.Title>
+
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  className="size-6 p-0"
+                >
+                  <XIcon />
+                </Button>
+              </div>
 
               <Drawer.Description>Find the content you need</Drawer.Description>
             </div>
@@ -56,6 +68,8 @@ const ActiveBadge = ({ activeFilters }: { activeFilters: number }) => {
 };
 
 const useFiltersDrawer = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const searchParams = useSearchParams();
 
   let activeFilters = 0;
@@ -68,7 +82,7 @@ const useFiltersDrawer = () => {
     }
   }
 
-  return { activeFilters };
+  return { isOpen, setIsOpen, activeFilters };
 };
 
 const OMIT_PARAMS = ["page"];

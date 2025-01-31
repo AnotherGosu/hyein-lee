@@ -43,10 +43,12 @@ export const SearchSelect = ({
         isMulti={isMulti}
         isLoading={isPending}
         isClearable
+        isSearchable={false}
+        menuPlacement="auto"
         classNames={{
           control: ({ isFocused }) =>
             cn(
-              "!border-primary-300 !rounded-md !bg-primary-50 !text-sm !font-medium",
+              "!border-primary-300 !rounded-md !bg-primary-50 !font-medium",
               "hover:!border-primary-400",
               { "!ring-primary-500 !ring-1": isFocused },
             ),
