@@ -41,6 +41,9 @@ export const metadata: Metadata = {
     description: "Hyein Lee - law enthusiast, artist and AI creator.",
     url: "https://www.hyeinnovate.com/",
   },
+  other: {
+    "google-adsense-account": "ca-pub-7619298544637199",
+  },
 };
 
 export default function RootLayout({
