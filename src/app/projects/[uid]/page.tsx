@@ -55,7 +55,7 @@ export default async function Page(props: PageProps) {
 
         <RichText field={data.description} />
 
-        <ExternalLink href={data.link.text}>Purchase</ExternalLink>
+        <ExternalLink href={data.link.text}>Link</ExternalLink>
       </Section>
     </>
   );
