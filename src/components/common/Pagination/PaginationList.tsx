@@ -15,7 +15,7 @@ export const PaginationList = ({ totalPages }: PaginationListProps) => {
     usePaginationList(totalPages);
 
   return (
-    <ul className="flex gap-2">
+    <ul className="flex flex-wrap gap-2">
       {pages.map((page) => {
         const isDisabled = currentPage === page;
 
