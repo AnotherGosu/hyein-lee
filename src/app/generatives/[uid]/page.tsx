@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
+import { Carousel } from "@/components/common/Carousel";
 import { Section, Title } from "@/components/common/Typography";
 
-import { Carousel } from "./components/Carousel";
 import { CategorySection } from "./components/CategorySection";
 import { PromptSection } from "./components/PromptSection";
 import { TagsSection } from "./components/TagsSection";

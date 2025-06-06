@@ -13,5 +13,5 @@ export type FeaturedPost = Omit<Content.PostDocument, "data"> & {
 };
 
 export type FeaturedProject = Omit<Content.ProjectDocument, "data"> & {
-  data: Pick<Content.ProjectDocumentData, "title" | "subtitle" | "image">;
+  data: Pick<Content.ProjectDocumentData, "title" | "subtitle" | "images">;
 };

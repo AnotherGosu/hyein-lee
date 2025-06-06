@@ -1,6 +1,6 @@
-import { PrismicNextImage } from "@prismicio/next";
 import { Metadata } from "next";
 
+import { Carousel } from "@/components/common/Carousel";
 import { ExternalLink } from "@/components/common/ExternalLink";
 import { RichText } from "@/components/common/RichText";
 import { Section, Title } from "@/components/common/Typography";
@@ -47,11 +47,7 @@ export default async function Page(props: PageProps) {
       <Section>
         <Title>{data.title}</Title>
 
-        <PrismicNextImage
-          field={data.image}
-          alt=""
-          className="max-h-[30rem] rounded-md object-contain"
-        />
+        <Carousel images={data.images} />
 
         <RichText field={data.description} />
 

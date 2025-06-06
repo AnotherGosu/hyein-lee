@@ -35,14 +35,6 @@
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "image": {
-        "type": "Image",
-        "config": {
-          "label": "Image",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
       "link": {
         "type": "Link",
         "config": {
@@ -52,6 +44,23 @@
           "allowTargetBlank": true,
           "allowText": true,
           "repeat": false
+        }
+      },
+      "images": {
+        "type": "Group",
+        "config": {
+          "label": "Images",
+          "repeat": true,
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "Image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
         }
       },
       "slices": {

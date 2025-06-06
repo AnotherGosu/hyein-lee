@@ -1,6 +1,6 @@
 "use client";
 
-import type { Content } from "@prismicio/client";
+import type { Content, ImageField } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import type { EmblaCarouselType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
@@ -12,7 +12,7 @@ import { CarouselButton } from "./CarouselButton";
 import { CarouselDot } from "./CarouselDot";
 
 interface CarouselProps {
-  images: Content.GenerativeDocumentData["images"];
+  images: Array<{ image: ImageField }>;
 }
 
 export const Carousel = ({ images }: CarouselProps) => {

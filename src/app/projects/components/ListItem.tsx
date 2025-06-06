@@ -28,7 +28,7 @@ export const ListItem = ({
       {isHighlight && <HighlightBadge />}
 
       <PrismicNextImage
-        field={data.image}
+        field={data.images[0]?.image}
         alt=""
         priority={isImagePrioprity}
         className="h-72 object-cover sm:h-96"

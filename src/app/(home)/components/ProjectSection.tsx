@@ -48,7 +48,7 @@ const ProjectLink = ({ uid, data }: FeaturedProject) => {
       )}
     >
       <PrismicNextImage
-        field={data.image}
+        field={data.images[0]?.image}
         alt=""
         className="h-72 object-cover sm:h-96"
       />

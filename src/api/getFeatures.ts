@@ -23,7 +23,7 @@ export const getFeatures = async () => {
       "post.image",
       "project.title",
       "project.subtitle",
-      "project.image",
+      "project.images",
     ],
   });
 

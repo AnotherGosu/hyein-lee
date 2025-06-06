@@ -364,7 +364,7 @@ interface GenerativeDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  tool: prismic.SelectField<"Midjourney" | "Ideogram", "filled">;
+  tool: prismic.SelectField<"Midjourney" | "Ideogram" | "Hailuo", "filled">;
 
   /**
    * Category field in *Generative*
@@ -573,6 +573,21 @@ interface PostDocumentData {
 export type PostDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PostDocumentData>, "post", Lang>;
 
+/**
+ * Item in *Project → Images*
+ */
+export interface ProjectDocumentDataImagesItem {
+  /**
+   * Image field in *Project → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
 type ProjectDocumentDataSlicesSlice = never;
 
 /**
@@ -613,17 +628,6 @@ interface ProjectDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * Image field in *Project*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
    * Link field in *Project*
    *
    * - **Field Type**: Link
@@ -633,6 +637,17 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Images field in *Project*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.images[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
 
   /**
    * Slice Zone field in *Project*
@@ -735,6 +750,7 @@ declare module "@prismicio/client" {
       PostDocumentDataSlicesSlice,
       ProjectDocument,
       ProjectDocumentData,
+      ProjectDocumentDataImagesItem,
       ProjectDocumentDataSlicesSlice,
       AllDocumentTypes,
     };

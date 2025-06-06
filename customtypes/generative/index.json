@@ -57,7 +57,7 @@
         "config": {
           "label": "Tool",
           "placeholder": "Generative tool",
-          "options": ["Midjourney", "Ideogram"],
+          "options": ["Midjourney", "Ideogram", "Hailuo"],
           "default_value": "Midjourney"
         }
       },
