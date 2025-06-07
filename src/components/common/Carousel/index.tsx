@@ -1,12 +1,14 @@
 "use client";
 
-import type { Content, ImageField } from "@prismicio/client";
+import type { ImageField } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import type { EmblaCarouselType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+
+import { cn } from "@/utils/cn";
 
 import { CarouselButton } from "./CarouselButton";
 import { CarouselDot } from "./CarouselDot";
@@ -40,7 +42,10 @@ export const Carousel = ({ images }: CarouselProps) => {
           {images.map(({ image }) => (
             <div
               key={image.id}
-              className="pointer-events-none min-w-0 flex-[0_0_100%] pl-4 select-none md:flex-[0_0_50%] lg:flex-[0_0_calc(100%/3)]"
+              className={cn(
+                "pointer-events-none select-none",
+                "mx-auto min-w-0 flex-[0_0_100%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_calc(100%/3)]",
+              )}
             >
               <PrismicNextImage
                 field={image}
