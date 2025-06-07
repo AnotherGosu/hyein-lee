@@ -27,8 +27,8 @@ export const ImageLink = ({
     <Link
       href={href}
       className={cn(
-        "group relative overflow-hidden rounded-md ring-blue-500 outline-hidden transition",
-        "focus:ring-2",
+        "group relative overflow-hidden rounded-md outline-hidden transition",
+        "focus-visible:ring-2 focus-visible:ring-blue-500",
         className,
       )}
     >
