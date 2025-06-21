@@ -24,9 +24,9 @@ export default async function Page() {
     <>
       <HeroSection />
       <ArtworkSection featuredArtworks={featuredArtworks} />
+      <BlogSection featuredPosts={featuredPosts} />
       <GenerativeSection featuredGeneratives={featuredGeneratives} />
       <ProjectSection featuredProjects={featuredProjects} />
-      <BlogSection featuredPosts={featuredPosts} />
     </>
   );
 }

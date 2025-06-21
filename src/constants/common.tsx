@@ -6,19 +6,19 @@ import { Threads } from "@/components/icons/Threads";
 export const NAVIGATION_LINKS = [
   { href: "/", title: "Home" },
   { href: "/artworks", title: "Artworks" },
+  { href: "/blog", title: "Blog" },
   { href: "/generatives", title: "Generatives" },
   { href: "/projects", title: "Projects" },
-  { href: "/blog", title: "Blog" },
 ];
 
 export const SOCIAL_LINKS = [
-  { icon: <Instagram />, href: "https://www.instagram.com/hyeinnovate/" },
+  { icon: <Instagram />, href: "https://www.instagram.com/daily_innovative/" },
   {
     icon: <LinkedIn />,
     href: "https://www.linkedin.com/in/hyein-lee-04480924b/",
   },
   { icon: <Naver />, href: "https://m.blog.naver.com/vanite77" },
-  { icon: <Threads />, href: "https://www.threads.net/@hyeinnovate" },
+  { icon: <Threads />, href: "https://www.threads.net/@daily_innovative" },
 ];
 
 export const DEV_LINK = "https://www.anothergosu.com/";
