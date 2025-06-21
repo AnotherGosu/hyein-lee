@@ -15,9 +15,10 @@ import { CarouselDot } from "./CarouselDot";
 
 interface CarouselProps {
   images: Array<{ image: ImageField }>;
+  slides?: 1 | 2 | 3;
 }
 
-export const Carousel = ({ images }: CarouselProps) => {
+export const Carousel = ({ images, slides = 3 }: CarouselProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { skipSnaps: true, align: "start" },
     [WheelGesturesPlugin()],
@@ -44,14 +45,22 @@ export const Carousel = ({ images }: CarouselProps) => {
               key={image.id}
               className={cn(
                 "pointer-events-none select-none",
-                "mx-auto min-w-0 flex-[0_0_100%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_calc(100%/3)]",
+                "mx-auto min-w-0 pl-4",
+                {
+                  "flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_calc(100%/3)]":
+                    slides === 3,
+                  "flex-[0_0_100%] sm:flex-[0_0_50%]": slides === 2,
+                  "flex-[0_0_100%]": slides === 1,
+                },
               )}
             >
               <PrismicNextImage
                 field={image}
                 alt=""
                 priority
-                className="h-[30rem] w-full rounded-md object-cover"
+                className={cn("h-[30rem] w-full rounded-md object-cover", {
+                  "object-contain": slides === 1,
+                })}
               />
             </div>
           ))}
