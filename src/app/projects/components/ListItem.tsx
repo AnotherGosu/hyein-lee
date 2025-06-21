@@ -7,12 +7,12 @@ import { cn } from "@/utils/cn";
 import { HighlightBadge } from "@/components/common/HighlightBadge";
 
 interface ListItemProps extends Content.ProjectDocument {
-  isImagePrioprity: boolean;
+  isImagePriority: boolean;
   isHighlight?: boolean;
 }
 
 export const ListItem = ({
-  isImagePrioprity,
+  isImagePriority,
   isHighlight = false,
   uid,
   data,
@@ -30,7 +30,7 @@ export const ListItem = ({
       <PrismicNextImage
         field={data.images[0]?.image}
         alt=""
-        priority={isImagePrioprity}
+        priority={isImagePriority}
         className="h-72 object-cover sm:h-96"
       />
 

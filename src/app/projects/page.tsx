@@ -32,6 +32,9 @@ interface PageProps {
 export default async function Page(props: PageProps) {
   const searchParams = await props.searchParams;
 
+  // Show only on "blank" page with no filters or pagination applied
+  const isHighlightList = Object.keys(searchParams).length === 0;
+
   return (
     <>
       <Section>
@@ -64,6 +67,8 @@ export default async function Page(props: PageProps) {
               />
             }
           >
+            {isHighlightList && <List isHighlight="true" />}
+
             <List searchParams={searchParams} />
           </Suspense>
         </div>

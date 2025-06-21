@@ -650,6 +650,18 @@ interface ProjectDocumentData {
   images: prismic.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
 
   /**
+   * Highlight field in *Project*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: project.highlight
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  highlight: prismic.BooleanField;
+
+  /**
    * Slice Zone field in *Project*
    *
    * - **Field Type**: Slice Zone
