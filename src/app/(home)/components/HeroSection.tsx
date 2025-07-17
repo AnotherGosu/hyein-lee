@@ -13,11 +13,13 @@ export const HeroSection = () => {
 
       <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
         <Paragpraph className="order-2 text-center lg:order-1 lg:text-left">
-          Hi, I’m <b>Hyein Lee</b>, a law enthusiast, artist and AI creator.
-          Welcome to my blog, where I share insights about law, my artistic
-          journey, AI experiments, and various creative projects. Explore my
-          website and feel free to reach out for collaboration or work
-          opportunities.
+          Hi, I’m <b>Hyein Lee</b> — an aspiring lawyer, prompt engineer, and
+          multidisciplinary creator. Welcome to my blog, where I explore the
+          intersections of law, technology, and art. From legal insights and
+          study reflections to AI prompt design and creative projects, this blog
+          is where I document and share my journey. Feel free to explore — and
+          don’t hesitate to reach out for collaborations, commissions, or
+          freelance opportunities.
         </Paragpraph>
 
         <Image
