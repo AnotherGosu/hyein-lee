@@ -364,7 +364,10 @@ interface GenerativeDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  tool: prismic.SelectField<"Midjourney" | "Ideogram" | "Hailuo", "filled">;
+  tool: prismic.SelectField<
+    "Midjourney" | "Ideogram" | "Hailuo" | "Krea" | "Flux" | "GPT",
+    "filled"
+  >;
 
   /**
    * Category field in *Generative*
