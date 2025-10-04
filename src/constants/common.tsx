@@ -24,3 +24,6 @@ export const SOCIAL_LINKS = [
 export const DEV_LINK = "https://www.anothergosu.com/";
 
 export const EMAIl = "hyein2399@gmail.com";
+
+export const PLACEHOLDER =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/vRJPQAInAMxNuS1UgAAAABJRU5ErkJggg==";

@@ -5,6 +5,8 @@ import { FeaturedProject } from "@/types/feautres";
 
 import { cn } from "@/utils/cn";
 
+import { PLACEHOLDER } from "@/constants/common";
+
 import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
 import { ArrowButtonLink } from "./ArrowButtonLink";
@@ -51,6 +53,7 @@ const ProjectLink = ({ uid, data }: FeaturedProject) => {
         field={data.images[0]?.image}
         alt=""
         className="h-72 object-cover sm:h-96"
+        placeholder={PLACEHOLDER}
       />
 
       <div className="p-6">

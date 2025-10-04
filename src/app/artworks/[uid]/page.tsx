@@ -3,6 +3,8 @@ import { Metadata } from "next";
 
 import { cn } from "@/utils/cn";
 
+import { PLACEHOLDER } from "@/constants/common";
+
 import { RichText } from "@/components/common/RichText";
 import { Section, Title } from "@/components/common/Typography";
 
@@ -32,12 +34,6 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  const pages = await createClient().getAllByType("artwork");
-
-  return pages.map(({ uid }) => ({ uid }));
-}
-
 export default async function Page(props: PageProps) {
   const { uid } = await props.params;
 
@@ -64,6 +60,7 @@ export default async function Page(props: PageProps) {
             { "row-span-2 row-start-1 w-fit md:max-h-full": isTallImage },
           )}
           priority
+          placeholder={PLACEHOLDER}
         />
 
         <RichText field={data.description} />

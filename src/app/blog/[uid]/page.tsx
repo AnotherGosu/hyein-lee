@@ -1,6 +1,8 @@
 import { PrismicNextImage } from "@prismicio/next";
 import { Metadata } from "next";
 
+import { PLACEHOLDER } from "@/constants/common";
+
 import { RichText } from "@/components/common/RichText";
 import { Section, Title } from "@/components/common/Typography";
 
@@ -30,12 +32,6 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  const pages = await createClient().getAllByType("post");
-
-  return pages.map(({ uid }) => ({ uid }));
-}
-
 export default async function Page(props: PageProps) {
   const { uid } = await props.params;
 
@@ -50,6 +46,7 @@ export default async function Page(props: PageProps) {
           field={data.image}
           alt=""
           className="max-h-[30rem] rounded-md object-cover"
+          placeholder={PLACEHOLDER}
         />
 
         <RichText field={data.content} />

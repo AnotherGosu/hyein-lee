@@ -5,6 +5,8 @@ import { FeaturedPost } from "@/types/feautres";
 
 import { cn } from "@/utils/cn";
 
+import { PLACEHOLDER } from "@/constants/common";
+
 import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
 import { ArrowButtonLink } from "./ArrowButtonLink";
@@ -51,6 +53,7 @@ const PostLink = ({ uid, data }: FeaturedPost) => {
         field={data.image}
         alt=""
         className="h-40 object-cover"
+        placeholder={PLACEHOLDER}
       />
 
       <div className="p-6">

@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { PLACEHOLDER } from "@/constants/common";
+
 import heroImage from "@/images/hero.png";
 
 import { Paragpraph, Section } from "@/components/common/Typography";
@@ -27,6 +29,7 @@ export const HeroSection = () => {
           alt="Portrait of Hyein Lee"
           priority
           className="order-1 mx-auto max-h-[30rem] w-auto lg:order-2 lg:max-h-max"
+          placeholder={PLACEHOLDER}
         />
       </div>
     </Section>

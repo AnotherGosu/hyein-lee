@@ -5,6 +5,8 @@ import { PropsWithChildren } from "react";
 
 import { cn } from "@/utils/cn";
 
+import { PLACEHOLDER } from "@/constants/common";
+
 interface ImageLinkProps extends PropsWithChildren {
   href: LinkProps["href"];
   image: ImageFieldImage | null | undefined;
@@ -44,6 +46,7 @@ export const ImageLink = ({
         fill
         sizes="(min-width: 768px) 33vw, 100vw"
         className="object-cover"
+        placeholder={PLACEHOLDER}
       />
 
       {children}

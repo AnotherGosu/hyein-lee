@@ -31,31 +31,23 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  const pages = await createClient().getAllByType("project");
-
-  return pages.map(({ uid }) => ({ uid }));
-}
-
 export default async function Page(props: PageProps) {
   const { uid } = await props.params;
 
   const { data } = await createClient().getByUID("project", uid);
 
   return (
-    <>
-      <Section>
-        <Title>{data.title}</Title>
+    <Section>
+      <Title>{data.title}</Title>
 
-        <Carousel
-          images={data.images}
-          slides={1}
-        />
+      <Carousel
+        images={data.images}
+        slides={1}
+      />
 
-        <RichText field={data.description} />
+      <RichText field={data.description} />
 
-        <ExternalLink href={data.link.text}>Link</ExternalLink>
-      </Section>
-    </>
+      <ExternalLink href={data.link.text}>Link</ExternalLink>
+    </Section>
   );
 }

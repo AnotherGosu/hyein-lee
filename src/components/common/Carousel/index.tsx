@@ -10,6 +10,8 @@ import { useCallback, useEffect, useState } from "react";
 
 import { cn } from "@/utils/cn";
 
+import { PLACEHOLDER } from "@/constants/common";
+
 import { CarouselButton } from "./CarouselButton";
 import { CarouselDot } from "./CarouselDot";
 
@@ -61,6 +63,7 @@ export const Carousel = ({ images, slides = 3 }: CarouselProps) => {
                 className={cn("h-[30rem] w-full rounded-md object-cover", {
                   "object-contain": slides === 1,
                 })}
+                placeholder={PLACEHOLDER}
               />
             </div>
           ))}

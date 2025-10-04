@@ -34,32 +34,24 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
-  const pages = await createClient().getAllByType("generative");
-
-  return pages.map(({ uid }) => ({ uid }));
-}
-
 export default async function Page(props: PageProps) {
   const { uid } = await props.params;
 
   const { data, tags } = await createClient().getByUID("generative", uid);
 
   return (
-    <>
-      <Section>
-        <Title>{data.title}</Title>
+    <Section>
+      <Title>{data.title}</Title>
 
-        <Carousel images={data.images} />
+      <Carousel images={data.images} />
 
-        <CategorySection category={data.category} />
+      <CategorySection category={data.category} />
 
-        <ToolSection tool={data.tool} />
+      <ToolSection tool={data.tool} />
 
-        <TagsSection tags={tags} />
+      <TagsSection tags={tags} />
 
-        <PromptSection prompt={data.prompt} />
-      </Section>
-    </>
+      <PromptSection prompt={data.prompt} />
+    </Section>
   );
 }
