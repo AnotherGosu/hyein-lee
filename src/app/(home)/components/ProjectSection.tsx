@@ -21,8 +21,9 @@ export const ProjectSection = ({ featuredProjects }: ProjectSectionProps) => {
       <Heading>Projects</Heading>
 
       <Paragpraph>
-        Take a look at unique self-made projects, from beautifully illustrated
-        picture books to aesthetically designed calendars
+        Explore a curated collection of original projects that integrate design,
+        technology, and strategic thinking—from conceptual lifestyle visions and
+        branding systems to advanced legal-tech applications.
       </Paragpraph>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

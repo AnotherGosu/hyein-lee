@@ -41,8 +41,9 @@ export default async function Page(props: PageProps) {
         <Heading>Projects</Heading>
 
         <Paragpraph>
-          Take a look at unique self-made projects, from beautifully illustrated
-          picture books to aesthetically designed calendars
+          Explore a curated collection of original projects that integrate
+          design, technology, and strategic thinking—from conceptual lifestyle
+          visions and branding systems to advanced legal-tech applications.
         </Paragpraph>
 
         <div className="flex gap-2">
