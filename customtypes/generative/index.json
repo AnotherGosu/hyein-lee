@@ -93,6 +93,15 @@
           "default_value": false
         }
       },
+      "hide_prompt": {
+        "type": "Boolean",
+        "config": {
+          "label": "Hide Prompt",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": false
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

@@ -39,6 +39,8 @@ export default async function Page(props: PageProps) {
 
   const { data, tags } = await createClient().getByUID("generative", uid);
 
+  console.log("HIDE PROMPT:", data.hide_prompt);
+
   return (
     <Section>
       <Title>{data.title}</Title>
@@ -51,7 +53,7 @@ export default async function Page(props: PageProps) {
 
       <TagsSection tags={tags} />
 
-      <PromptSection prompt={data.prompt} />
+      {!data.hide_prompt && <PromptSection prompt={data.prompt} />}
     </Section>
   );
 }

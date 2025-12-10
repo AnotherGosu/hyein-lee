@@ -5,7 +5,7 @@ export async function POST(request: Request) {
   const body = await request.json();
 
   if (body.secret === process.env.PRISMIC_SECRET) {
-    revalidateTag("prismic");
+    revalidateTag("prismic", "max");
 
     return NextResponse.json({ revalidated: true, now: Date.now() });
   }
