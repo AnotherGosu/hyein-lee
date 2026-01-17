@@ -45,7 +45,7 @@ export default async function Page(props: PageProps) {
         <PrismicNextImage
           field={data.image}
           alt=""
-          className="max-h-[30rem] rounded-md object-cover"
+          className="max-h-120 rounded-md object-cover"
           placeholder={PLACEHOLDER}
         />
 

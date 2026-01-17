@@ -28,7 +28,7 @@ export const HeroSection = () => {
           src={heroImage}
           alt="Portrait of Hyein Lee"
           priority
-          className="order-1 mx-auto max-h-[30rem] w-auto lg:order-2 lg:max-h-max"
+          className="order-1 mx-auto max-h-120 w-auto lg:order-2 lg:max-h-max"
           placeholder={PLACEHOLDER}
         />
       </div>

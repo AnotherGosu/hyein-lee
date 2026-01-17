@@ -64,7 +64,7 @@ export default async function Page(props: PageProps) {
             fallback={
               <ListFallback
                 length={4}
-                className="h-[23rem] sm:h-[29rem]"
+                className="h-92 sm:h-116"
               />
             }
           >

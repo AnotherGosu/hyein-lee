@@ -28,16 +28,16 @@ export const SearchInputFallback = () => {
 };
 
 export const TagSearchFallback = () => {
-  return <div className="fallback h-10 w-[6.125rem]" />;
+  return <div className="fallback h-10 w-24.5" />;
 };
 
 export const PaginationFallback = () => {
   return (
     <nav>
       <ul className="flex gap-2">
-        <li className="fallback size-10 !rounded-full" />
-        <li className="fallback size-10 !rounded-full" />
-        <li className="fallback size-10 !rounded-full" />
+        <li className="fallback size-10 rounded-full!" />
+        <li className="fallback size-10 rounded-full!" />
+        <li className="fallback size-10 rounded-full!" />
       </ul>
     </nav>
   );

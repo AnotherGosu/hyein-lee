@@ -10,7 +10,7 @@ export const RichText = (props: PrismicRichTextProps) => {
         "text-sm leading-relaxed md:text-base md:leading-loose",
         "[&_a]:text-primary-600 [&_a]:underline",
         "[&_sup]:text-primary-600",
-        "[&_img]:mx-auto [&_img]:mb-3 [&_img]:max-h-[40rem] [&_img]:rounded-md",
+        "[&_img]:mx-auto [&_img]:mb-3 [&_img]:max-h-160 [&_img]:rounded-md",
       )}
     >
       <PrismicRichText

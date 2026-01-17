@@ -56,7 +56,7 @@ export default async function Page(props: PageProps) {
         <PrismicNextImage
           field={data.image}
           className={cn(
-            "pointer-events-none mx-auto max-h-[30rem] w-fit rounded-md",
+            "pointer-events-none mx-auto max-h-120 w-fit rounded-md",
             { "row-span-2 row-start-1 w-fit md:max-h-full": isTallImage },
           )}
           priority

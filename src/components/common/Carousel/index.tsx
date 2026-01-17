@@ -60,7 +60,7 @@ export const Carousel = ({ images, slides = 3 }: CarouselProps) => {
                 field={image}
                 alt=""
                 priority
-                className={cn("h-[30rem] w-full rounded-md object-cover", {
+                className={cn("h-120 w-full rounded-md object-cover", {
                   "object-contain": slides === 1,
                 })}
                 placeholder={PLACEHOLDER}
