@@ -34,15 +34,12 @@ export const ImageLink = ({
         className,
       )}
     >
-      <Note
-        title={title}
-        subtitle={subtitle}
-      />
+      <Note title={title} subtitle={subtitle} />
 
       <PrismicNextImage
         field={image}
         alt=""
-        priority={priority}
+        preload={priority}
         fill
         sizes="(min-width: 768px) 33vw, 100vw"
         className="object-cover"

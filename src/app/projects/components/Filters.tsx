@@ -7,12 +7,7 @@ export const Filters = async () => {
 
   return (
     <>
-      <SearchSelect
-        label="Tags"
-        param="tags"
-        options={tagOptions}
-        isMulti
-      />
+      <SearchSelect label="Tags" param="tags" options={tagOptions} isMulti />
     </>
   );
 };

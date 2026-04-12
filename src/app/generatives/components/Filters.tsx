@@ -24,12 +24,7 @@ export const Filters = async () => {
         options={GENERATIVE_TOOL_OPTIONS}
       />
 
-      <SearchSelect
-        label="Tags"
-        param="tags"
-        options={tagOptions}
-        isMulti
-      />
+      <SearchSelect label="Tags" param="tags" options={tagOptions} isMulti />
     </>
   );
 };

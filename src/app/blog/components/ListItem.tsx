@@ -31,7 +31,7 @@ export const ListItem = ({
       <PrismicNextImage
         field={data.image}
         alt=""
-        priority={isImagePriority}
+        preload={isImagePriority}
         className="h-40 object-cover md:h-52"
       />
 

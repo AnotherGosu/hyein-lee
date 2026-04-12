@@ -4,7 +4,7 @@ import {
   type ClientConfig,
   type Route,
 } from "@prismicio/client";
-import { enableAutoPreviews } from "@prismicio/next";
+import { cache } from "react";
 
 export const repositoryName =
   process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT || config.repositoryName;
@@ -24,19 +24,12 @@ const routes: Route[] = [
   },
 ];
 
-export const createClient = (config: ClientConfig = {}) => {
-  const fetchOptions: any = {
-    next: { tags: ["prismic"] },
-    cache: "force-cache",
-  };
-
+export const createClient = cache((config: ClientConfig = {}) => {
   const client = baseCreateClient(repositoryName, {
     routes,
-    fetchOptions,
+    fetchOptions: { next: { tags: ["prismic"] }, cache: "force-cache" },
     ...config,
   });
 
-  enableAutoPreviews({ client });
-
   return client;
-};
+});

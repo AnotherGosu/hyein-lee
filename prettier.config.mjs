@@ -32,7 +32,7 @@ const config = {
   quoteProps: "consistent",
   requirePragma: false,
   semi: true,
-  singleAttributePerLine: true,
+  singleAttributePerLine: false,
   singleQuote: false,
   tabWidth: 2,
   trailingComma: "all",

@@ -3,22 +3,16 @@ import { Suspense } from "react";
 
 import { SearchParams } from "@/types/common";
 
-import { getArtworks } from "@/api/getArtworks";
-
-import { getSearchParamsString } from "@/lib/getSearchParamsString";
-
 import {
-  ListFallback,
   PaginationFallback,
   SearchInputFallback,
 } from "@/components/common/Fallback";
 import { FiltersDrawer } from "@/components/common/FiltersDrawer";
-import { Pagination } from "@/components/common/Pagination";
 import { SearchInput } from "@/components/common/SearchInput";
 import { Heading, Paragpraph, Section } from "@/components/common/Typography";
 
+import { Content } from "./components/Content";
 import { Filters } from "./components/Filters";
-import { List } from "./components/List";
 
 export const metadata: Metadata = {
   title: "Artworks",
@@ -31,9 +25,6 @@ interface PageProps {
 
 export default async function Page(props: PageProps) {
   const searchParams = await props.searchParams;
-
-  // Show only on "blank" page with no filters or pagination applied
-  const isHighlightList = Object.keys(searchParams).length === 0;
 
   return (
     <>
@@ -58,26 +49,15 @@ export default async function Page(props: PageProps) {
           </FiltersDrawer>
         </div>
 
-        <div className="grid grid-flow-dense auto-rows-[5rem] grid-cols-1 gap-4 sm:auto-rows-[18rem] sm:grid-cols-2">
-          <Suspense
-            fallback={
-              <ListFallback
-                length={4}
-                className="row-span-3 md:row-span-1"
-              />
-            }
-          >
-            {isHighlightList && <List isHighlight="true" />}
-
-            <List searchParams={searchParams} />
-          </Suspense>
-        </div>
-
         <Suspense
-          key={`${getSearchParamsString(searchParams)}-pagination`}
-          fallback={<PaginationFallback />}
+          fallback={
+            <PaginationFallback
+              containerClassName="grid grid-flow-dense auto-rows-[5rem] grid-cols-1 gap-4 sm:auto-rows-[18rem] sm:grid-cols-2"
+              itemClassName="row-span-3 md:row-span-1"
+            />
+          }
         >
-          <Pagination fetcher={() => getArtworks(searchParams)} />
+          <Content searchParams={searchParams} />
         </Suspense>
       </Section>
     </>
