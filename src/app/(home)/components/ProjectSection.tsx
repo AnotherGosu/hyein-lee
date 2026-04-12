@@ -15,7 +15,7 @@ interface ProjectSectionProps {
   featuredProjects: FeaturedProject[];
 }
 
-export const ProjectSection = ({ featuredProjects }: ProjectSectionProps) => {
+export function ProjectSection({ featuredProjects }: ProjectSectionProps) {
   return (
     <Section>
       <Heading>Projects</Heading>
@@ -28,17 +28,14 @@ export const ProjectSection = ({ featuredProjects }: ProjectSectionProps) => {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {featuredProjects.map((project) => (
-          <ProjectLink
-            key={project.uid}
-            {...project}
-          />
+          <ProjectLink key={project.uid} {...project} />
         ))}
       </div>
 
       <ArrowButtonLink href="/projects">All Projects</ArrowButtonLink>
     </Section>
   );
-};
+}
 
 const ProjectLink = ({ uid, data }: FeaturedProject) => {
   return (

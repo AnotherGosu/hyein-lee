@@ -6,7 +6,7 @@ import heroImage from "@/images/hero.png";
 
 import { Paragpraph, Section } from "@/components/common/Typography";
 
-export const HeroSection = () => {
+export function HeroSection() {
   return (
     <Section>
       <h1 className="border-t border-b border-slate-950 py-4 text-center text-5xl tracking-wider uppercase sm:text-7xl md:text-9xl">
@@ -34,4 +34,4 @@ export const HeroSection = () => {
       </div>
     </Section>
   );
-};
+}

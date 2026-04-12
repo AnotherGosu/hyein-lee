@@ -6,11 +6,11 @@ interface CarouselDotProps {
   onClick: () => void;
 }
 
-export const CarouselDot = ({
+export function CarouselDot({
   arialLabel,
   isSelected,
   onClick,
-}: CarouselDotProps) => {
+}: CarouselDotProps) {
   return (
     <button
       type="button"
@@ -23,4 +23,4 @@ export const CarouselDot = ({
       )}
     />
   );
-};
+}

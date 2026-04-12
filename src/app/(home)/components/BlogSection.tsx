@@ -15,7 +15,7 @@ interface BlogSectionProps {
   featuredPosts: FeaturedPost[];
 }
 
-export const BlogSection = ({ featuredPosts }: BlogSectionProps) => {
+export function BlogSection({ featuredPosts }: BlogSectionProps) {
   return (
     <Section>
       <Heading>Blog</Heading>
@@ -28,17 +28,14 @@ export const BlogSection = ({ featuredPosts }: BlogSectionProps) => {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {featuredPosts.map((post) => (
-          <PostLink
-            key={post.uid}
-            {...post}
-          />
+          <PostLink key={post.uid} {...post} />
         ))}
       </div>
 
       <ArrowButtonLink href="/blog">All Posts</ArrowButtonLink>
     </Section>
   );
-};
+}
 
 const PostLink = ({ uid, data }: FeaturedPost) => {
   return (

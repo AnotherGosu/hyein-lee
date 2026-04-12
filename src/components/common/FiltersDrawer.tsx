@@ -9,7 +9,7 @@ import { Button } from "./Button";
 
 interface FiltersDrawerProps extends React.PropsWithChildren {}
 
-export const FiltersDrawer = ({ children }: FiltersDrawerProps) => {
+export function FiltersDrawer({ children }: FiltersDrawerProps) {
   const { isOpen, setIsOpen, activeFilters } = useFiltersDrawer();
 
   return (
@@ -38,10 +38,7 @@ export const FiltersDrawer = ({ children }: FiltersDrawerProps) => {
                   Filters
                 </Drawer.Title>
 
-                <Button
-                  onClick={() => setIsOpen(false)}
-                  className="size-6 p-0"
-                >
+                <Button onClick={() => setIsOpen(false)} className="size-6 p-0">
                   <XIcon />
                 </Button>
               </div>
@@ -55,7 +52,7 @@ export const FiltersDrawer = ({ children }: FiltersDrawerProps) => {
       </Drawer.Portal>
     </Drawer.Root>
   );
-};
+}
 
 const ActiveBadge = ({ activeFilters }: { activeFilters: number }) => {
   if (!activeFilters) return null;

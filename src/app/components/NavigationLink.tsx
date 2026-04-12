@@ -9,8 +9,11 @@ interface NavigationLinkProps extends LinkProps {
   title: string;
 }
 
-export const NavigationLink = ({ title, ...props }: NavigationLinkProps) => {
-  const { isActive } = useComponent(props.href.toString());
+export function NavigationLink({ title, ...props }: NavigationLinkProps) {
+  const pathname = usePathname();
+  const href = props.href.toString();
+
+  const isActive = href === "/" ? pathname === href : pathname.startsWith(href);
 
   return (
     <Link
@@ -24,12 +27,4 @@ export const NavigationLink = ({ title, ...props }: NavigationLinkProps) => {
       {title}
     </Link>
   );
-};
-
-const useComponent = (href: string) => {
-  const pathname = usePathname();
-
-  const isActive = href === "/" ? pathname === href : pathname.startsWith(href);
-
-  return { isActive };
-};
+}

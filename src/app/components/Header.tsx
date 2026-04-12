@@ -3,7 +3,7 @@ import { NAVIGATION_LINKS } from "@/constants/common";
 import { MenuDrawer } from "./MenuDrawer";
 import { NavigationLink } from "./NavigationLink";
 
-export const Header = () => {
+export function Header() {
   return (
     <header>
       <div className="mx-auto max-w-7xl p-4 pb-0">
@@ -12,9 +12,9 @@ export const Header = () => {
       </div>
     </header>
   );
-};
+}
 
-const Navigation = () => {
+function Navigation() {
   return (
     <nav className="hidden sm:block">
       <ul className="flex items-center justify-center gap-8">
@@ -26,4 +26,4 @@ const Navigation = () => {
       </ul>
     </nav>
   );
-};
+}

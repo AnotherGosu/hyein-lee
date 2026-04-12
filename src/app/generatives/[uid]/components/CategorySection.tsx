@@ -6,7 +6,7 @@ interface CategorySectionProps {
   category: string | null;
 }
 
-export const CategorySection = ({ category }: CategorySectionProps) => {
+export function CategorySection({ category }: CategorySectionProps) {
   return (
     <section>
       <SubHeading>Category</SubHeading>
@@ -19,4 +19,4 @@ export const CategorySection = ({ category }: CategorySectionProps) => {
       </Link>
     </section>
   );
-};
+}

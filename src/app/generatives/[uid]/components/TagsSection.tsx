@@ -8,7 +8,7 @@ interface TagsSectionProps {
   tags: string[];
 }
 
-export const TagsSection = ({ tags }: TagsSectionProps) => {
+export function TagsSection({ tags }: TagsSectionProps) {
   return (
     <section>
       <SubHeading>Related tags</SubHeading>
@@ -29,4 +29,4 @@ export const TagsSection = ({ tags }: TagsSectionProps) => {
       </div>
     </section>
   );
-};
+}

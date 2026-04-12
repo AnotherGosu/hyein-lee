@@ -16,7 +16,7 @@ interface ImageLinkProps extends PropsWithChildren {
   className?: string;
 }
 
-export const ImageLink = ({
+export function ImageLink({
   href,
   image,
   title,
@@ -24,7 +24,7 @@ export const ImageLink = ({
   priority = false,
   className,
   children,
-}: ImageLinkProps) => {
+}: ImageLinkProps) {
   return (
     <Link
       href={href}
@@ -49,12 +49,9 @@ export const ImageLink = ({
       {children}
     </Link>
   );
-};
+}
 
-const Note = ({
-  title,
-  subtitle,
-}: Pick<ImageLinkProps, "title" | "subtitle">) => {
+function Note({ title, subtitle }: Pick<ImageLinkProps, "title" | "subtitle">) {
   return (
     <div
       className={cn(
@@ -67,4 +64,4 @@ const Note = ({
       <p className="truncate text-sm">{subtitle}</p>
     </div>
   );
-};
+}

@@ -15,12 +15,12 @@ interface SearchSelectProps {
   isMulti?: boolean;
 }
 
-export const SearchSelect = ({
+export function SearchSelect({
   label,
   param,
   options,
   isMulti = false,
-}: SearchSelectProps) => {
+}: SearchSelectProps) {
   const { optimisticValue, onSelect, isPending } = useSearchSelect({
     param,
     options,
@@ -28,10 +28,7 @@ export const SearchSelect = ({
 
   return (
     <div>
-      <label
-        htmlFor={param}
-        className="mb-1 block text-sm"
-      >
+      <label htmlFor={param} className="mb-1 block text-sm">
         {label}
       </label>
 
@@ -62,7 +59,7 @@ export const SearchSelect = ({
       />
     </div>
   );
-};
+}
 
 const useSearchSelect = ({
   param,

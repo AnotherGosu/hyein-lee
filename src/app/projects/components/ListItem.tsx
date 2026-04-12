@@ -11,12 +11,12 @@ interface ListItemProps extends Content.ProjectDocument {
   isHighlight?: boolean;
 }
 
-export const ListItem = ({
+export function ListItem({
   isImagePriority,
   isHighlight = false,
   uid,
   data,
-}: ListItemProps) => {
+}: ListItemProps) {
   return (
     <Link
       href={`/projects/${uid}`}
@@ -47,4 +47,4 @@ export const ListItem = ({
       </div>
     </Link>
   );
-};
+}

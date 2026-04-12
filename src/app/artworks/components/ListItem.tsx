@@ -10,12 +10,12 @@ interface ListItemProps extends Content.ArtworkDocument {
   isHighlight?: boolean;
 }
 
-export const ListItem = ({
+export function ListItem({
   isImagePriority,
   isHighlight = false,
   uid,
   data,
-}: ListItemProps) => {
+}: ListItemProps) {
   return (
     <ImageLink
       key={uid}
@@ -31,4 +31,4 @@ export const ListItem = ({
       {isHighlight && <HighlightBadge />}
     </ImageLink>
   );
-};
+}

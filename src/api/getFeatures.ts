@@ -9,7 +9,7 @@ import {
 
 import { createClient } from "@/prismicio";
 
-export const getFeatures = async () => {
+export async function getFeatures() {
   const { data } = await createClient().getSingle<FeaturedData>("features", {
     fetchLinks: [
       "artwork.title",
@@ -45,7 +45,7 @@ export const getFeatures = async () => {
     featuredPosts,
     featuredProjects,
   };
-};
+}
 
 type FeaturedData = Content.FeaturesDocument & {
   data: {

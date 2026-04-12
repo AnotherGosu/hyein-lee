@@ -16,7 +16,7 @@ interface PaginationProps {
   totalPages: number;
 }
 
-export const Pagination = ({ totalPages }: PaginationProps) => {
+export function Pagination({ totalPages }: PaginationProps) {
   const { pages, currentPage, getPaginationLink } = usePagination(totalPages);
 
   return (
@@ -88,9 +88,9 @@ export const Pagination = ({ totalPages }: PaginationProps) => {
       </ul>
     </nav>
   );
-};
+}
 
-const usePagination = (totalPages: number) => {
+function usePagination(totalPages: number) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -116,4 +116,4 @@ const usePagination = (totalPages: number) => {
   };
 
   return { pages, currentPage, getPaginationLink };
-};
+}

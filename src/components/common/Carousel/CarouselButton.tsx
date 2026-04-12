@@ -7,12 +7,12 @@ interface CarosuleButtonProps {
   onClick: () => void;
 }
 
-export const CarouselButton = ({
+export function CarouselButton({
   icon,
   ariaLabel,
   isDisabled,
   onClick,
-}: CarosuleButtonProps) => {
+}: CarosuleButtonProps) {
   return (
     <Button
       aria-label={ariaLabel}
@@ -23,4 +23,4 @@ export const CarouselButton = ({
       {icon}
     </Button>
   );
-};
+}

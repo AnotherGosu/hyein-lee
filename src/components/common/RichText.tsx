@@ -3,7 +3,7 @@ import { PrismicRichText, PrismicRichTextProps } from "@prismicio/react";
 
 import { cn } from "@/utils/cn";
 
-export const RichText = (props: PrismicRichTextProps) => {
+export function RichText(props: PrismicRichTextProps) {
   return (
     <div
       className={cn(
@@ -76,9 +76,9 @@ export const RichText = (props: PrismicRichTextProps) => {
       />
     </div>
   );
-};
+}
 
-const formatParagraphNode = (node: RTParagraphNode) => {
+function formatParagraphNode(node: RTParagraphNode) {
   let html = node.text;
 
   const replaceParts = node.spans.map((span) => {
@@ -114,4 +114,4 @@ const formatParagraphNode = (node: RTParagraphNode) => {
   });
 
   return html;
-};
+}

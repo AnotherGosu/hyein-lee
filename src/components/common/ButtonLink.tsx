@@ -7,11 +7,7 @@ export interface ButtonLinkProps extends LinkProps, PropsWithChildren {
   className?: string;
 }
 
-export const ButtonLink = ({
-  children,
-  className,
-  ...props
-}: ButtonLinkProps) => {
+export function ButtonLink({ children, className, ...props }: ButtonLinkProps) {
   return (
     <Link
       className={cn(
@@ -27,4 +23,4 @@ export const ButtonLink = ({
       {children}
     </Link>
   );
-};
+}

@@ -6,7 +6,7 @@ interface ToolSectionProps {
   tool: string;
 }
 
-export const ToolSection = ({ tool }: ToolSectionProps) => {
+export function ToolSection({ tool }: ToolSectionProps) {
   return (
     <section>
       <SubHeading>Tool</SubHeading>
@@ -19,4 +19,4 @@ export const ToolSection = ({ tool }: ToolSectionProps) => {
       </Link>
     </section>
   );
-};
+}

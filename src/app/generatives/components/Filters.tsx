@@ -7,7 +7,7 @@ import {
 
 import { SearchSelect } from "@/components/common/SearchSelect";
 
-export const Filters = async () => {
+export async function Filters() {
   const tagOptions = await getTagOptions("generative");
 
   return (
@@ -27,4 +27,4 @@ export const Filters = async () => {
       <SearchSelect label="Tags" param="tags" options={tagOptions} isMulti />
     </>
   );
-};
+}

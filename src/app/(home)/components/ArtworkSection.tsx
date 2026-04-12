@@ -11,7 +11,7 @@ interface ArtworkSectionProps {
   featuredArtworks: FeaturedArtwork[];
 }
 
-export const ArtworkSection = ({ featuredArtworks }: ArtworkSectionProps) => {
+export function ArtworkSection({ featuredArtworks }: ArtworkSectionProps) {
   return (
     <Section>
       <Heading>Artworks</Heading>
@@ -49,4 +49,4 @@ export const ArtworkSection = ({ featuredArtworks }: ArtworkSectionProps) => {
       <ArrowButtonLink href="/artworks">All Artworks</ArrowButtonLink>
     </Section>
   );
-};
+}

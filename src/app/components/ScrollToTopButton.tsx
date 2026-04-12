@@ -7,8 +7,8 @@ import { cn } from "@/utils/cn";
 
 import { Button } from "@/components/common/Button";
 
-export const ScrollToTopButton = () => {
-  const { isVisible, onScroll } = useScrollToTop();
+export function ScrollToTopButton() {
+  const { isVisible, onScroll } = useScrollToTopButton();
 
   return (
     <Button
@@ -20,9 +20,9 @@ export const ScrollToTopButton = () => {
       <MoveUpIcon />
     </Button>
   );
-};
+}
 
-const useScrollToTop = () => {
+function useScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -49,4 +49,4 @@ const useScrollToTop = () => {
   };
 
   return { isVisible, onScroll };
-};
+}

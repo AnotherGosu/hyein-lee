@@ -11,12 +11,12 @@ interface ListItemProps extends Content.GenerativeDocument {
   isHighlight?: boolean;
 }
 
-export const ListItem = ({
+export function ListItem({
   isImagePriority,
   isHighlight = false,
   uid,
   data,
-}: ListItemProps) => {
+}: ListItemProps) {
   return (
     <Link
       href={`/generatives/${uid}`}
@@ -48,4 +48,4 @@ export const ListItem = ({
       </div>
     </Link>
   );
-};
+}

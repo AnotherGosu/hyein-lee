@@ -5,11 +5,11 @@ import { cn } from "@/utils/cn";
 interface ExternalLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 
-export const ExternalLink = ({
+export function ExternalLink({
   children,
   className,
   ...props
-}: ExternalLinkProps) => {
+}: ExternalLinkProps) {
   return (
     <a
       target="_blank"
@@ -27,4 +27,4 @@ export const ExternalLink = ({
       <ExternalLinkIcon />
     </a>
   );
-};
+}

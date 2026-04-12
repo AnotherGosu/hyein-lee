@@ -17,7 +17,7 @@ import { Button } from "@/components/common/Button";
 
 import { NavigationLink } from "./NavigationLink";
 
-export const MenuDrawer = () => {
+export function MenuDrawer() {
   const [isOpen, setIsOpen] = useState(false);
   const onClose = () => setIsOpen(false);
 
@@ -54,9 +54,9 @@ export const MenuDrawer = () => {
       </Drawer.Portal>
     </Drawer.Root>
   );
-};
+}
 
-const Header = ({ onClose }: { onClose: () => void }) => {
+function Header({ onClose }: { onClose: () => void }) {
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -64,10 +64,7 @@ const Header = ({ onClose }: { onClose: () => void }) => {
           Hyein Lee
         </Drawer.Title>
 
-        <Button
-          onClick={onClose}
-          className="size-6 p-0"
-        >
+        <Button onClick={onClose} className="size-6 p-0">
           <XIcon />
         </Button>
       </div>
@@ -75,26 +72,23 @@ const Header = ({ onClose }: { onClose: () => void }) => {
       <Drawer.Description>Navigation & Contacts</Drawer.Description>
     </div>
   );
-};
+}
 
-const Navigation = ({ onClick }: { onClick: () => void }) => {
+function Navigation({ onClick }: { onClick: () => void }) {
   return (
     <nav>
       <ul className="flex flex-col gap-4">
         {NAVIGATION_LINKS.map((link) => (
           <li key={link.href}>
-            <NavigationLink
-              onClick={onClick}
-              {...link}
-            />
+            <NavigationLink onClick={onClick} {...link} />
           </li>
         ))}
       </ul>
     </nav>
   );
-};
+}
 
-const Socials = () => {
+function Socials() {
   return (
     <div className="flex gap-4">
       {SOCIAL_LINKS.map(({ icon, href }) => (
@@ -112,9 +106,9 @@ const Socials = () => {
       ))}
     </div>
   );
-};
+}
 
-const Development = () => {
+function Development() {
   return (
     <a
       href={DEV_LINK}
@@ -127,9 +121,9 @@ const Development = () => {
       Development by Maksim Dubinin
     </a>
   );
-};
+}
 
-const Contact = () => {
+function Contact() {
   return (
     <a
       href={`mailto:${EMAIl}`}
@@ -143,4 +137,4 @@ const Contact = () => {
       {EMAIl}
     </a>
   );
-};
+}

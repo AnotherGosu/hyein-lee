@@ -7,7 +7,7 @@ interface PromptSectionProps {
   prompt: RichTextField;
 }
 
-export const PromptSection = ({ prompt }: PromptSectionProps) => {
+export function PromptSection({ prompt }: PromptSectionProps) {
   return (
     <section>
       <SubHeading>Prompt</SubHeading>
@@ -15,4 +15,4 @@ export const PromptSection = ({ prompt }: PromptSectionProps) => {
       <RichText field={prompt} />
     </section>
   );
-};
+}

@@ -9,10 +9,10 @@ import { cn } from "@/utils/cn";
 
 import { Loading } from "@/components/icons/Loading";
 
-export const SearchInput = ({
+export function SearchInput({
   className,
   ...props
-}: React.InputHTMLAttributes<HTMLInputElement>) => {
+}: React.InputHTMLAttributes<HTMLInputElement>) {
   const { search, onSearch, isPending } = useSearchInput();
 
   return (
@@ -33,7 +33,7 @@ export const SearchInput = ({
       {isPending && <Loading className="absolute top-3 right-3 size-4" />}
     </div>
   );
-};
+}
 
 const useSearchInput = () => {
   const searchParams = useSearchParams();

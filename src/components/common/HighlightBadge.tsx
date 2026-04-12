@@ -6,7 +6,7 @@ interface HighlightBadgeProps {
   className?: string;
 }
 
-export const HighlightBadge = ({ className }: HighlightBadgeProps) => {
+export function HighlightBadge({ className }: HighlightBadgeProps) {
   return (
     <div
       className={cn(
@@ -17,4 +17,4 @@ export const HighlightBadge = ({ className }: HighlightBadgeProps) => {
       <PinIcon className="absolute top-2 right-2 size-5" />
     </div>
   );
-};
+}

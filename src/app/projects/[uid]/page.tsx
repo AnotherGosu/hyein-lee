@@ -40,10 +40,7 @@ export default async function Page(props: PageProps) {
     <Section>
       <Title>{data.title}</Title>
 
-      <Carousel
-        images={data.images}
-        slides={1}
-      />
+      <Carousel images={data.images} slides={1} />
 
       <RichText field={data.description} />
 

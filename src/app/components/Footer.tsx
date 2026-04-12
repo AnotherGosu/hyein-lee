@@ -4,7 +4,7 @@ import { cn } from "@/utils/cn";
 
 import { DEV_LINK, EMAIl, SOCIAL_LINKS } from "@/constants/common";
 
-export const Footer = () => {
+export function Footer() {
   return (
     <footer className="bg-primary-100">
       <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 p-4 sm:flex-row">
@@ -20,13 +20,13 @@ export const Footer = () => {
       </div>
     </footer>
   );
-};
+}
 
-const Title = () => {
+function Title() {
   return <h1 className="text-2xl font-semibold">Hyein Lee</h1>;
-};
+}
 
-const Development = () => {
+function Development() {
   return (
     <a
       href={DEV_LINK}
@@ -39,9 +39,9 @@ const Development = () => {
       Development by Maksim Dubinin
     </a>
   );
-};
+}
 
-const Socials = () => {
+function Socials() {
   return (
     <div className="flex gap-4 sm:justify-end">
       {SOCIAL_LINKS.map(({ icon, href }) => (
@@ -59,9 +59,9 @@ const Socials = () => {
       ))}
     </div>
   );
-};
+}
 
-const Contact = () => {
+function Contact() {
   return (
     <a
       href={`mailto:${EMAIl}`}
@@ -75,4 +75,4 @@ const Contact = () => {
       {EMAIl}
     </a>
   );
-};
+}

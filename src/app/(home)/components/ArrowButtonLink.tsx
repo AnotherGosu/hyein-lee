@@ -4,16 +4,13 @@ import { cn } from "@/utils/cn";
 
 import { ButtonLink, ButtonLinkProps } from "@/components/common/ButtonLink";
 
-export const ArrowButtonLink = ({
+export function ArrowButtonLink({
   children,
   className,
   ...props
-}: ButtonLinkProps) => {
+}: ButtonLinkProps) {
   return (
-    <ButtonLink
-      className={cn("group", className)}
-      {...props}
-    >
+    <ButtonLink className={cn("group", className)} {...props}>
       {children}
 
       <div className="relative size-5">
@@ -21,4 +18,4 @@ export const ArrowButtonLink = ({
       </div>
     </ButtonLink>
   );
-};
+}

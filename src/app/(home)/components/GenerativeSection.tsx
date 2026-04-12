@@ -11,9 +11,9 @@ interface GeenrativeSectionProps {
   featuredGeneratives: FeaturedGenerative[];
 }
 
-export const GenerativeSection = ({
+export function GenerativeSection({
   featuredGeneratives,
-}: GeenrativeSectionProps) => {
+}: GeenrativeSectionProps) {
   return (
     <Section>
       <Heading>Generatives</Heading>
@@ -47,4 +47,4 @@ export const GenerativeSection = ({
       <ArrowButtonLink href="/generatives">All Generatives</ArrowButtonLink>
     </Section>
   );
-};
+}

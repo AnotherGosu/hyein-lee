@@ -1,9 +1,9 @@
 import { cn } from "@/utils/cn";
 
-export const Loading = ({
+export function Loading({
   className,
   ...props
-}: React.SVGAttributes<SVGSVGElement>) => {
+}: React.SVGAttributes<SVGSVGElement>) {
   return (
     <svg
       role="img"
@@ -25,4 +25,4 @@ export const Loading = ({
       />
     </svg>
   );
-};
+}

@@ -6,20 +6,20 @@ interface TypographyProps extends PropsWithChildren {
   className?: string;
 }
 
-export const Section = ({ children, className }: TypographyProps) => {
+export function Section({ children, className }: TypographyProps) {
   return (
     <section
       className={cn(
-        "mx-auto mb-20 mt-10 flex max-w-5xl flex-col gap-8 px-4",
+        "mx-auto mt-10 mb-20 flex max-w-5xl flex-col gap-8 px-4",
         className,
       )}
     >
       {children}
     </section>
   );
-};
+}
 
-export const Title = ({ children, className }: TypographyProps) => {
+export function Title({ children, className }: TypographyProps) {
   return (
     <h1
       className={cn(
@@ -30,9 +30,9 @@ export const Title = ({ children, className }: TypographyProps) => {
       {children}
     </h1>
   );
-};
+}
 
-export const Heading = ({ children, className }: TypographyProps) => {
+export function Heading({ children, className }: TypographyProps) {
   return (
     <h2
       className={cn(
@@ -43,15 +43,15 @@ export const Heading = ({ children, className }: TypographyProps) => {
       {children}
     </h2>
   );
-};
+}
 
-export const SubHeading = ({ children, className }: TypographyProps) => {
+export function SubHeading({ children, className }: TypographyProps) {
   return (
     <h3 className={cn("mb-3 text-2xl font-semibold", className)}>{children}</h3>
   );
-};
+}
 
-export const Paragpraph = ({ children, className }: TypographyProps) => {
+export function Paragpraph({ children, className }: TypographyProps) {
   return (
     <p
       className={cn(
@@ -62,4 +62,4 @@ export const Paragpraph = ({ children, className }: TypographyProps) => {
       {children}
     </p>
   );
-};
+}

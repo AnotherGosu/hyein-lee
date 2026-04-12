@@ -20,7 +20,7 @@ interface CarouselProps {
   slides?: 1 | 2 | 3;
 }
 
-export const Carousel = ({ images, slides = 3 }: CarouselProps) => {
+export function Carousel({ images, slides = 3 }: CarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { skipSnaps: true, align: "start" },
     [WheelGesturesPlugin()],
@@ -37,10 +37,7 @@ export const Carousel = ({ images, slides = 3 }: CarouselProps) => {
 
   return (
     <div>
-      <div
-        ref={emblaRef}
-        className="mb-4 overflow-hidden"
-      >
+      <div ref={emblaRef} className="mb-4 overflow-hidden">
         <div className="-ml-4 flex">
           {images.map(({ image }) => (
             <div
@@ -96,9 +93,9 @@ export const Carousel = ({ images, slides = 3 }: CarouselProps) => {
       </div>
     </div>
   );
-};
+}
 
-const useCarouselButtons = (emblaApi: EmblaCarouselType | undefined) => {
+function useCarouselButtons(emblaApi: EmblaCarouselType | undefined) {
   const [isPrevButtonDisabled, setIsPrevButtonDisabled] = useState(true);
   const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(true);
 
@@ -129,9 +126,9 @@ const useCarouselButtons = (emblaApi: EmblaCarouselType | undefined) => {
     onPrevButtonClick,
     onNextButtonClick,
   };
-};
+}
 
-const useCarouselDots = (emblaApi: EmblaCarouselType | undefined) => {
+function useCarouselDots(emblaApi: EmblaCarouselType | undefined) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
@@ -160,4 +157,4 @@ const useCarouselDots = (emblaApi: EmblaCarouselType | undefined) => {
   }, [emblaApi, onInit, onSelect]);
 
   return { selectedIndex, scrollSnaps, onDotClick };
-};
+}

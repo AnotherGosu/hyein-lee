@@ -2,7 +2,7 @@ import { getTagOptions } from "@/api/getTagOptions";
 
 import { SearchSelect } from "@/components/common/SearchSelect";
 
-export const Filters = async () => {
+export async function Filters() {
   const tagOptions = await getTagOptions("artwork");
 
   return (
@@ -10,4 +10,4 @@ export const Filters = async () => {
       <SearchSelect label="Tags" param="tags" options={tagOptions} isMulti />
     </>
   );
-};
+}
